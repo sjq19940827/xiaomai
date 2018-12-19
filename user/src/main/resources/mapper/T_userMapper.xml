@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.user.dao.T_userDao">
+
+    <select id="com.user.dao.T_userDao.seleUser" resultType="com.user.pojo.T_user" parameterType="com.user.pojo.T_user">
+        select id,userName,nickname,password,sex,identityCode,userdate,loginName,usertype,imageName,balance,latelyLogin,login_phone from t_user where login_phone=#{login_phone}
+    </select>
+    
+    <insert id="com.user.dao.T_userDao.addUser" parameterType="com.user.pojo.T_user">
+        insert into t_user (id,nickname,usertype,latelyLogin,login_phone) values (#{id},#{nickname},#{usertype},#{latelyLogin},#{login_phone})
+    </insert>
+
+</mapper>
