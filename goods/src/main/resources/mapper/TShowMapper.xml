@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goods.dao.TShowDao">
+    <resultMap id="goodsMap" type="com.goods.pojo.TShow">
+        <id column="show_id" property="show_id" />
+        <result column="show_name"  property="show_name" />
+        <result column="show_img"  property="show_img" />
+        <result column="show_min_price"  property="show_min_price" />
+        <result column="show_max_price"  property="show_max_price" />
+        <result column="show_place"  property="show_place" />
+        <result column="show_title"  property="show_title" />
+        <result column="count"  property="count" />
+        <result column="show_status"  property="show_status" />
+        <result column="show_begin_time"  property="show_begin_time" />
+        <result column="show_end_time"  property="show_end_time" />
+        <result column="show_ipt_num"  property="show_ipt_num"/>
+        <association property="tCategorie" javaType="com.goods.pojo.TCategorie">
+            <result column="categorie_id" property="categorie_id"/>
+            <result column="categorie_name" property="categorie_name"/>
+            <result column="categorie_shorthand" property="categorie_shorthand"/>
+        </association>
+        <association property="tAreainfo" javaType="com.goods.pojo.TAreainfo">
+            <result column="areainfo_id" property="areainfo_id"/>
+            <result column="areainfo_name" property="areainfo_name"/>
+            <result column="parent_id" property="parent_id"/>
+        </association>
+    </resultMap>
+    <!--查询全部-->
+    <select id="getAll" resultMap="goodsMap" resultType="com.goods.pojo.TShow"   >
+       SELECT t_show.show_id,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
+       t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
+       t_areainfo.areainfo_id,t_areainfo.areainfo_name,t_areainfo.parent_id,t_categorie.categorie_id,t_categorie.categorie_name,
+       t_categorie.categorie_shorthand FROM t_show INNER JOIN t_areainfo ON t_show.areainfo_id = t_areainfo.areainfo_id INNER JOIN t_categorie ON t_show.categorie_id = t_categorie.categorie_id
+
+    </select>
+    <!--查询全部的分类信息-->
+    <select id="getAlll" resultType="com.goods.pojo.TCategorie">
+        select * from t_categorie
+    </select>
+    <!--根据商品分类展示商品信息-->
+    <select id="getInfoByType" resultType="com.goods.pojo.TShow" parameterType="int">
+       SELECT t_show.show_id,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
+t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
+t_categorie.categorie_name,t_categorie.categorie_shorthand FROM t_show
+INNER JOIN t_categorie ON t_show.categorie_id = t_categorie.categorie_id where t_show.categorie_id=#{categorie_id}
+    </select>
+</mapper>
