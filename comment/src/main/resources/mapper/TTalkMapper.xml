@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.comment.dao.TTalkDao">
+    <resultMap type="com.comment.pojo.TTalk" id="TTalkMap">
+        <result property="talk_id" column="talk_id" />
+        <result property="answer_id" column="answer_id" />
+        <result property="user_id" column="user_id" />
+        <result property="talk_info" column="talk_info" />
+        <result property="state" column="state" />
+        <result property="prase_count" column="prase_count" />
+        <result property="createtime" column="createtime" />
+        <association property="tUser" javaType="com.comment.pojo.TUser">
+            <result column="id" property="id"/>
+            <result column="userName" property="userName"/>
+            <result column="nickname" property="nickname"/>
+            <result column="password" property="password"/>
+            <result column="sex" property="sex"/>
+            <result column="identityCode" property="identityCode"/>
+            <result column="identityCode" property="identityCode"/>
+            <result column="userdate" property="userdate"/>
+            <result column="loginName" property="loginName"/>
+            <result column="usertype" property="usertype"/>
+            <result column="imageName" property="imageName"/>
+            <result column="balance" property="balance"/>
+            <result column="latelyLogin" property="latelyLogin"/>
+            <result column="login_phone" property="login_phone"/>
+        </association>
+        <association property="tShow" javaType="com.comment.pojo.TShow">
+            <result column="show_name"  property="show_name" />
+            <result column="show_img"  property="show_img" />
+            <result column="show_min_price"  property="show_min_price" />
+            <result column="show_max_price"  property="show_max_price" />
+            <result column="show_place"  property="show_place" />
+            <result column="show_title"  property="show_title" />
+            <result column="count"  property="count" />
+            <result column="show_status"  property="show_status" />
+            <result column="show_begin_time"  property="show_begin_time" />
+            <result column="show_end_time"  property="show_end_time" />
+            <result column="show_ipt_num"  property="show_ipt_num"/>
+        </association>
+    </resultMap>
+
+
+    <select id="getAllTalk" resultMap="TTalkMap" resultType="com.comment.pojo.TTalk" parameterType="int">
+SELECT
+t_talk.talk_info,
+t_talk.state,
+t_talk.prase_count,
+t_talk.createtime,
+t_show.show_name,
+t_show.show_img,
+t_show.show_min_price,
+t_show.show_place,
+t_show.show_title,
+t_show.show_ipt_num,
+t_user.userName,
+t_user.nickname,
+t_user.loginName,
+t_user.login_phone
+FROM
+t_talk
+INNER JOIN t_show ON t_talk.answer_id = t_show.show_id
+INNER JOIN t_user ON t_talk.user_id = t_user.id
+WHERE answer_id=#{answer_id}
+
+
+
+    </select>
+
+
+    <select id="getTTalkInfoByUser" resultType="com.comment.pojo.TTalk" parameterType="int">
+SELECT
+t_talk.talk_info,
+t_talk.state,
+t_talk.prase_count,
+t_talk.createtime,
+t_show.show_name,
+t_show.show_img,
+t_show.show_min_price,
+t_show.show_place,
+t_show.show_title,
+t_show.show_ipt_num,
+t_user.userName,
+t_user.nickname,
+t_user.loginName,
+t_user.login_phone
+FROM
+t_talk
+INNER JOIN t_show ON t_talk.answer_id = t_show.show_id
+INNER JOIN t_user ON t_talk.user_id = t_user.id
+WHERE user_id=#{user_id}
+
+    </select>
+
+
+
+
+
+</mapper>
