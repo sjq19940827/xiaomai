@@ -112,3 +112,181 @@
 2018-12-19 09:56:17.814  INFO 8020 --- [main] com.problem.ProblemApplication           : Started ProblemApplication in 14.82 seconds (JVM running for 26.76)
 2018-12-19 09:58:53.972  INFO 8020 --- [Thread-33] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2018-12-19 09:58:54.008  INFO 8020 --- [Thread-33] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2018-12-19 10:39:15.727  INFO 24432 --- [main] com.goods.GoodsApplication               : Starting GoodsApplication on LAPTOP-4MP203GG with PID 24432 (started by 宋文文 in E:\idea项目\xiaomai)
+2018-12-19 10:39:15.777  INFO 24432 --- [main] com.goods.GoodsApplication               : The following profiles are active: dev
+2018-12-19 10:39:17.881  WARN 24432 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.goods]' package. Please check your configuration.
+2018-12-19 10:39:18.108  INFO 24432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-19 10:39:18.112  INFO 24432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-19 10:39:18.158  INFO 24432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2018-12-19 10:39:18.695  INFO 24432 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 10:39:18.779  INFO 24432 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$71c7a0a6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 10:39:18.823  INFO 24432 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 10:39:18.850  INFO 24432 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 10:39:19.865  INFO 24432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-19 10:39:19.939  INFO 24432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-19 10:39:19.940  INFO 24432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-19 10:39:19.966  INFO 24432 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\1.8\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;D:\学习工具\mysql\bin;C:\P;C:\Users\MrSong\AppData\Local\Microsoft\WindowsApps;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;;.]
+2018-12-19 10:39:21.570  INFO 24432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-19 10:39:21.570  INFO 24432 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5585 ms
+2018-12-19 10:39:22.347  INFO 24432 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-19 10:39:22.738  INFO 24432 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-19 10:39:22.998  INFO 24432 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-19 10:39:24.852  INFO 24432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-19 10:39:24.879  INFO 24432 --- [main] com.goods.GoodsApplication               : Started GoodsApplication in 10.821 seconds (JVM running for 14.382)
+2018-12-19 12:43:27.820  INFO 27120 --- [main] com.goods.GoodsApplication               : Starting GoodsApplication on LAPTOP-4MP203GG with PID 27120 (started by 宋文文 in E:\idea项目\xiaomai)
+2018-12-19 12:43:27.852  INFO 27120 --- [main] com.goods.GoodsApplication               : The following profiles are active: dev
+2018-12-19 12:43:28.672  WARN 27120 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.goods]' package. Please check your configuration.
+2018-12-19 12:43:28.708  INFO 27120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-19 12:43:28.710  INFO 27120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-19 12:43:28.734  INFO 27120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2018-12-19 12:43:28.964  INFO 27120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 12:43:29.001  INFO 27120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a830e9a0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 12:43:29.025  INFO 27120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 12:43:29.030  INFO 27120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 12:43:29.360  INFO 27120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-19 12:43:29.382  INFO 27120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-19 12:43:29.382  INFO 27120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-19 12:43:29.389  INFO 27120 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\1.8\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;D:\学习工具\mysql\bin;C:\P;C:\Users\MrSong\AppData\Local\Microsoft\WindowsApps;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;;.]
+2018-12-19 12:43:29.602  INFO 27120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-19 12:43:29.602  INFO 27120 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1683 ms
+2018-12-19 12:43:29.767  WARN 27120 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TShowController': Unsatisfied dependency expressed through field 'TShowService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'gsi': Unsatisfied dependency expressed through field 'TShowDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.goods.dao.TShowDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2018-12-19 12:43:29.769  INFO 27120 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-19 12:43:29.917  WARN 27120 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:41)
+2018-12-19 12:43:29.956  INFO 27120 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-19 12:43:30.140 ERROR 27120 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field TShowDao in com.goods.service.impl.TShowServiceImpl required a bean of type 'com.goods.dao.TShowDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+	- @org.springframework.beans.factory.annotation.Qualifier(value=gsi)
+
+
+Action:
+
+Consider defining a bean of type 'com.goods.dao.TShowDao' in your configuration.
+
+2018-12-19 13:57:22.837  INFO 26996 --- [main] com.goods.GoodsApplication               : Starting GoodsApplication on LAPTOP-4MP203GG with PID 26996 (started by 宋文文 in E:\idea项目\xiaomai)
+2018-12-19 13:57:22.861  INFO 26996 --- [main] com.goods.GoodsApplication               : The following profiles are active: dev
+2018-12-19 13:57:25.536  WARN 26996 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.goods]' package. Please check your configuration.
+2018-12-19 13:57:25.646  INFO 26996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-19 13:57:25.650  INFO 26996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-19 13:57:25.728  INFO 26996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2018-12-19 13:57:26.258  INFO 26996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:57:26.339  INFO 26996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a343b362] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:57:26.382  INFO 26996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:57:26.418  INFO 26996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:57:27.286  INFO 26996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-19 13:57:27.378  INFO 26996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-19 13:57:27.379  INFO 26996 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-19 13:57:27.389  INFO 26996 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\1.8\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;D:\学习工具\mysql\bin;C:\P;C:\Users\MrSong\AppData\Local\Microsoft\WindowsApps;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;;.]
+2018-12-19 13:57:27.747  INFO 26996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-19 13:57:27.747  INFO 26996 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4647 ms
+2018-12-19 13:57:27.929  WARN 26996 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TShowController': Unsatisfied dependency expressed through field 'TShowService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'gsi': Unsatisfied dependency expressed through field 'TShowDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.goods.dao.TShowDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2018-12-19 13:57:27.932  INFO 26996 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-12-19 13:57:28.026  WARN 26996 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:41)
+2018-12-19 13:57:28.075  INFO 26996 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-12-19 13:57:28.249 ERROR 26996 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field TShowDao in com.goods.service.impl.TShowServiceImpl required a bean of type 'com.goods.dao.TShowDao' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+	- @org.springframework.beans.factory.annotation.Qualifier(value=gsi)
+
+
+Action:
+
+Consider defining a bean of type 'com.goods.dao.TShowDao' in your configuration.
+
+2018-12-19 13:59:43.268  INFO 21296 --- [main] com.goods.GoodsApplication               : Starting GoodsApplication on LAPTOP-4MP203GG with PID 21296 (started by 宋文文 in E:\idea项目\xiaomai)
+2018-12-19 13:59:43.279  INFO 21296 --- [main] com.goods.GoodsApplication               : The following profiles are active: dev
+2018-12-19 13:59:44.916  WARN 21296 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.goods]' package. Please check your configuration.
+2018-12-19 13:59:45.093  INFO 21296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-19 13:59:45.096  INFO 21296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-19 13:59:45.153  INFO 21296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2018-12-19 13:59:45.619  INFO 21296 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:45.655  INFO 21296 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7e0f3b9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:45.675  INFO 21296 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:45.708  INFO 21296 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:46.438  INFO 21296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-19 13:59:46.495  INFO 21296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-19 13:59:46.497  INFO 21296 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-19 13:59:46.510  INFO 21296 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\1.8\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;D:\学习工具\mysql\bin;C:\P;C:\Users\MrSong\AppData\Local\Microsoft\WindowsApps;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;;.]
+2018-12-19 13:59:46.705  INFO 21296 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-19 13:59:46.706  INFO 21296 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3322 ms
+2018-12-19 13:59:47.503  INFO 21296 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-19 13:59:47.967  INFO 21296 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-19 13:59:48.312  INFO 21296 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-19 13:59:49.772  INFO 21296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-19 13:59:49.775  INFO 21296 --- [main] com.goods.GoodsApplication               : Started GoodsApplication in 8.31 seconds (JVM running for 10.372)
+2018-12-19 13:59:54.916  INFO 956 --- [main] com.goods.GoodsApplication               : Starting GoodsApplication on LAPTOP-4MP203GG with PID 956 (started by 宋文文 in E:\idea项目\xiaomai)
+2018-12-19 13:59:54.920  INFO 956 --- [main] com.goods.GoodsApplication               : The following profiles are active: dev
+2018-12-19 13:59:55.629  WARN 956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.goods]' package. Please check your configuration.
+2018-12-19 13:59:55.685  INFO 956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-19 13:59:55.689  INFO 956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-19 13:59:55.721  INFO 956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2018-12-19 13:59:55.982  INFO 956 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:56.027  INFO 956 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8eb19b67] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:56.046  INFO 956 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:56.051  INFO 956 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 13:59:56.328  INFO 956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-19 13:59:56.357  INFO 956 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-19 13:59:56.358  INFO 956 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-19 13:59:56.365  INFO 956 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\1.8\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;D:\学习工具\mysql\bin;C:\P;C:\Users\MrSong\AppData\Local\Microsoft\WindowsApps;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;;.]
+2018-12-19 13:59:56.544  INFO 956 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-19 13:59:56.544  INFO 956 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1545 ms
+2018-12-19 13:59:56.860  INFO 956 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-19 13:59:57.074  INFO 956 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-19 13:59:57.169  INFO 956 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-19 13:59:57.677  INFO 956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-19 13:59:57.680  INFO 956 --- [main] com.goods.GoodsApplication               : Started GoodsApplication in 3.641 seconds (JVM running for 4.62)
+2018-12-19 14:00:11.929  INFO 956 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-19 14:00:11.931  INFO 956 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-19 14:00:11.951  INFO 956 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2018-12-19 14:01:28.986  INFO 3540 --- [main] com.goods.GoodsApplication               : Starting GoodsApplication on LAPTOP-4MP203GG with PID 3540 (started by 宋文文 in E:\idea项目\xiaomai)
+2018-12-19 14:01:29.017  INFO 3540 --- [main] com.goods.GoodsApplication               : The following profiles are active: dev
+2018-12-19 14:01:31.463  WARN 3540 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.goods]' package. Please check your configuration.
+2018-12-19 14:01:31.600  INFO 3540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-19 14:01:31.604  INFO 3540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-19 14:01:31.683  INFO 3540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2018-12-19 14:01:32.211  INFO 3540 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 14:01:32.296  INFO 3540 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2c075122] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 14:01:32.352  INFO 3540 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 14:01:32.388  INFO 3540 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-19 14:01:33.182  INFO 3540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-19 14:01:33.289  INFO 3540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-19 14:01:33.290  INFO 3540 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-19 14:01:33.297  INFO 3540 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [E:\1.8\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;D:\学习工具\mysql\bin;C:\P;C:\Users\MrSong\AppData\Local\Microsoft\WindowsApps;E:\1.8\jdk1.8.0_101;E:\1.8\jdk1.8.0_101\bin;;.]
+2018-12-19 14:01:33.504  INFO 3540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-19 14:01:33.505  INFO 3540 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4289 ms
+2018-12-19 14:01:34.202  INFO 3540 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-19 14:01:34.425  INFO 3540 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-19 14:01:34.697  INFO 3540 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-19 14:01:36.405  INFO 3540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-19 14:01:36.409  INFO 3540 --- [main] com.goods.GoodsApplication               : Started GoodsApplication in 9.721 seconds (JVM running for 16.036)
+2018-12-19 14:01:42.847  INFO 3540 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-19 14:01:42.847  INFO 3540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-19 14:01:42.853  INFO 3540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
