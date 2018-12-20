@@ -17,9 +17,16 @@ public interface T_userDao {
     T_user seleUser(T_user user);
 
     /**
-     * 新增一个用户
+     * 通过手机号，验证码新增一个用户
      * @param user 参数为用户对象
      * @return 返回添加结果
      */
     int addUser(T_user user);
+
+    /**
+     * 通过手机号，密码，验证码新增一个用户
+     * @param user
+     * @return
+     */
+    int addUserPwd(T_user user);
 }
