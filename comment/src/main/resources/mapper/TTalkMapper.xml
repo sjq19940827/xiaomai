@@ -63,9 +63,6 @@ t_talk
 INNER JOIN t_show ON t_talk.answer_id = t_show.show_id
 INNER JOIN t_user ON t_talk.user_id = t_user.id
 WHERE answer_id=#{answer_id}
-
-
-
     </select>
 
 
