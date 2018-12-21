@@ -84,4 +84,16 @@ public class TOrderController {
     public String createByOrderInfo(TOrder tOrder){
         return tOrderService.createByOrderInfo(tOrder);
     }
+
+    /**
+     * 根据用户ID查询订单状态信息
+     * @param userid
+     * @param status
+     * @return
+     */
+    @GetMapping("selectAllByUserIdANDStatus")
+    @ApiOperation(value = "根据用户ID查询订单状态信息", httpMethod ="GET", response = String.class, notes ="根据用户ID查询订单状态信息")
+    public String selectAllByUserIdANDStatus(Integer userid,Integer status){
+        return tOrderService.selectAllByUserIdANDStatus(userid, status);
+    }
 }

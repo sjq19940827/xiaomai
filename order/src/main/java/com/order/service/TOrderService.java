@@ -66,44 +66,11 @@ public interface TOrderService {
     String selectAllByUserID(Integer userId);
 
     /**
-     * 根据用户ID查询待支付订单信息
+     * 根据用户ID查询订单状态信息
      * @param userId
+     * @param status
      * @return
      */
-    String unpaidAllByUserID(Integer userId);
+    String selectAllByUserIdANDStatus(Integer userId,Integer status);
 
-    /**
-     * 根据用户ID查询待出票订单信息
-     * @param userId
-     * @return
-     */
-    String ticketAllByUserID(Integer userId);
-
-    /**
-     * 根据用户ID查询待收货订单信息
-     * @param userId
-     * @return
-     */
-    String receivingAllByUserID(Integer userId);
-
-    /**
-     * 根据用户ID查询已完成订单信息
-     * @param userId
-     * @return
-     */
-    String doneAllByUserID(Integer userId);
-
-    /**
-     * 根据用户ID查询已取消订单信息
-     * @param userId
-     * @return
-     */
-    String cancAllByUserID(Integer userId);
-
-    /**
-     * 根据用户ID查询已退款订单信息
-     * @param userId
-     * @return
-     */
-    String refundedAllByUserID(Integer userId);
 }

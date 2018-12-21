@@ -62,11 +62,10 @@ public class TOrderServiceImpl implements TOrderService {
      */
     @Override
     public String createByOrderInfo(TOrder tOrder) {
-        Timestamp stringDate = Timestamp.valueOf(getStringDate());     //创建时间
         SystemSerialUtil systemSerialUtil = new SystemSerialUtil();
         String orderIdByUUId = systemSerialUtil.getOrderIdByUUId();     //订单编号
         tOrder.setOrderNumber(orderIdByUUId);
-        tOrder.setCreatedate(stringDate);
+        tOrder.setCreatedate(getStringDate());
         tOrder.setStatus(1);
         int insert = tOrderDao.insert(tOrder);
         if(insert != 0){
@@ -129,76 +128,22 @@ public class TOrderServiceImpl implements TOrderService {
     }
 
     /**
-     * 根据用户ID查询待支付订单信息
+     * 根据用户ID查询订单状态信息
      * @param userId
+     * @param status
      * @return
      */
     @Override
-    public String unpaidAllByUserID(Integer userId) {
-        List<TOrder> unpaidAllByUserID = tOrderDao.unpaidAllByUserID(userId);
-        String jsonString = JSON.toJSONString(unpaidAllByUserID);
+    public String selectAllByUserIdANDStatus(Integer userId, Integer status) {
+        if(status == 0){
+            status = null;
+        }
+        List<TOrder> tOrders = tOrderDao.selectAllByUserIdANDStatus(userId, status);
+        String jsonString = JSON.toJSONString(tOrders);
         return jsonString;
     }
 
-    /**
-     * 根据用户ID查询待出票订单信息
-     * @param userId
-     * @return
-     */
-    @Override
-    public String ticketAllByUserID(Integer userId) {
-        List<TOrder> ticketAllByUserID = tOrderDao.ticketAllByUserID(userId);
-        String jsonString = JSON.toJSONString(ticketAllByUserID);
-        return jsonString;
-    }
 
-    /**
-     * 根据用户ID查询待收货订单信息
-     * @param userId
-     * @return
-     */
-    @Override
-    public String receivingAllByUserID(Integer userId) {
-        List<TOrder> receivingAllByUserID = tOrderDao.receivingAllByUserID(userId);
-        String jsonString = JSON.toJSONString(receivingAllByUserID);
-        return jsonString;
-    }
-
-    /**
-     * 根据用户ID查询已完成订单信息
-     * @param userId
-     * @return
-     */
-    @Override
-    public String doneAllByUserID(Integer userId) {
-        List<TOrder> doneAllByUserID = tOrderDao.doneAllByUserID(userId);
-        String jsonString = JSON.toJSONString(doneAllByUserID);
-        return jsonString;
-    }
-
-    /**
-     * 根据用户ID查询已取消订单信息
-     * @param userId
-     * @return
-     */
-    @Override
-    public String cancAllByUserID(Integer userId) {
-        List<TOrder> cancAllByUserID = tOrderDao.cancAllByUserID(userId);
-        String jsonString = JSON.toJSONString(cancAllByUserID);
-        return jsonString;
-    }
-
-    /**
-     * 根据用户ID查询已退款订单信息
-     * @param userId
-     * @return
-     */
-    @Override
-    public String refundedAllByUserID(Integer userId) {
-        List<TOrder> refundedAllByUserID = tOrderDao.refundedAllByUserID(userId);
-        String jsonString = JSON.toJSONString(refundedAllByUserID);
-        return jsonString;
-    }
 
 
 }

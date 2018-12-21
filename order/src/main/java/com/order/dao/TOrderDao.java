@@ -72,46 +72,13 @@ public interface TOrderDao {
     List<TOrder> selectAllByUserID(Integer user_id);
 
     /**
-     * 根据用户ID查询待支付订单信息
+     * 根据用户ID查询订单状态信息
      * @param user_id
+     * @param status
      * @return
      */
-    List<TOrder> unpaidAllByUserID(Integer user_id);
+    List<TOrder> selectAllByUserIdANDStatus(@Param("user_id") Integer user_id, @Param("status") Integer status);
 
-    /**
-     * 根据用户ID查询待出票订单信息
-     * @param user_id
-     * @return
-     */
-    List<TOrder> ticketAllByUserID(Integer user_id);
-
-    /**
-     * 根据用户ID查询待收货订单信息
-     * @param user_id
-     * @return
-     */
-    List<TOrder> receivingAllByUserID(Integer user_id);
-
-    /**
-     * 根据用户ID查询已完成订单信息
-     * @param user_id
-     * @return
-     */
-    List<TOrder> doneAllByUserID(Integer user_id);
-
-    /**
-     * 根据用户ID查询已取消订单信息
-     * @param user_id
-     * @return
-     */
-    List<TOrder> cancAllByUserID(Integer user_id);
-
-    /**
-     * 根据用户ID查询已退款订单信息
-     * @param user_id
-     * @return
-     */
-    List<TOrder> refundedAllByUserID(Integer user_id);
 
     /**
      * 查询订单编号状态
