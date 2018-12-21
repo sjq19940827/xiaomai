@@ -30,19 +30,55 @@ public class T_userController {
     @RequestMapping(value = "mobilephone",method = RequestMethod.POST)
     @ApiOperation(value = "向手机发送验证码",notes = "查询数据库",response = String.class)
     @ApiImplicitParam(paramType = "query",required = false,name = "phone",value = "手机号")
-    public String MobilePhone(@RequestParam("phone") String phone){
-        return tus.judgeUserExist(phone);
+    public String MobilePhone(@RequestParam("phone") String phone/*, HttpServletRequest request*/){
+        return tus.judgeUserExist(phone/*,request*/);
     }
 
     @ResponseBody
     @RequestMapping(value = "authcode",method = RequestMethod.POST)
     @ApiOperation(value = "判断用户输入的验证码与发送的验证码是否一致，并且对首次用手机登录的用户进行添加数据库",notes = "添加数据库",response = String.class)
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query",required = false,name = "authcode",value = "验证码"),
-            @ApiImplicitParam(paramType = "query",required = false,name = "phone",value = "手机号")
-    })
-    public String JudgeAuthCodeLogin(@RequestParam("authcode") String authcode,@RequestParam("phone") String phone){
-        return tus.judgeAuthcode(authcode,phone);
+    @ApiImplicitParam(paramType = "query",required = false,name = "authcode",value = "验证码")
+    public String JudgeAuthCodeLogin(@RequestParam("authcode") String authcode){
+        System.out.println(authcode);
+        return tus.judgeAuthcode(authcode);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "judgePAP",method = RequestMethod.POST)
+    @ApiOperation(value = "判断用户输入的手机号是否已经被注册过",notes = "查询数据库",response = String.class)
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",required = false,name = "phone",value = "手机号"),
+            @ApiImplicitParam(paramType = "query",required = false,name = "pwd1",value = "密码一"),
+            @ApiImplicitParam(paramType = "query",required = false,name = "pwd2",value = "密码二")
+    })
+    public String JudgePhoneAndPwd(@RequestParam("phone")String phone,@RequestParam("pwd1")String pwd1,@RequestParam("pwd2")String pwd2/*, HttpServletRequest request*/){
+        return tus.judgePhoneAndPwd(phone,pwd1,pwd2/*,request*/);
+    }
+    @ResponseBody
+    @RequestMapping(value = "getauthcode",method = RequestMethod.POST)
+    @ApiOperation(value = "发送验证码",notes = "",response = String.class)
+    public String getAuthcode( /*HttpServletRequest request*/){
+        return tus.getAuthcode(/*request*/);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "addPP",method = RequestMethod.POST)
+    @ApiOperation(value = "新增一条数据到数据库",notes = "新增一条数据",response = String.class)
+    @ApiImplicitParam(paramType = "query",required = false,name = "authcode",value = "验证码")
+    public String addPhoneAndPwd(@RequestParam("authcode")String authcode/*, HttpServletRequest request*/){
+        return tus.addUserPwd(authcode/*, request*/);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "loginPP",method = RequestMethod.POST)
+    @ApiOperation(value = "用户通过手机号密码登录",notes = "查询数据库",response = String.class)
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query",required = false,name = "phone",value = "手机号"),
+            @ApiImplicitParam(paramType = "query",required = false,name = "pwd",value = "密码")
+    })
+    public String phoneAndPwd(@RequestParam("phone")String phone,@RequestParam("pwd")String pwd/*, HttpServletRequest request*/){
+        System.out.println(pwd);
+        System.out.println(phone);
+        return tus.phoneAndPwdLogin(phone,pwd/*,request*/);
+    }
 }

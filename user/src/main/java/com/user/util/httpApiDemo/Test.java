@@ -1,6 +1,6 @@
 package com.user.util.httpApiDemo;
 
-import java.util.Scanner;
+import redis.clients.jedis.Jedis;
 
 public class Test {
 
@@ -8,12 +8,15 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// 验证码通知短信接口
-		Scanner in = new Scanner(System.in);
-		System.out.println("请输入手机号");
-		String to = in.next();
-		/*IndustrySMS.execute(to);*/
+		Jedis jedis = new Jedis("localhost",6379);
+		System.out.println("-------------");
+
+		/*jedis.set("authcode","123456");
+		jedis.set("authcode","123456789");
+
+		System.out.println(jedis.get("authcode"));*/
 
 
 	}
+
 }

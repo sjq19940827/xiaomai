@@ -3,11 +3,8 @@ package com.user.util.httpApiDemo;
 
 import com.user.util.common.Config;
 import com.user.util.common.HttpUtil;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import redis.clients.jedis.Jedis;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.net.URLEncoder;
 import java.util.Random;
 
@@ -30,31 +27,32 @@ public class IndustrySMS {
 		Random random = new Random();
 		String i = "";
 		while(i.length() != 6){
-			i = random.nextInt(1000000)+"";
+			i = String.valueOf(random.nextInt(1000000));
 		}
 		return i;
 	}
-	HttpSession session;
 
 	/*private static String smsContent = "【麦票网】您的验证码为" + getRandomNum() + "，请于15分钟内正确输入，如非本人操作，请忽略此短信。";
 */
-	public static String smsContent(){
-		HttpServletRequest request =
-				((ServletRequestAttributes) RequestContextHolder.
-						getRequestAttributes()).getRequest();
-		HttpSession session=request.getSession();
-
-		session.setAttribute("authcode",getRandomNum());
-		String smsContent = "【麦票网】您的验证码为" + session.getAttribute("authcode") + "，请于15分钟内正确输入，如非本人操作，请忽略此短信。";
+	public static String smsContent(/*HttpServletRequest request*/){
+		Jedis jedis = new Jedis("localhost",6379);
+		/*HttpSession session=request.getSession();*/
+        String authcode = getRandomNum();
+		String smsContent = "【麦票网】您的验证码为" + authcode + "，请于15分钟内正确输入，如非本人操作，请忽略此短信。";
+        /*session.setAttribute("authcode",authcode);*/
+        jedis.set("authcode",authcode);
+		/*System.out.println(session.getAttribute("authcode") + "111asd");*/
+		System.out.println(jedis.get("authcode"));
 		return smsContent;
 	}
+
 	/**
 	 * 验证码通知短信
 	 */
-	public static void execute(String to) {
+	public static void execute(String to/*,HttpServletRequest request*/) {
 		String tmpSmsContent = null;
 	    try{
-			String smsContent = smsContent();
+			String smsContent = smsContent(/*request*/);
 	      tmpSmsContent = URLEncoder.encode(smsContent, "UTF-8");
 	    }catch(Exception e){
 	      

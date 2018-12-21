@@ -11,4 +11,7 @@
         insert into t_user (id,nickname,usertype,latelyLogin,login_phone) values (#{id},#{nickname},#{usertype},#{latelyLogin},#{login_phone})
     </insert>
 
+    <insert id="com.user.dao.T_userDao.addUserPwd" parameterType="com.user.pojo.T_user">
+        insert into t_user (id,nickname,password,usertype,latelyLogin,login_phone) values (#{id},#{nickname},#{password},#{usertype},#{latelyLogin},#{login_phone})
+    </insert>
 </mapper>
