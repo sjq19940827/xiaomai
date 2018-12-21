@@ -3,10 +3,13 @@ package com.order;
 import com.order.util.DateGenerate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import sun.applet.Main;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RunWith(SpringRunner.class)
@@ -15,9 +18,7 @@ public class OrderApplicationTests {
 
     @Test
     public void contextLoads() {
-//        Timestamp stringDate = (Timestamp) DateGenerate.getStringDate();
-        Timestamp stringDate = Timestamp.valueOf(DateGenerate.getStringDate());
-        System.out.println("创建时间:" + stringDate);
+
     }
 
 }

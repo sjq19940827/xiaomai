@@ -38,11 +38,19 @@ public class TOrder implements Serializable {
     //收货地址id(外键)
     private Integer addressId;
     //创建时间
-    private Timestamp createdate;
+    private String createdate;
     //发货时间
-    private Timestamp deliverydate;
+    private String deliverydate;
     //收货地址
     private String address;
+    //商品名称
+    private String shopName;
+    //商品图片
+    private String shopImg;
+
+    private String order1;
+
+    private String order2;
 
     public Integer getOrderId() {
         return orderId;
@@ -132,19 +140,19 @@ public class TOrder implements Serializable {
         this.addressId = addressId;
     }
 
-    public Timestamp getCreatedate() {
+    public String getCreatedate() {
         return createdate;
     }
 
-    public void setCreatedate(Timestamp createdate) {
+    public void setCreatedate(String createdate) {
         this.createdate = createdate;
     }
 
-    public Timestamp getDeliverydate() {
+    public String getDeliverydate() {
         return deliverydate;
     }
 
-    public void setDeliverydate(Timestamp deliverydate) {
+    public void setDeliverydate(String deliverydate) {
         this.deliverydate = deliverydate;
     }
 
@@ -154,5 +162,37 @@ public class TOrder implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getShopImg() {
+        return shopImg;
+    }
+
+    public void setShopImg(String shopImg) {
+        this.shopImg = shopImg;
+    }
+
+    public String getOrder1() {
+        return order1;
+    }
+
+    public void setOrder1(String order1) {
+        this.order1 = order1;
+    }
+
+    public String getOrder2() {
+        return order2;
+    }
+
+    public void setOrder2(String order2) {
+        this.order2 = order2;
     }
 }

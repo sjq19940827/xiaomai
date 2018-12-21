@@ -17,21 +17,25 @@
         <result property="createdate" column="createDate" jdbcType="TIMESTAMP"/>
         <result property="deliverydate" column="deliveryDate" jdbcType="TIMESTAMP"/>
         <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="shopName" column="shop_name" jdbcType="VARCHAR"/>
+        <result property="shopImg" column="shop_img" jdbcType="VARCHAR"/>
+        <result property="order1" column="order1" jdbcType="VARCHAR"/>
+        <result property="order2" column="order2" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="TOrderMap">
         select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
+        order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address, shop_name, shop_img, order1, order2
+        from xiaomai.t_order
         where order_id = #{orderId} and status != 0
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="TOrderMap">
         select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
+        order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address, shop_name, shop_img, order1, order2
+        from xiaomai.t_order
         where status != 0
         limit #{offset}, #{limit}
     </select>
@@ -39,8 +43,8 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="TOrderMap">
         select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
+        order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address, shop_name, shop_img, order1, order2
+        from xiaomai.t_order
         <where>
             <if test="orderId != null">
                 and order_id = #{orderId}
@@ -84,18 +88,30 @@
             <if test="address != null and address != ''">
                 and address = #{address}
             </if>
+            <if test="shopName != null and shopName != ''">
+                and shop_name = #{shopName}
+            </if>
+            <if test="shopImg != null and shopImg != ''">
+                and shop_img = #{shopImg}
+            </if>
+            <if test="order1 != null and order1 != ''">
+                and order1 = #{order1}
+            </if>
+            <if test="order2 != null and order2 != ''">
+                and order2 = #{order2}
+            </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="orderId" useGeneratedKeys="true">
-        insert into damai.t_order(order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address)
-        values (#{orderNumber}, #{orderMode}, #{orderNum}, #{orderPrice}, #{transport}, #{discount}, #{status}, #{userId}, #{showId}, #{addressId}, #{createdate}, #{deliverydate}, #{address})
+        insert into xiaomai.t_order(order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address, shop_name, shop_img, order1, order2)
+        values (#{orderNumber}, #{orderMode}, #{orderNum}, #{orderPrice}, #{transport}, #{discount}, #{status}, #{userId}, #{showId}, #{addressId}, #{createdate}, #{deliverydate}, #{address}, #{shopName}, #{shopImg}, #{order1}, #{order2})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update damai.t_order
+        update xiaomai.t_order
         <set>
             <if test="orderNumber != null and orderNumber != ''">
                 order_number = #{orderNumber},
@@ -136,70 +152,51 @@
             <if test="address != null and address != ''">
                 address = #{address},
             </if>
+            <if test="shopName != null and shopName != ''">
+                shop_name = #{shopName},
+            </if>
+            <if test="shopImg != null and shopImg != ''">
+                shop_img = #{shopImg},
+            </if>
+            <if test="order1 != null and order1 != ''">
+                order1 = #{order1},
+            </if>
+            <if test="order2 != null and order2 != ''">
+                order2 = #{order2},
+            </if>
         </set>
         where order_id = #{orderId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from damai.t_order where order_id = #{orderId}
+        delete from xiaomai.t_order where order_id = #{orderId}
     </delete>
 
     <!--通过用户ID查询全部订单信息-->
     <select id="selectAllByUserID" resultType="com.order.pojo.TOrder" parameterType="int"  resultMap="TOrderMap">
         select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
+        order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address, shop_name, shop_img, order1, order2
+        from xiaomai.t_order
         where user_id = #{user_id} and status != 0 order by createDate desc
     </select>
 
     <!--根据用户ID查询待支付订单信息-->
-    <select id="unpaidAllByUserID"  resultType="com.order.pojo.TOrder" parameterType="int"  resultMap="TOrderMap">
+    <select id="selectAllByUserIdANDStatus"  resultType="com.order.pojo.TOrder"  resultMap="TOrderMap">
         select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
-        where user_id = #{user_id} and status = 1 order by createDate desc
+          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address, shop_name, shop_img, order1, order2
+        from xiaomai.t_order
+        <where>
+            <if test="user_id != null">
+                user_id = #{user_id}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+        order by createDate desc
     </select>
 
-    <!--根据用户ID查询待出票订单信息-->
-    <select id="ticketAllByUserID"  resultType="com.order.pojo.TOrder" parameterType="int"  resultMap="TOrderMap">
-        select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
-        where user_id = #{user_id} and status = 2 order by createDate desc
-    </select>
-
-    <!--根据用户ID查询待收货订单信息-->
-    <select id="receivingAllByUserID"  resultType="com.order.pojo.TOrder" parameterType="int"  resultMap="TOrderMap">
-        select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
-        where user_id = #{user_id} and status = 3 order by createDate desc
-    </select>
-
-    <!--根据用户ID查询已完成订单信息-->
-    <select id="doneAllByUserID"  resultType="com.order.pojo.TOrder" parameterType="int"  resultMap="TOrderMap">
-        select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
-        where user_id = #{user_id} and status = 4 order by createDate desc
-    </select>
-
-    <!--根据用户ID查询已取消订单信息-->
-    <select id="cancAllByUserID"  resultType="com.order.pojo.TOrder" parameterType="int"  resultMap="TOrderMap">
-        select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
-        where user_id = #{user_id} and status = 5 order by createDate desc
-    </select>
-
-    <!--根据用户ID查询已退款订单信息-->
-    <select id="refundedAllByUserID"  resultType="com.order.pojo.TOrder" parameterType="int"  resultMap="TOrderMap">
-        select
-          order_id, order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address
-        from damai.t_order
-        where user_id = #{user_id} and status = 6 order by createDate desc
-    </select>
 
     <!--查询订单编号状态-->
     <select id="selectByOrderNumber" resultType="int" parameterType="String">
