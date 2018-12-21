@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.user.dao.T_userInfoDao">
+
+    <update id="com.user.dao.T_userInfoDao.updaUserPwd" parameterType="com.user.pojo.T_user">
+        update t_user set password=#{password} where login_phone=#{login_phone}
+    </update>
+
+    <update id="com.user.dao.T_userInfoDao.updaUserInfo" parameterType="com.user.pojo.T_user">
+        update t_user
+        <set>
+            <if test="nickname != null and nickname != ''">
+                nickname=#{nickname},
+            </if>
+            <if test="imageName != null and imageName != ''">
+                imageName=#{imageName},
+            </if>
+            <if test="loginName != null and loginName != ''">
+                loginName=#{loginName}
+            </if>
+            where login_phone=#{login_phone}
+        </set>
+    </update>
+
+    <select id="com.user.dao.T_userInfoDao.seleinfo" resultType="com.user.pojo.T_user" parameterType="com.user.pojo.T_user">
+        select id,userName,nickname,password,sex,identityCode,userdate,loginName,usertype,imageName,balance,latelyLogin,login_phone from t_user where login_phone=#{login_phone}
+    </select>
+</mapper>

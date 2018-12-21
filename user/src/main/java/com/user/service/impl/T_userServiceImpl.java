@@ -116,6 +116,7 @@ public class T_userServiceImpl implements T_userService{
                 }
                 String loginstate = "loginsucceed";
                 jedis.set("loginstate",loginstate);
+                jedis.set("loginphone",phone);
                 //session.setAttribute("loginstate",loginstate);
                 return "y";//登录成功
             }else {
@@ -191,7 +192,6 @@ public class T_userServiceImpl implements T_userService{
                 jedis.set("phone",phone);
                 return "yes";
             }else {
-
                 return judge(phone);
             }
         }
@@ -209,7 +209,7 @@ public class T_userServiceImpl implements T_userService{
         String phone = jedis.get("phone");
         System.out.println(phone + "1111111");
         IndustrySMS.execute(phone/*,request*/);
-        return "已发送";
+        return phone;
     }
 
     /**
@@ -234,7 +234,8 @@ public class T_userServiceImpl implements T_userService{
                 if(password.equals(tud.seleUser(user).getPassword())){
                     String loginstate = "loginsucceed";
                     jedis.set("loginstate",loginstate);
-                    /*session.setAttribute("loginstate",loginstate);*/
+                    jedis.set("loginphone",phone);
+                    jedis.set("loginpwd",password);
                     return "loginyes";
                 }else {
                     return "loginerror";
@@ -242,6 +243,8 @@ public class T_userServiceImpl implements T_userService{
             }
         }
     }
+
+
 
     /**
      *  判断手机号的合法性以及验证是否已经注册过
