@@ -17,8 +17,8 @@ public interface T_userService {
 
     /**
      * 判断验证码是否正确
-     * @param authcode
-     * @return
+     * @param authcode 验证码
+     * @return 返回验证信息
      */
     String judgeAuthcode(String authcode/*, HttpServletRequest request*/);
 
@@ -40,15 +40,17 @@ public interface T_userService {
 
     /**
      * 发送验证码
-     * @return
+     * @return 返回用户手机号
      */
     String getAuthcode(/*HttpServletRequest request*/);
 
     /**
      * 手机号密码登录
-     * @param phone
-     * @param pwd
-     * @return
+     * @param phone 手机号
+     * @param pwd 密码
+     * @return 返回登录结果
      */
     String phoneAndPwdLogin(String phone,String pwd/*,HttpServletRequest request*/);
+
+
 }

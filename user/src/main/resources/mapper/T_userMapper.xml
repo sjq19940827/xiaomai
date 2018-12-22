@@ -14,4 +14,24 @@
     <insert id="com.user.dao.T_userDao.addUserPwd" parameterType="com.user.pojo.T_user">
         insert into t_user (id,nickname,password,usertype,latelyLogin,login_phone) values (#{id},#{nickname},#{password},#{usertype},#{latelyLogin},#{login_phone})
     </insert>
+
+    <update id="com.user.dao.T_userDao.updaUserPwd" parameterType="com.user.pojo.T_user">
+        update t_user set password=#{password} where login_phone=#{login_phone}
+    </update>
+
+    <update id="com.user.dao.T_userDao.updaUserInfo" parameterType="com.user.pojo.T_user">
+        update t_user
+        <set>
+            <if test="nickname != null and nickname != ''">
+                nickname=#{nickname},
+            </if>
+            <if test="imageName != null and imageName != ''">
+                imageName=#{imageName},
+            </if>
+            <if test="loginName != null and loginName != ''">
+                loginName=#{loginName}
+            </if>
+            where login_phone=#{login_phone}
+        </set>
+    </update>
 </mapper>

@@ -7,10 +7,12 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import redis.clients.jedis.Jedis;
 
 @Controller
 @RequestMapping("login")
@@ -51,13 +53,16 @@ public class T_userController {
             @ApiImplicitParam(paramType = "query",required = false,name = "pwd1",value = "密码一"),
             @ApiImplicitParam(paramType = "query",required = false,name = "pwd2",value = "密码二")
     })
-    public String JudgePhoneAndPwd(@RequestParam("phone")String phone,@RequestParam("pwd1")String pwd1,@RequestParam("pwd2")String pwd2/*, HttpServletRequest request*/){
+    public String JudgePhoneAndPwd(@RequestParam("phone")String phone,@RequestParam("pwd1")String pwd1,@RequestParam("pwd2")String pwd2,Model mo){
+        Jedis jedis = new Jedis("localhost",6379);
+        jedis.get("phone");
+        mo.addAttribute("phone",jedis.get("phone"));
         return tus.judgePhoneAndPwd(phone,pwd1,pwd2/*,request*/);
     }
     @ResponseBody
     @RequestMapping(value = "getauthcode",method = RequestMethod.POST)
     @ApiOperation(value = "发送验证码",notes = "",response = String.class)
-    public String getAuthcode( /*HttpServletRequest request*/){
+    public String getAuthcode(){
         return tus.getAuthcode(/*request*/);
     }
 
@@ -66,6 +71,7 @@ public class T_userController {
     @ApiOperation(value = "新增一条数据到数据库",notes = "新增一条数据",response = String.class)
     @ApiImplicitParam(paramType = "query",required = false,name = "authcode",value = "验证码")
     public String addPhoneAndPwd(@RequestParam("authcode")String authcode/*, HttpServletRequest request*/){
+
         return tus.addUserPwd(authcode/*, request*/);
     }
 
