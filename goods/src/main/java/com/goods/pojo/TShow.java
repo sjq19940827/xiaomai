@@ -17,6 +17,15 @@ public class TShow {
     private Integer show_ipt_num;
     private TCategorie tCategorie;
     private TAreainfo tAreainfo;
+    private City city;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public String getShow_name() {
         return show_name;

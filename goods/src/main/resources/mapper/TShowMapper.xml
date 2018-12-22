@@ -7,8 +7,9 @@
         <result column="show_name"  property="show_name" />
         <result column="show_img"  property="show_img" />
         <result column="show_min_price"  property="show_min_price" />
-        <result column="show_max_price"  property="show_max_price" />
         <result column="show_place"  property="show_place" />
+        <result column="categorie_id" property="categorie_id" />
+        <result column="areainfo_id"  property="areainfo_id" />
         <result column="show_title"  property="show_title" />
         <result column="count"  property="count" />
         <result column="show_status"  property="show_status" />
@@ -25,24 +26,56 @@
             <result column="areainfo_name" property="areainfo_name"/>
             <result column="parent_id" property="parent_id"/>
         </association>
+        <association property="city" javaType="com.goods.pojo.City">
+            <result column="city_id" property="city_id"/>
+            <result column="city_name" property="city_name"/>
+            <result column="count" property="count"/>
+            <result column="areainfo_id" property="areainfo_id"/>
+        </association>
     </resultMap>
-    <!--查询全部-->
-    <select id="getAll" resultMap="goodsMap" resultType="com.goods.pojo.TShow"   >
+
+    <!--查询全部商品-->
+    <select id="getAllGoods" resultMap="goodsMap" resultType="com.goods.pojo.TShow"   >
        SELECT t_show.show_id,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
        t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
        t_areainfo.areainfo_id,t_areainfo.areainfo_name,t_areainfo.parent_id,t_categorie.categorie_id,t_categorie.categorie_name,
        t_categorie.categorie_shorthand FROM t_show INNER JOIN t_areainfo ON t_show.areainfo_id = t_areainfo.areainfo_id INNER JOIN t_categorie ON t_show.categorie_id = t_categorie.categorie_id
-
     </select>
+
     <!--查询全部的分类信息-->
-    <select id="getAlll" resultType="com.goods.pojo.TCategorie">
+    <select id="getAllType" resultType="com.goods.pojo.TCategorie">
         select * from t_categorie
     </select>
+
     <!--根据商品分类展示商品信息-->
     <select id="getInfoByType" resultType="com.goods.pojo.TShow" parameterType="int">
-       SELECT t_show.show_id,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
-t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
-t_categorie.categorie_name,t_categorie.categorie_shorthand FROM t_show
-INNER JOIN t_categorie ON t_show.categorie_id = t_categorie.categorie_id where t_show.categorie_id=#{categorie_id}
+       select * from t_show where categorie_id=#{categorieId}
+
+</select>
+    <!--根据城市ID查询商品信息-->
+    <select id="getTShowByAreainfoId" resultMap="goodsMap" parameterType="int">
+select * from t_show where areainfo_id=#{areainfoId}
     </select>
+
+    <!--根据城市名字模糊查询-->
+    <select id="getTShowByCityName" resultType="com.goods.pojo.TShow" parameterType="String">
+        SELECT t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
+t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
+city.city_name FROM t_show ,city WHERE city_name like "%"#{city_name}"%"
+    </select>
+
+    <!--根据商品名字模糊查询-->
+    <select id="getAllByGoodsName" resultType="com.goods.pojo.TShow" parameterType="String">
+        SELECT t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
+t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
+t_areainfo.areainfo_name,t_categorie.categorie_name FROM t_show
+INNER JOIN t_areainfo ON t_show.areainfo_id = t_areainfo.areainfo_id
+INNER JOIN t_categorie ON t_show.categorie_id = t_categorie.categorie_id where t_show.show_name LIKE "%"#{show_name}"%"
+    </select>
+
+    <!--根据商品ID模糊查询-->
+    <select id="getTShowByGoodsID" resultMap="goodsMap" parameterType="int">
+        select * from t_show where show_id=#{goodsID}
+    </select>
+
 </mapper>

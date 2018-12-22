@@ -1,8 +1,13 @@
 package com.goods.pojo;
 
 
-public class TCategorie {
+import org.apache.solr.client.solrj.beans.Field;
 
+import java.io.Serializable;
+
+public class TCategorie  implements Serializable {
+  //必须实现可序列化接口，要在网络上传输
+ @Field
   private Integer categorie_id;
   private String categorie_name;
   private String categorie_shorthand;
