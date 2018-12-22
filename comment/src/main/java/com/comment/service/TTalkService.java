@@ -35,7 +35,7 @@ public interface TTalkService {
      * @param answer_id
      * @return
      */
-   int selDzByUserAndShow(Integer user_id,Integer answer_id);
+   int selDzByUserAndShow(Integer user_id, Integer answer_id);
 
     /**
      * 用户发布一条评论

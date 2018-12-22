@@ -35,7 +35,7 @@ public interface TTalkDao {
      */
    int selTalkNum(@Param("user_id") Integer user_id);
 
-   int selDzByUserAndShow(@Param("user_id")Integer user_id,@Param("answer_id") Integer answer_id);
+   int selDzByUserAndShow(@Param("user_id") Integer user_id, @Param("answer_id") Integer answer_id);
 
     /**
      * 用户发布评论

@@ -28,3 +28,9 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+#solr
+  #配置sorl
+  spring:
+    data:
+      solr:
+        host: http://localhost:8983/solr
