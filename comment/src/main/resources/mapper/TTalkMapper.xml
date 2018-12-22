@@ -10,6 +10,7 @@
         <result property="state" column="state" />
         <result property="prase_count" column="prase_count" />
         <result property="createtime" column="createtime" />
+
         <association property="tUser" javaType="com.comment.pojo.TUser">
             <result column="id" property="id"/>
             <result column="userName" property="userName"/>
@@ -41,59 +42,54 @@
         </association>
     </resultMap>
 
-
+<!--根据商品ID查询该商品的所有评论信息-->
     <select id="getAllTalk" resultMap="TTalkMap" resultType="com.comment.pojo.TTalk" parameterType="int">
-SELECT
-t_talk.talk_info,
-t_talk.state,
-t_talk.prase_count,
-t_talk.createtime,
-t_show.show_name,
-t_show.show_img,
-t_show.show_min_price,
-t_show.show_place,
-t_show.show_title,
-t_show.show_ipt_num,
-t_user.userName,
-t_user.nickname,
-t_user.loginName,
-t_user.login_phone
-FROM
-t_talk
-INNER JOIN t_show ON t_talk.answer_id = t_show.show_id
-INNER JOIN t_user ON t_talk.user_id = t_user.id
-WHERE answer_id=#{answer_id}
-
-
-
+        SELECT t_talk.talk_info,t_talk.state,t_talk.prase_count,t_talk.createtime,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,t_show.show_ipt_num,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
+                FROM t_talk INNER JOIN t_show ON t_talk.answer_id = t_show.show_id INNER JOIN t_user ON t_talk.user_id = t_user.id
+                       WHERE answer_id=#{answer_id}
     </select>
 
-
+    <!--根据用户ID查询该用户的所有评论信息-->
     <select id="getTTalkInfoByUser" resultType="com.comment.pojo.TTalk" parameterType="int">
-SELECT
-t_talk.talk_info,
-t_talk.state,
-t_talk.prase_count,
-t_talk.createtime,
-t_show.show_name,
-t_show.show_img,
-t_show.show_min_price,
-t_show.show_place,
-t_show.show_title,
-t_show.show_ipt_num,
-t_user.userName,
-t_user.nickname,
-t_user.loginName,
-t_user.login_phone
-FROM
-t_talk
-INNER JOIN t_show ON t_talk.answer_id = t_show.show_id
-INNER JOIN t_user ON t_talk.user_id = t_user.id
-WHERE user_id=#{user_id}
+        SELECT t_talk.talk_info,t_talk.state,t_talk.prase_count,t_talk.createtime,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,t_show.show_ipt_num,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
+              FROM t_talk INNER JOIN t_show ON t_talk.answer_id = t_show.show_id INNER JOIN t_user ON t_talk.user_id = t_user.id
+                      WHERE user_id=#{user_id}
+    </select>
 
+    <!--查询某用户参与评论次数-->
+    <select id="selTalkNum" resultType="int">
+        SELECT count(*) from t_talk WHERE user_id =#{user_id}
     </select>
 
 
+    <!--查询用户对某商品评论的点赞数-->
+    <select id="selDzByUserAndShow" resultType="int">
+
+        SELECT COUNT(t_talk.prase_count) FROM t_talk WHERE user_id=#{user_id} AND answer_id=#{answer_id}
+    </select>
+
+
+    <!--用户发表一条评论-->
+    <insert id="addTalkByUser"  parameterType="com.comment.pojo.TTalk"  >
+       INSERT INTO t_talk (talk_id,answer_id,user_id,talk_info,state,prase_count,createtime)
+
+		VALUES (0,#{answer_id},#{user_id},#{talk_info},1,#{prase_count},#{createtime})
+    </insert>
+
+
+
+    <update id="updTalkInfo" parameterType="com.comment.pojo.TTalk">
+        update t_talk
+        <trim prefix="set" suffixOverrides="," suffix="where talk_id=#{talk_id} and user_id=#{user_id}">
+            <if test="talk_id != null">talk_id= #{talk_id} ,</if>
+            <if test="answer_id != null">answer_id = #{answer_id} ,</if>
+            <if test="user_id != null">user_id = #{user_id} ,</if>
+            <if test="talk_info !=null">talk_info=#{talk_info} ,</if>
+            <if test="state != null">state=#{state} ,</if>
+            <if test="prase_count != null">prase_count =#{prase_count}</if>
+            <if test="createtime !=null">createtime #{createtime}</if>
+        </trim>
+    </update>
 
 
 
