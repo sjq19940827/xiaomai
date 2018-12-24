@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.user.dao.T_addressDao">
+    <select id="com.user.dao.T_addressDao.seleuserid" resultType="com.user.pojo.T_user" parameterType="com.user.pojo.T_user">
+        select id,login_phone from t_user where login_phone=#{login_phone}
+    </select>
+
+    <select id="com.user.dao.T_addressDao.seleaddress" resultType="com.user.pojo.T_address" parameterType="com.user.pojo.T_address">
+        select address_id,user_id,address_alias,address_addressee,phone,tele_phone,province_id,city_id,area_id,detailed,preferred from t_address where user_id=#{user_id}
+    </select>
+    
+    <insert id="com.user.dao.T_addressDao.addAddress" parameterType="com.user.pojo.T_address">
+        insert into t_address values (#{address_id},#{user_id},#{address_alias},#{address_addressee},#{phone},#{tele_phone},#{province_id},#{city_id},#{area_id},#{detailed},#{preferred})
+    </insert>
+
+    <delete id="com.user.dao.T_addressDao.delAddress" parameterType="com.user.pojo.T_address">
+        delete from t_address where address_id=#{address_id}
+    </delete>
+</mapper>

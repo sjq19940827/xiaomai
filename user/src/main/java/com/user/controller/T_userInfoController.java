@@ -52,6 +52,10 @@ public class T_userInfoController {
             @ApiImplicitParam(paramType = "query",required = false,name = "pwd2",value = "再次输入新密码密码")
     })
     public String updapwd(@RequestParam("pwd")String pwd,@RequestParam("pwd1")String pwd1,@RequestParam("pwd2")String pwd2){
+        System.out.println(pwd);
+        System.out.println(pwd1);
+        System.out.println(pwd2);
+
         return tuis.updaPwd(pwd,pwd1,pwd2);
     }
 
