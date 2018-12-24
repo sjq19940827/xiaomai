@@ -73,7 +73,7 @@
     <insert id="addTalkByUser"  parameterType="com.comment.pojo.TTalk"  >
        INSERT INTO t_talk (talk_id,answer_id,user_id,talk_info,state,prase_count,createtime)
 
-		VALUES (0,#{answer_id},#{user_id},#{talk_info},1,#{prase_count},#{createtime})
+		VALUES (0,#{answer_id},#{user_id},#{talk_info},1,0,#{createtime})
     </insert>
 
 
@@ -90,6 +90,19 @@
             <if test="createtime !=null">createtime #{createtime}</if>
         </trim>
     </update>
+
+
+    <!--查询点赞-->
+    <select id="selNum" resultType="int" parameterType="int">
+      select prase_count from t_talk where user_id=#{user_id} and talk_id =#{talk_id}
+    </select>
+    <update id="upNum1" parameterType="int" >
+        update t_talk set prase_count =0 where user_id=#{user_id} and talk_id =#{talk_id}
+   </update>
+    <update id="upNum2" parameterType="int" >
+        update t_talk set prase_count =1 where user_id=#{user_id} and talk_id =#{talk_id}
+    </update>
+
 
 
 

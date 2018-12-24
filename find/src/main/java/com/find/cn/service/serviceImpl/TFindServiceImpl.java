@@ -12,6 +12,11 @@ public class TFindServiceImpl implements TFindService {
     @Autowired
     private TFindDao tFindDao;
     @Override
+    /**
+     * 查询咨询
+     * @param show_id
+     * @return
+     */
     public List<TFind> getAllInfo(Integer show_id) {
         return tFindDao.getAllInfo(show_id);
     }

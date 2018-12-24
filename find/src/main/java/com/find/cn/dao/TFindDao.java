@@ -9,5 +9,10 @@ import java.util.List;
 @Mapper
 @Repository
 public interface TFindDao {
+    /**
+     * 查询咨询
+     * @param show_id
+     * @return
+     */
     List<TFind> getAllInfo(Integer show_id);
 }

@@ -45,10 +45,26 @@ public interface TTalkService {
    String  addTalkByUser(TTalk tTalk);
 
 
- /**
-  * 修改评论信息
-  * @param tTalk
-  * @return
-  */
- int updateTalkInfo(TTalk tTalk);
+     /**
+      * 修改评论信息
+      * @param tTalk
+      * @return
+      */
+    int updateTalkInfo(TTalk tTalk);
+
+    /*
+    * 查询点赞状态
+    */
+    int selNum (Integer user_id,Integer talk_id);
+
+    /**
+     * 进行点赞操作
+     * @param user_id
+     * @param talk_id
+     * @return
+     */
+    String qdz (Integer user_id,Integer talk_id);
+
+
+
 }

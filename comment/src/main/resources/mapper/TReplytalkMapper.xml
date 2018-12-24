@@ -42,6 +42,7 @@
         INSERT INTO t_replytalk (reply_id,replyuser_id, talk_id, reply_info, prase_count, createtime)
         VALUES(0,#{replyuser_id},#{talk_id},#{reply_info},#{prase_count},#{createtime})
     </insert>
+
     <!--查询某商品下的评论信息与回复信息-->
     <select id="allInfo" parameterType="int" resultType="com.comment.pojo.TReplytalk" resultMap="TReplyMap" >
         SELECT
