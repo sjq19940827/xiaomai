@@ -8,7 +8,7 @@ import com.user.util.md5.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
-@Service("TISI")
+@Service("TIService")
 public class T_userInfoServiceImpl implements T_userInfoService {
     @Autowired
     private T_userInfoDao tuid;
@@ -111,6 +111,7 @@ public class T_userInfoServiceImpl implements T_userInfoService {
 
     /**
      * 判断用户有没有密码
+     *
      * @return 返回判断结果
      */
     @Override
