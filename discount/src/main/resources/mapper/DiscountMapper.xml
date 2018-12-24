@@ -3,13 +3,49 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--suppress ALL -->
-<mapper namespace="com.discount.dao.ReduceDao">
-<update id="updatacoupons" parameterType="com.discount.pojo.TDiscount">
-	update t_discount
-	<trim prefix="set" suffixOverrides="," suffix="where discountId=#{discountId}">
-		<if test="reduceId != null">reduceId=#{reduceId} ,</if>
-		<if test="userId != null">userId=#{userId} ,</if>
-		<if test="discountMark != null">discountMark=#{discountMark} ,</if>
-	</trim>
+<mapper namespace="com.discount.dao.DiscountDao">
+	<!--根据用户id与优惠劵id设置优惠券状态-->
+<update id="updata" parameterType="com.discount.pojo.TDiscount">
+    update t_discount set discount_mark=1 where reduce_id=#{reduce_id} and user_id=#{user_id}
 </update>
+
+	<!--用户注册成功优惠券-->
+	<insert id="insetred" >
+        insert into t_discount values (0,#{reduce_id},#{user_id},1,#{create},#{exitss})
+    </insert>
+
+	<!--根据用户id查询优惠券详细信息，多表联查-->
+	<select id="getAll" resultMap="tt" parameterType ="int" >
+     	select * from t_discount t ,t_reduce d where t.reduce_id = d.reduce_id and t.user_id = #{user_id}
+    </select>
+	<resultMap  type="com.discount.pojo.TDiscount" id="tt">
+		<result column="discount_id" property="discount_id"/>
+		<result column="reduce_id" property="reduce_id"/>
+		<result column="user_id" property="user_id"/>
+		<result column="discount_mark" property="discount_mark"/>
+        <result column="create" property="create"/>
+        <result column="exitss" property="exitss"/>
+		<association property ="d"  javaType = "com.discount.pojo.TReduce">
+			<result column = "reduce_id"  property = "reduce_id" />
+			<result column = "reduce_number"  property = "reduce_number" />
+			<result column = "reduce_tot"  property = "reduce_tot" />
+			<result column = "sub"  property = "sub" />
+			<result column = "valid"  property = "valid" />
+		</association>
+	</resultMap>
+
+    <select id="select" resultType="com.discount.pojo.TReduce" parameterType="int">
+        select * from t_reduce where reduce_id=#{reduce_id}
+    </select>
+<!--根据用户id减少库存-->
+    <update id="updatetr"  >
+        update t_reduce set sub=#{sub} where reduce_id=#{reduce_id}
+    </update>
+
+	<!--&lt;!&ndash;根据用户id与优惠劵id设置优惠劵时间&ndash;&gt;
+    <update id="xg"  >
+        update tdiscount set `create`=#{create},exitss=#{exitss} where reduceid=#{reduceid} and userid=#{userid}
+    </update>
+-->
+
 </mapper>
