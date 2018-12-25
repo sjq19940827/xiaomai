@@ -1,0 +1,50 @@
+2018-12-21 17:45:43.700  INFO 10420 --- [main] com.order.OrderApplicationTests          : Starting OrderApplicationTests on DESKTOP-VT867U5 with PID 10420 (started by szy in F:\ideaWorkSpace\xiaomai\order)
+2018-12-21 17:45:43.702  INFO 10420 --- [main] com.order.OrderApplicationTests          : The following profiles are active: dev
+2018-12-21 17:45:46.737  INFO 10420 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-21 17:45:46.742  INFO 10420 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-21 17:45:46.820  INFO 10420 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44ms. Found 0 repository interfaces.
+2018-12-21 17:45:48.576  INFO 10420 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 17:45:48.613  INFO 10420 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$aaf1e483] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 17:45:48.700  INFO 10420 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e4862655] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 17:45:48.741  INFO 10420 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 17:45:48.762  INFO 10420 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 17:45:49.123  INFO 10420 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-21 17:45:49.423  INFO 10420 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-21 17:45:52.028  INFO 10420 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-21 17:45:53.274  INFO 10420 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-21 17:45:53.297  INFO 10420 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-21 17:45:53.312  INFO 10420 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-21 17:45:53.769  INFO 10420 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-21 17:45:53.788  INFO 10420 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-21 17:45:53.872  INFO 10420 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#28f9fedd:0/SimpleConnection@ca546a1 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 55573]
+2018-12-21 17:45:53.955  INFO 10420 --- [main] com.order.OrderApplicationTests          : Started OrderApplicationTests in 11.693 seconds (JVM running for 13.446)
+2018-12-21 17:45:54.296  INFO 10420 --- [Thread-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2018-12-21 17:45:54.946  INFO 10420 --- [Thread-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2018-12-21 17:45:54.969  INFO 10420 --- [Thread-2] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is not active already
+2018-12-21 17:45:54.970  INFO 10420 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-21 17:45:54.981  INFO 10420 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2018-12-21 20:04:14.210  INFO 14976 --- [main] com.order.OrderApplicationTests          : Starting OrderApplicationTests on DESKTOP-VT867U5 with PID 14976 (started by szy in F:\ideaWorkSpace\xiaomai\order)
+2018-12-21 20:04:14.322  INFO 14976 --- [main] com.order.OrderApplicationTests          : The following profiles are active: dev
+2018-12-21 20:04:16.024  INFO 14976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-21 20:04:16.028  INFO 14976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-21 20:04:16.065  INFO 14976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2018-12-21 20:04:16.490  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 20:04:16.518  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$a7d1066f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 20:04:16.589  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e1654841] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 20:04:16.636  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 20:04:16.649  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-21 20:04:16.890  INFO 14976 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-21 20:04:17.106  INFO 14976 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-21 20:04:19.331  INFO 14976 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-21 20:04:20.411  INFO 14976 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-21 20:04:20.445  INFO 14976 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-21 20:04:20.466  INFO 14976 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-21 20:04:20.800  INFO 14976 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-21 20:04:20.816  INFO 14976 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-21 20:04:20.940  INFO 14976 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#3a2d3909:0/SimpleConnection@6c96403e [delegate=amqp://admin@127.0.0.1:5672/, localPort= 58461]
+2018-12-21 20:04:21.032  INFO 14976 --- [main] com.order.OrderApplicationTests          : Started OrderApplicationTests in 7.784 seconds (JVM running for 9.131)
+2018-12-21 20:04:21.315  INFO 14976 --- [Thread-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2018-12-21 20:04:22.020  INFO 14976 --- [Thread-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2018-12-21 20:04:22.040  INFO 14976 --- [Thread-2] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is not active already
+2018-12-21 20:04:22.042  INFO 14976 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-12-21 20:04:22.057  INFO 14976 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
