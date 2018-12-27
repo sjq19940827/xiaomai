@@ -7,6 +7,13 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class DateGenerate {
+
+    //获取数据库评论时间去掉.0
+    public String Time(String commenttime) {
+        String time1=commenttime.replace(".0","");
+        return time1;
+    }
+
     /**
      * 获取现在时间
      *

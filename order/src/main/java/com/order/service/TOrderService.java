@@ -73,4 +73,23 @@ public interface TOrderService {
      */
     String selectAllByUserIdANDStatus(Integer userId,Integer status);
 
+    /**
+     * 取消订单（订单状态：已取消）
+     * @param orderNumber
+     * @return
+     */
+    String updateByOrderState(String orderNumber);
+
+    /**
+     * 根据订单编号查询订单ID,根据订单ID获取订单信息
+     */
+    String selectOrderIDByorderNumber(String orderNumber);
+
+    /**
+     * 根据用户ID查询待支付的订单信息
+     * @param userId
+     * @return
+     */
+    String selectUserIDAndStatusByOrderInfo(Integer userId);
+
 }

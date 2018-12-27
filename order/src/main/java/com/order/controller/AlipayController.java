@@ -1,5 +1,6 @@
 package com.order.controller;
 
+import com.order.dao.TOrderDao;
 import com.order.pay.*;
 import com.order.pojo.OrderPay;
 import com.order.service.OrderPayService;
@@ -23,6 +24,8 @@ import static com.order.util.DateGenerate.getStringDate;
 public class AlipayController {
     @Resource
     private OrderPayService orderPayService;
+    @Resource
+    private TOrderDao tOrderDao;
 
         @ResponseBody
         @RequestMapping(value = "close",method = RequestMethod.POST,produces = "text/html; charset=utf-8")
@@ -49,7 +52,6 @@ public class AlipayController {
         request) {
             Pay p = new Pay();
             String result = p.pay(WIDout_trade_no,WIDtotal_amount,WIDsubject,WIDbody);
-//            TOrder tOrder = new TOrder();
             return result;
         }
         @ResponseBody
@@ -102,12 +104,22 @@ public class AlipayController {
             Timestamp timestamp = Timestamp.valueOf(getStringDate());
             orderPay.setPaytime(timestamp);
             orderPay.setPaystate("已支付");
-            int orderPayInfo = orderPayService.insertByOrderPayInfo(orderPay);
-            System.out.println(orderPayInfo);
-            if(orderPayInfo == 1){
-                return "订单数据存储成功";
+            //查询订单编号是否存在
+            int selectByOrderNumber = tOrderDao.selectByOrderNumber(out_trade_no);
+            if(selectByOrderNumber != 0){
+                int orderPayInfo = orderPayService.insertByOrderPayInfo(orderPay);
+                if(orderPayInfo != 0){
+                    int updateByOrderStatePay = tOrderDao.updateByOrderStatePay(out_trade_no,getStringDate());
+                    if(updateByOrderStatePay != 0){
+                        return "订单数据存储成功";
+                    }else {
+                        return "订单状态更改失败";
+                    }
+                }else {
+                    return "订单信息有误！";
+                }
             }else {
-                return "订单数据存储失败";
+                return "订单编号不存在，请确认后再支付";
             }
         }
 

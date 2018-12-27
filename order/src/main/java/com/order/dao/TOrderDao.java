@@ -85,12 +85,47 @@ public interface TOrderDao {
      * @param orderNumber
      * @return
      */
-    int selectByOrderNumber(String orderNumber);
+    int selectByOrderNumberState(String orderNumber);
 
     /**
-     * 更改订单状态
+     * 取消订单（订单状态已取消）
      * @param orderNumber
      * @return
      */
     int updateByOrderState(String orderNumber);
+
+    /**
+     * 订单状态已支付（待出票）
+     * @param orderNumber
+     * @return
+     */
+    int updateByOrderStatePay(String orderNumber,String deliverydate);
+    /**
+     * 查询订单号是否存在
+     * @param orderNumber
+     * @return
+     */
+    int selectByOrderNumber(String orderNumber);
+
+    /**
+     * 根据商品名称查询商品ID
+     * @param orderNumber
+     * @return
+     */
+    Integer selectOrderIDByorderNumber(String orderNumber);
+
+    /**
+     * 根据用户ID查询待支付的订单信息
+     * @param userId
+     * @return
+     */
+    List<TOrder> selectUserIDAndStatusByOrderInfo(Integer userId);
+
+    /**
+     * 查询用户ID是否存在
+     * @param userId
+     * @return
+     */
+    Integer selectByUserID(Integer userId);
+
 }

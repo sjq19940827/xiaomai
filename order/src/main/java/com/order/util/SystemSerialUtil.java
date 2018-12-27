@@ -27,9 +27,12 @@ public class SystemSerialUtil {
         if (hashCodeV < 0) {//有可能是负数
             hashCodeV = -hashCodeV;
         }
+        System.out.println("TIME: " + time);
+        System.out.println("hashCodeV: " + hashCodeV);
         // 0 代表前面补充0
         // 4 代表长度为4
         // d 代表参数为正数型
+        System.out.println("lalal: "+String.format("%011d", hashCodeV));
         return time + String.format("%011d", hashCodeV);
     }
 

@@ -24,7 +24,7 @@ public class DelayReceiver {
         System.out.println("###########################################");
         TOrder order = (TOrder) getObjectFromBytes(bytes);
 //    log.info("【orderDelayQueue 监听的消息】 - 【消费时间】 - [{}]- 【订单内容】 - [{}]",  new Date(), order.toString());
-        int orderNumber = tOrderDao.selectByOrderNumber(order.getOrderNumber());
+        int orderNumber = tOrderDao.selectByOrderNumberState(order.getOrderNumber());
         if(orderNumber == 1) {
             tOrderDao.updateByOrderState(order.getOrderNumber());
             System.out.println("【该订单未支付，取消订单】");

@@ -47,10 +47,10 @@ public class TOrder implements Serializable {
     private String shopName;
     //商品图片
     private String shopImg;
-
-    private String order1;
-
-    private String order2;
+    //用户姓名
+    private String userName;
+    //用户手机号
+    private String userPhone;
 
     public Integer getOrderId() {
         return orderId;
@@ -180,19 +180,19 @@ public class TOrder implements Serializable {
         this.shopImg = shopImg;
     }
 
-    public String getOrder1() {
-        return order1;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setOrder1(String order1) {
-        this.order1 = order1;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getOrder2() {
-        return order2;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setOrder2(String order2) {
-        this.order2 = order2;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 }

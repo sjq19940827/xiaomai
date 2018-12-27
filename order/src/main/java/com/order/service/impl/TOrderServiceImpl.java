@@ -143,7 +143,62 @@ public class TOrderServiceImpl implements TOrderService {
         return jsonString;
     }
 
+    /**
+     * 取消订单（订单状态：已取消）
+     * @param orderNumber
+     * @return
+     */
+    @Override
+    public String updateByOrderState(String orderNumber) {
+        int selectByOrderNumber = tOrderDao.selectByOrderNumber(orderNumber);
+        if(selectByOrderNumber != 0){
+            int updateByOrderState = tOrderDao.updateByOrderState(orderNumber);
+            if(updateByOrderState != 0){
+                return "取消成功";
+            }else {
+                return "取消失败";
+            }
+        }else {
+            return "该订单不存在，请确认订单！";
+        }
+    }
 
+    /**
+     * 根据订单编号查询订单ID,根据订单ID获取订单信息
+     * @param orderNumber
+     * @return
+     */
+    @Override
+    public String selectOrderIDByorderNumber(String orderNumber) {
+        Integer OrderID = tOrderDao.selectOrderIDByorderNumber(orderNumber);
+        if(OrderID != null){
+            TOrder order = tOrderDao.queryById(OrderID);
+            if(order != null){
+                return JSON.toJSONString(order);
+            }else {
+                return "订单悄悄溜走了~";
+            }
+        }else {
+            return "商品名称出错了哟~";
+        }
+    }
+
+    /**
+     * 根据用户ID查询待支付的订单信息
+     * @param userId
+     * @return
+     */
+    @Override
+    public String selectUserIDAndStatusByOrderInfo(Integer userId) {
+        Integer selectByUserID = tOrderDao.selectByUserID(userId);
+        if(selectByUserID != null){
+            List<TOrder> tOrders = tOrderDao.selectUserIDAndStatusByOrderInfo(userId);
+            String jsonString = JSON.toJSONString(tOrders);
+            return jsonString;
+        }else {
+            return "该用户不存在，请登录！";
+        }
+    }
 
 
 }
