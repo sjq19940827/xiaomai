@@ -19,7 +19,7 @@ public class TReplyServiceImpl implements TReplytalkService {
      */
     public String addreply(TReplytalk tReplytalk) {
         String info = null;
-        if(tReplytalk != null){
+        if(tReplytalk.getTalk_id() != null && tReplytalk.getReply_info() != null && tReplytalk.getReplyuser_id() != null){
             tReplytalk.setCreatetime(Dates.dates());
             if(tReplytalkDao.addreply(tReplytalk) == 0){
                 info ="评论发布失败";
@@ -27,18 +27,18 @@ public class TReplyServiceImpl implements TReplytalkService {
                 info = "评论发布成功";
             }
         }else {
-            info = "评论信息为空,为发布成功";
+            info = "评论信息为空,未发布成功";
         }
         return info;
     }
 
     /**
      * 查看回复信息
-     * @param answer_id
+     * @param replyuser_id
      * @return
      */
-    public List<TReplytalk> allInfo(Integer answer_id) {
+    public List<TReplytalk> allInfo(Integer replyuser_id) {
 
-        return tReplytalkDao.allInfo(answer_id);
+        return tReplytalkDao.allInfo(replyuser_id);
     }
 }

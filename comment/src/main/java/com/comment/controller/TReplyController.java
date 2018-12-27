@@ -29,13 +29,13 @@ public class TReplyController {
 
   /**
    * 通过商品ID查询某商品下的评论/回复信息
-   * @param answer_id
+   * @param replyuser_id
    * @return
    */
   @ApiOperation(value = "查询某商品下评论与回复",httpMethod = "POST",response = String.class,notes = "查询某商品下评论与回复")
   @ApiImplicitParam (name ="answer_id",value = "商品ID")
   @GetMapping("/selAllTalk")
-  public String rtg(Integer answer_id){
-    return JSON.toJSONString(tReplytalkService.allInfo(answer_id));
+  public String rtg(Integer replyuser_id){
+    return JSON.toJSONString(tReplytalkService.allInfo(replyuser_id));
   }
 }

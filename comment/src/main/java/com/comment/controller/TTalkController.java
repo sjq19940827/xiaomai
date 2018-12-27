@@ -20,11 +20,6 @@ public class TTalkController {
     @Autowired
    private TTalkService tTalkService;
 
-    /**
-     * 通过商品ID查询评论
-     * @param answer_id
-     * @return
-     */
     @ApiOperation(value = "查询某商品下的评论信息",httpMethod = "GET",response = String.class,notes = "查某商品下的评论信息")
     @ApiImplicitParam(name = "answer_id",value = "商品ID")
     @GetMapping("/InfoByAnswer")
@@ -33,11 +28,7 @@ public class TTalkController {
         return JSON.toJSONString(tTalkService.getAllInfoByShowid(answer_id));
     }
 
-    /**
-     * 通过用户ID查询该用户的评论信息
-     * @param user_id
-     * @return
-     */
+
     @ApiOperation(value = "查询某用户参与的评论",httpMethod = "GET",response = String.class,notes = "查某用户的评论信息")
     @ApiImplicitParam(name = "user_id",value = "用户ID")
     @GetMapping("/InfoByUser")
@@ -46,11 +37,7 @@ public class TTalkController {
         return JSON.toJSONString(tTalkService.getTTalkInfoByUser(user_id));
     }
 
-    /**
-     * 通过用户ID查询评论数量
-     * @param user_id
-     * @return
-     */
+
     @ApiOperation(value = "查询某用户参与的评论数量",httpMethod = "GET",response = String.class,notes = "查某用户的评论数量")
     @ApiImplicitParam(name = "user_id",value = "用户ID")
     @GetMapping("/NumByUser")
@@ -59,12 +46,7 @@ public class TTalkController {
         return i;
     }
 
-    /**
-     * 通过用户ID与商品ID查询该评论点赞数
-     * @param user_id
-     * @param answer_id
-     * @return
-     */
+
     @ApiOperation(value = "查询用户对评论的点赞数",httpMethod = "GET",response = String.class,notes = "查询用户对评论的点赞数")
     @GetMapping("/ByUserAndAnswer")
     public int  dz(Integer user_id,Integer answer_id){
@@ -72,11 +54,7 @@ public class TTalkController {
         return i;
     }
 
-    /**
-     * 发布一条评论********************
-     * @param talk
-     * @return
-     */
+
     @ApiOperation(value = "发布一条评论",httpMethod = "POST",response = String.class,notes = "发布一条评论信息")
     @ResponseBody
     @RequestMapping("/publish")
@@ -85,14 +63,11 @@ public class TTalkController {
     }
 
 
-    /**
-     * 修改评论信息
-     * @param tTalk
-     * @return
-     */
+
     @ApiOperation(value = "修改评论信息",httpMethod = "POST",response = String.class,notes = "修改一条评论信息")
     @RequestMapping("/upInfo")
-    public int up(TTalk tTalk){
+    public String up(TTalk tTalk){
+        System.out.println("controller获取的长度" + tTalkService.updateTalkInfo(tTalk).length());
         return tTalkService.updateTalkInfo(tTalk);
     }
 
@@ -102,6 +77,8 @@ public class TTalkController {
     public int dz(int user_id,int talk_id){
         return tTalkService.selNum(user_id, talk_id);
     }
+
+
     @ApiOperation(value = "点赞",httpMethod = "POST",response = String.class,notes = "通过用户ID与评论表ID进行点赞")
     @RequestMapping("/like")
     @ApiImplicitParams({@ApiImplicitParam(name = "user_id",value = "用户ID"),@ApiImplicitParam(name = "talk_id",value = "评论信息ID")})

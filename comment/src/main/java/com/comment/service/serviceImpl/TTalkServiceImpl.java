@@ -62,19 +62,20 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public String addTalkByUser(TTalk tTalk) {
       String info = null;
-        if(tTalk != null){
-            tTalk.setCreatetime(Dates.dates());
+      if(tTalk.getAnswer_id()!= null && tTalk.getUser_id()!= null &&  tTalk.getTalk_info()!= null){
+          tTalk.setCreatetime(Dates.dates());
 
-            System.out.println(tTalk);
-            tTalk.setTalk_info(tTalk.getTalk_info());
-            if(tTalkDao.addTalkByUser(tTalk) == 0){
-                info ="评论发布失败";
-            }else {
-                info = "评论发布成功";
-            }
-        }else {
-            info = "评论信息为空,为发布成功";
-        }
+          System.out.println(tTalk);
+          tTalk.setTalk_info(tTalk.getTalk_info());
+          if(tTalkDao.addTalkByUser(tTalk) == 0){
+              info ="评论发布失败";
+          }else {
+              info = "评论发布成功";
+          }
+      }else {
+          info = "评论信息为空,未发布成功";
+      }
+
         return info;
 
 
@@ -86,9 +87,17 @@ public class TTalkServiceImpl implements TTalkService {
      * @return
      */
     @Override
-    public int updateTalkInfo(TTalk tTalk) {
+    public String  updateTalkInfo(TTalk tTalk) {
+        String info=null;
+        int i = tTalkDao.updTalkInfo(tTalk);
 
-        return tTalkDao.updTalkInfo(tTalk);
+        System.out.println("td的长度" + i);
+        if(i > 0){
+            info ="修改成功";
+        }else {
+            info = "修改失败";
+        }
+        return info ;
     }
 
     //查数据库状态

@@ -15,8 +15,8 @@ public interface TReplytalkService {
 
     /**
      *某商品下的评论/回复信息
-     * @param answer_id
+     * @param replyuser_id
      * @return
      */
-    List<TReplytalk> allInfo(Integer answer_id);
+    List<TReplytalk> allInfo(Integer replyuser_id);
 }
