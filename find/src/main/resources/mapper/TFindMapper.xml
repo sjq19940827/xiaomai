@@ -6,19 +6,17 @@
     <select id="getAllInfo" parameterType="com.find.cn.pojo.TFind" resultType="com.find.cn.pojo.TFind">
 SELECT
 t_find.information,
-t_find.user_id,
+t_find.releasetime,
 t_user.userName,
-t_user.id,
+t_user.nickname,
+t_user.login_phone,
 t_show.show_name,
-t_show.show_img,
 t_show.show_place,
-t_show.show_max_price,
-t_find.find_id,
-t_show.show_id
+t_show.show_status
 FROM
 t_find
 INNER JOIN t_user ON t_find.user_id = t_user.id
 INNER JOIN t_show ON t_find.show_id = t_show.show_id
-WHERE t_find.show_id=#{show_id}
+WHERE user_id=#{user_id}
     </select>
 </mapper>

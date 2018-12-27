@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class TFindServiceImpl implements TFindService {
     @Autowired
@@ -14,10 +15,10 @@ public class TFindServiceImpl implements TFindService {
     @Override
     /**
      * 查询咨询
-     * @param show_id
+     * @param user_id
      * @return
      */
-    public List<TFind> getAllInfo(Integer show_id) {
-        return tFindDao.getAllInfo(show_id);
+    public List<TFind> getAllInfo(Integer user_id) {
+        return tFindDao.getAllInfo(user_id);
     }
 }

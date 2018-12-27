@@ -7,8 +7,8 @@ import java.util.List;
 public interface TFindService {
     /**
      * 查询咨询
-     * @param show_id
+     * @param user_id
      * @return
      */
-    List<TFind> getAllInfo(Integer show_id);
+    List<TFind> getAllInfo(Integer user_id);
 }

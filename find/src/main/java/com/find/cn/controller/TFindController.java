@@ -17,9 +17,9 @@ public class TFindController {
     @Autowired
     private TFindService tFindService;
     @ApiOperation(value = "查询某商品下的咨询信息",httpMethod = "GET",response = String.class,notes = "查某商品下的评论信息")
-    @ApiImplicitParam(name = "show_id",value = "商品ID")
+    @ApiImplicitParam(name = "user_id",value = "用户ID")
     @GetMapping("/selAll")
-    public String ff(int show_id){
-        return JSON.toJSONString(tFindService.getAllInfo(show_id));
+    public String ff(int user_id){
+        return JSON.toJSONString(tFindService.getAllInfo(user_id));
     }
 }
