@@ -1,6 +1,7 @@
 package com.goods.service;
 
 import com.goods.pojo.TShow;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -37,20 +38,20 @@ public interface TShowService {
      * @param city_name
      * @return
      */
-    String getTShowByCityName(String city_name,Integer index,Integer pagesize);
+    String getTShowByCityName(@Param("city_name") String city_name, @Param("show_place")String show_place);
+
 
     /**
-     * 根据商品名字模糊查询
-     * @return
-     */
-    String getAllByGoodsName(String show_name,Integer index,Integer pagesize);
-
-    /**
-     * 根据商品ID模糊查询
+     * 根据商品ID查询
      * @param goodsID
      * @return
      */
     String getTShowByGoodsID(Integer goodsID,Integer index,Integer pagesize);
-
+    /**
+     * 根据商品特殊标识进行查询
+     * @param show_mark
+     * @return
+     */
+    String getTShowByMarkID(Integer show_mark);
 }
 

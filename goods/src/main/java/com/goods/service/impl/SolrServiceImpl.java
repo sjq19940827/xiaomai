@@ -25,7 +25,6 @@ public class SolrServiceImpl implements SolrService {
         Map<String, String> queryParamMap = new HashMap<String, String> ();
         queryParamMap.put("q","show_name:*"+words+"*");
         queryParamMap.put("q","show_place:*"+words+"*");
-        queryParamMap.put("q","show_title:*"+words+"*");
         MapSolrParams mapSolrParams = new MapSolrParams(queryParamMap);
         QueryResponse query = null;
         try {

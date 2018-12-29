@@ -1,10 +1,12 @@
 package com.goods.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.goods.service.SolrService;
 import com.goods.service.impl.TShowServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -64,31 +66,18 @@ public class TShowController {
     }
 
     /**
-     * 根据城市名字模糊查询
+     *
      * @param city_name
-     * @param index
-     * @param pagesize
+     * @param show_place
      * @return
      */
     @GetMapping("/getTShowByCityName")
-    public String getTShowByCityName(String city_name, Integer index, Integer pagesize) {
-        return TShowService.getTShowByCityName (city_name, index, pagesize);
+    public String  getTShowByCityName(@Param("city_name") String city_name, @Param("show_place")String show_place ) {
+        return TShowService.getTShowByCityName (city_name,show_place);
     }
 
     /**
-     * 根据商品名字模糊查询
-     * @param show_name
-     * @param index
-     * @param pagesize
-     * @return
-     */
-    @GetMapping("/getAllByGoodsName")
-    public String getAllByGoodsName(String show_name, Integer index, Integer pagesize) {
-        return TShowService.getAllByGoodsName (show_name, index, pagesize);
-    }
-
-    /**
-     * 根据商品ID模糊查询
+     * 根据商品ID查询
      * @param goodsID
      * @param index
      * @param pagesize
@@ -98,8 +87,18 @@ public class TShowController {
     public String getTShowByGoodsID(Integer goodsID, Integer index, Integer pagesize) {
         return TShowService.getTShowByGoodsID (goodsID,index,pagesize);
     }
+
+    /**
+     * solr全局查询
+     * @param goodsName
+     * @return
+     */
     @GetMapping("/solr")
     public String solrSearch(@RequestParam("goodsName") String goodsName) {
         return solrService.shopSearch (goodsName);
+    }
+    @GetMapping("/getTShowByMarkID")
+    public String getTShowByMarkID(Integer show_mark,Integer index,Integer pagesize ) {
+        return TShowService.getTShowByMarkID (show_mark);
     }
 }

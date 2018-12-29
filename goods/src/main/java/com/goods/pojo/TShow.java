@@ -15,6 +15,16 @@ public class TShow {
     private String show_end_time;
     private Double show_max_price;
     private Integer show_ipt_num;
+    private Integer show_mark;
+
+    public Integer getShow_mark() {
+        return show_mark;
+    }
+
+    public void setShow_mark(Integer show_mark) {
+        this.show_mark = show_mark;
+    }
+
     private TCategorie tCategorie;
     private TAreainfo tAreainfo;
     private City city;

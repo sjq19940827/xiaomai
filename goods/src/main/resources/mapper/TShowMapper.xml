@@ -3,19 +3,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goods.dao.TShowDao">
     <resultMap id="goodsMap" type="com.goods.pojo.TShow">
-        <id column="show_id" property="show_id" />
-        <result column="show_name"  property="show_name" />
-        <result column="show_img"  property="show_img" />
-        <result column="show_min_price"  property="show_min_price" />
-        <result column="show_place"  property="show_place" />
-        <result column="categorie_id" property="categorie_id" />
-        <result column="areainfo_id"  property="areainfo_id" />
-        <result column="show_title"  property="show_title" />
-        <result column="count"  property="count" />
-        <result column="show_status"  property="show_status" />
-        <result column="show_begin_time"  property="show_begin_time" />
-        <result column="show_end_time"  property="show_end_time" />
+        <id column="show_id" property="show_id"/>
+        <result column="show_name"  property="show_name"/>
+        <result column="show_img"  property="show_img"/>
+        <result column="show_min_price"  property="show_min_price"/>
+        <result column="show_place"  property="show_place"/>
+        <result column="categorie_id" property="categorie_id"/>
+        <result column="areainfo_id"  property="areainfo_id"/>
+        <result column="show_title"  property="show_title"/>
+        <result column="count"  property="count"/>
+        <result column="show_status"  property="show_status"/>
+        <result column="show_begin_time"  property="show_begin_time"/>
+        <result column="show_end_time"  property="show_end_time"/>
         <result column="show_ipt_num"  property="show_ipt_num"/>
+        <result column="show_max_price"  property="show_max_price"/>
+        <result column="show_mark"  property="show_mark"/>
         <association property="tCategorie" javaType="com.goods.pojo.TCategorie">
             <result column="categorie_id" property="categorie_id"/>
             <result column="categorie_name" property="categorie_name"/>
@@ -36,10 +38,58 @@
 
     <!--查询全部商品-->
     <select id="getAllGoods" resultMap="goodsMap" resultType="com.goods.pojo.TShow"   >
-       SELECT t_show.show_id,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
-       t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
-       t_areainfo.areainfo_id,t_areainfo.areainfo_name,t_areainfo.parent_id,t_categorie.categorie_id,t_categorie.categorie_name,
-       t_categorie.categorie_shorthand FROM t_show INNER JOIN t_areainfo ON t_show.areainfo_id = t_areainfo.areainfo_id INNER JOIN t_categorie ON t_show.categorie_id = t_categorie.categorie_id
+        SELECT t_show.show_id,t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.categorie_id,
+        t_show.areainfo_id,t_show.show_title,t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,
+        t_show.show_max_price,t_show.show_ipt_num
+        FROM
+        t_show
+        <where>
+            <if test="show_id != null">
+                and show_id = #{show_id}
+            </if>
+            <if test="show_name != null and orderNumber != ''">
+                and show_name = #{show_name}
+            </if>
+            <if test="show_img != null">
+                and show_img = #{show_img}
+            </if>
+            <if test="show_min_price != null">
+                and show_min_price = #{show_min_price}
+            </if>
+            <if test="show_place != null">
+                and show_place = #{show_place}
+            </if>
+            <if test="categorie_id != null">
+                and categorie_id = #{categorie_id}
+            </if>
+            <if test="areainfo_id != null">
+                and areainfo_id = #{areainfo_id}
+            </if>
+            <if test="show_title != null">
+                and show_title = #{show_title}
+            </if>
+            <if test="count != null">
+                and count = #{count}
+            </if>
+            <if test="show_status != null">
+                and show_status = #{show_status}
+            </if>
+            <if test="show_begin_time != null">
+                and show_begin_time = #{show_begin_time}
+            </if>
+            <if test="show_end_time != null">
+                and show_end_time = #{show_end_time}
+            </if>
+            <if test="show_ipt_num != null">
+                and show_ipt_num = #{show_ipt_num}
+            </if>
+            <if test="show_max_price!=null">
+                and show_max_price=#{show_max_price}
+            </if>
+            <if test="show_mark!=null">
+                and show_makr=#{show_mark}
+            </if>
+        </where>
     </select>
 
     <!--查询全部的分类信息-->
@@ -60,22 +110,16 @@ select * from t_show where areainfo_id=#{areainfoId}
     <!--根据城市名字模糊查询-->
     <select id="getTShowByCityName" resultType="com.goods.pojo.TShow" parameterType="String">
         SELECT t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
-t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
-city.city_name FROM t_show ,city WHERE city_name like "%"#{city_name}"%"
+t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,city.city_name FROM t_show ,
+city  WHERE   city.city_name LIKE "%"#{city_name}"%" and show_place LIKE "%"#{show_place}"%" limit 0,16
     </select>
 
-    <!--根据商品名字模糊查询-->
-    <select id="getAllByGoodsName" resultType="com.goods.pojo.TShow" parameterType="String">
-        SELECT t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
-t_show.count,t_show.show_status,t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,t_show.show_ipt_num,
-t_areainfo.areainfo_name,t_categorie.categorie_name FROM t_show
-INNER JOIN t_areainfo ON t_show.areainfo_id = t_areainfo.areainfo_id
-INNER JOIN t_categorie ON t_show.categorie_id = t_categorie.categorie_id where t_show.show_name LIKE "%"#{show_name}"%"
-    </select>
-
-    <!--根据商品ID模糊查询-->
+    <!--根据商品ID查询-->
     <select id="getTShowByGoodsID" resultMap="goodsMap" parameterType="int">
         select * from t_show where show_id=#{goodsID}
     </select>
-
+    <!--根据商品特殊标识进行查询-->
+    <select id="getTShowByMarkID" resultType="com.goods.pojo.TShow" parameterType="int">
+      SELECT *FROM t_show WHERE show_mark = #{show_mark}
+    </select>
 </mapper>
