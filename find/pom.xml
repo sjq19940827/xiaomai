@@ -21,18 +21,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>comment</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>comment</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
