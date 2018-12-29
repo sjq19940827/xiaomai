@@ -1,11 +1,8 @@
 package com.comment.service;
 
 
-import com.comment.pojo.TReplytalk;
 import com.comment.pojo.TTalk;
-
 import java.util.List;
-
 public interface TTalkService {
 
     /**
@@ -13,7 +10,7 @@ public interface TTalkService {
      * @param answer_id
      * @return
      */
-  List<TTalk> getAllInfoByShowid(Integer answer_id);
+  String getAllInfoByShowid(Integer answer_id);
 
    /**
    * 查询某用户的评论信息
@@ -65,6 +62,6 @@ public interface TTalkService {
      */
     String qdz(Integer user_id, Integer talk_id);
 
-
+    String  NumByAnswer(Integer answer_id);
 
 }

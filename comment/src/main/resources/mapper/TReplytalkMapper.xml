@@ -40,7 +40,7 @@
     <!--回复一条评论-->
     <insert id="addreply" parameterType="com.comment.pojo.TReplytalk">
         INSERT INTO t_replytalk (reply_id,replyuser_id, talk_id, reply_info, prase_count, createtime)
-        VALUES(0,#{replyuser_id},#{talk_id},#{reply_info},#{prase_count},#{createtime})
+        VALUES(0,#{replyuser_id},#{talk_id},#{reply_info},0,#{createtime})
     </insert>
 
     <!--查询某商品下的评论信息与回复信息-->

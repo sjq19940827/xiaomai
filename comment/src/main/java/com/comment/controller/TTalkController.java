@@ -6,10 +6,7 @@ import com.alibaba.fastjson.JSON;
 
 import com.comment.pojo.TTalk;
 import com.comment.service.TTalkService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +21,7 @@ public class TTalkController {
     @ApiImplicitParam(name = "answer_id",value = "商品ID")
     @GetMapping("/InfoByAnswer")
     public String ds(Integer answer_id){
-        return JSON.toJSONString(tTalkService.getAllInfoByShowid(answer_id));
+        return tTalkService.getAllInfoByShowid(answer_id);
     }
 
 
@@ -44,11 +41,17 @@ public class TTalkController {
         int i = tTalkService.selTalkNum(user_id);
         return i;
     }
-
+    @ApiOperation(value = "查询某商品是否有评论",httpMethod = "GET",response = String.class,notes = "查询某商品是否有评论")
+    @ApiParam(name = "answer_id",value = "商品ID")
+    @GetMapping("/NumByAnswer")
+    public String sdv(int answer_id){
+        String s = tTalkService.NumByAnswer(answer_id);
+        return s;
+    }
 
     @ApiOperation(value = "查询用户对评论的点赞数",httpMethod = "GET",response = String.class,notes = "查询用户对评论的点赞数")
     @GetMapping("/ByUserAndAnswer")
-    public int  dz(Integer user_id,Integer answer_id){
+    public int  dz( @ApiParam(name = "user_id",value = "用户ID")Integer user_id, @ApiParam(name = "answer_id",value = "商品ID")Integer answer_id){
         int i = tTalkService.selDzByUserAndShow(user_id, answer_id);
         return i;
     }

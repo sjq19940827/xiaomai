@@ -24,7 +24,7 @@ public interface TReplytalkDao {
     int addreply(TReplytalk tReplytalk);
 
     /**
-     * 某商品下的评论/回复信息
+     * 某用户下的评论/回复信息
      * @param replyuser_id
      * @return
      */
