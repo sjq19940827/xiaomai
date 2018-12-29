@@ -19,19 +19,19 @@ public class DiscountServiceImpl implements DiscountService
     private DiscountDao discountDao;
     private TReduce treduce;
 
-   /* *//**
-     * 修改优惠劵状态
-     * @param user_id
-     * @return
-     */
-    @Override
-    public int updateDiscount(Integer user_id, Integer reduce_id) {
-        int updata = discountDao.updata(user_id, reduce_id);
-        if (updata > 0){
-            return updata;
-        }
-        return 0;
+    /* *//**
+ * 修改优惠劵状态
+ * @param user_id
+ * @return
+ */
+@Override
+public int updateDiscount(Integer user_id, Integer reduce_id) {
+    int updata = discountDao.updata(user_id, reduce_id);
+    if (updata > 0){
+        return updata;
     }
+    return 0;
+}
 
     /**
      * 用户添加优惠券
@@ -69,7 +69,7 @@ public class DiscountServiceImpl implements DiscountService
                 return JSON.toJSONString(all);
             }
         }
-       return null;
+        return null;
     }
 
     /**

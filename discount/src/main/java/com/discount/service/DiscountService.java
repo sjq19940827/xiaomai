@@ -44,6 +44,6 @@ public interface DiscountService {
      * @param reduceid
      * @param userid
      * @return
-     *//*
-    int xgs(@Param("reduceid") Integer reduceid,@Param("userid") Integer userid);
-*/}
+     */
+    /*int xgs(@Param("reduceid") Integer reduceid,@Param("userid") Integer userid);*/
+}
