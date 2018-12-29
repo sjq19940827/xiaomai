@@ -2,23 +2,18 @@ package com.order.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.order.dao.OrderPayDao;
-import com.order.pay.Pay;
-import com.order.pay.Return_url;
 import com.order.pojo.OrderPay;
 import com.order.service.OrderPayService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.sql.Timestamp;
 import java.util.List;
-
-import static com.order.util.DateGenerate.getStringDate;
 
 /**
  * (OrderPay)表服务实现类
  *
  * @author makejava
- * @since 2018-12-20 19:59:55
+ * @since 2018-12-27 17:34:30
  */
 @Service("orderPayService")
 public class OrderPayServiceImpl implements OrderPayService {
@@ -49,18 +44,15 @@ public class OrderPayServiceImpl implements OrderPayService {
     }
 
     /**
-     * 创建订单交易数据
+     * 新增数据
      *
      * @param orderPay 实例对象
      * @return 实例对象
      */
     @Override
-    public int insertByOrderPayInfo(OrderPay orderPay) {
-        int insert = orderPayDao.insert(orderPay);
-        if(insert != 0){
-            return 1;
-        }
-        return 0;
+    public OrderPay insert(OrderPay orderPay) {
+        this.orderPayDao.insert(orderPay);
+        return orderPay;
     }
 
     /**
@@ -84,5 +76,37 @@ public class OrderPayServiceImpl implements OrderPayService {
     @Override
     public boolean deleteById(Integer payid) {
         return this.orderPayDao.deleteById(payid) > 0;
+    }
+
+    /**
+     * 创建订单交易数据
+     *
+     * @param orderPay 实例对象
+     * @return 实例对象
+     */
+    @Override
+    public int insertByOrderPayInfo(OrderPay orderPay) {
+        int insert = orderPayDao.insert(orderPay);
+        if(insert != 0){
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
+     * 根据订单编号查询支付宝交易号
+     * @param orderNumber
+     * @return
+     */
+    @Override
+    public String selectorderNumberByPay(String orderNumber) {
+        Integer selectPayNumber = orderPayDao.selectPayNumber(orderNumber);
+        if(selectPayNumber != null){
+            String payalipay = orderPayDao.selectPayNumberByPayalipay(orderNumber);
+            return payalipay;
+        }else {
+            return "订单编号不存在";
+        }
+
     }
 }

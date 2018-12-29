@@ -94,10 +94,10 @@
             <if test="shopImg != null and shopImg != ''">
                 and shop_img = #{shopImg}
             </if>
-            <if test="username != null and username != ''">
+            <if test="userName != null and userName != ''">
                 and username = #{userName}
             </if>
-            <if test="userphone != null and userphone != ''">
+            <if test="userPhone != null and userPhone != ''">
                 and userphone = #{userPhone}
             </if>
         </where>
@@ -214,7 +214,7 @@
     </update>
 
     <!-- 查询订单号是否存在 -->
-    <select id="selectByOrderNumber" resultType="int" parameterType="String">
+    <select id="selectByOrderNumber" resultType="Integer" parameterType="String">
         select count(order_number) from t_order where order_number = #{orderNumber}
     </select>
 

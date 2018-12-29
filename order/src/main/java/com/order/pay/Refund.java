@@ -45,7 +45,7 @@ public class Refund {
         //请求
         String result = null;
         try {
-            result = alipayClient.execute(alipayRequest).getBody();
+            result = alipayClient.execute(alipayRequest).getCode();
         } catch (AlipayApiException e) {
             e.printStackTrace();
         }

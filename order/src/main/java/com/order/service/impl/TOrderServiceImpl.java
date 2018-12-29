@@ -150,8 +150,8 @@ public class TOrderServiceImpl implements TOrderService {
      */
     @Override
     public String updateByOrderState(String orderNumber) {
-        int selectByOrderNumber = tOrderDao.selectByOrderNumber(orderNumber);
-        if(selectByOrderNumber != 0){
+        Integer selectByOrderNumber = tOrderDao.selectByOrderNumber(orderNumber);
+        if(selectByOrderNumber != null){
             int updateByOrderState = tOrderDao.updateByOrderState(orderNumber);
             if(updateByOrderState != 0){
                 return "取消成功";

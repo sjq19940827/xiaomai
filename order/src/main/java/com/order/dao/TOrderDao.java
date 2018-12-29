@@ -105,12 +105,12 @@ public interface TOrderDao {
      * @param orderNumber
      * @return
      */
-    int selectByOrderNumber(String orderNumber);
+    Integer selectByOrderNumber(String orderNumber);
 
     /**
-     * 根据商品名称查询商品ID
-     * @param orderNumber
-     * @return
+     * 根据商品订单编号查询商品ID
+     * @param
+     * @returnorderNumber
      */
     Integer selectOrderIDByorderNumber(String orderNumber);
 
@@ -127,5 +127,6 @@ public interface TOrderDao {
      * @return
      */
     Integer selectByUserID(Integer userId);
+
 
 }

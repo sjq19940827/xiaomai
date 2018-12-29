@@ -1,30 +1,796 @@
-2018-12-25 09:00:22.251  INFO 10348 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 10348 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
-2018-12-25 09:00:22.283  INFO 10348 --- [main] com.order.OrderApplication               : The following profiles are active: dev
-2018-12-25 09:00:24.682  INFO 10348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2018-12-25 09:00:24.687  INFO 10348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2018-12-25 09:00:24.726  INFO 10348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
-2018-12-25 09:00:25.151  INFO 10348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-12-25 09:00:25.158  INFO 10348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$6fb63fd7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-12-25 09:00:25.196  INFO 10348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a94a81a9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-12-25 09:00:25.229  INFO 10348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-12-25 09:00:25.242  INFO 10348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-12-25 09:00:26.058  INFO 10348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2018-12-25 09:00:26.088  INFO 10348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-12-25 09:00:26.089  INFO 10348 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
-2018-12-25 09:00:26.103  INFO 10348 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
-2018-12-25 09:00:26.301  INFO 10348 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-12-25 09:00:26.302  INFO 10348 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3939 ms
-2018-12-25 09:00:26.459  INFO 10348 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2018-12-25 09:00:26.676  INFO 10348 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2018-12-25 09:00:28.281  INFO 10348 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2018-12-25 09:00:29.144  INFO 10348 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2018-12-25 09:00:29.170  INFO 10348 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2018-12-25 09:00:29.185  INFO 10348 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2018-12-25 09:00:29.480  INFO 10348 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
-2018-12-25 09:00:29.498  INFO 10348 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
-2018-12-25 09:00:29.668  INFO 10348 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#68565bc7:0/SimpleConnection@2035d65b [delegate=amqp://admin@127.0.0.1:5672/, localPort= 52226]
-2018-12-25 09:00:29.852  INFO 10348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2018-12-25 09:00:29.858  INFO 10348 --- [main] com.order.OrderApplication               : Started OrderApplication in 8.42 seconds (JVM running for 9.627)
-2018-12-25 09:02:08.136  INFO 10348 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2018-12-25 09:02:08.136  INFO 10348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2018-12-25 09:02:08.147  INFO 10348 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2018-12-28 11:13:25.353  INFO 9736 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 9736 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:13:25.366  INFO 9736 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:13:27.894  INFO 9736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:13:27.898  INFO 9736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:13:27.935  INFO 9736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 repository interfaces.
+2018-12-28 11:13:28.475  INFO 9736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:13:28.491  INFO 9736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$9f86008] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:13:28.620  INFO 9736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$438ca1da] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:13:28.651  INFO 9736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:13:28.690  INFO 9736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:13:30.184  INFO 9736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:13:30.254  INFO 9736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:13:30.254  INFO 9736 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:13:30.274  INFO 9736 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:13:30.624  INFO 9736 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:13:30.624  INFO 9736 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5145 ms
+2018-12-28 11:13:30.820  INFO 9736 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:13:31.239  INFO 9736 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:13:32.895  INFO 9736 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:13:33.824  INFO 9736 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:13:33.848  INFO 9736 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:13:33.862  INFO 9736 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:13:34.151  INFO 9736 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:13:34.170  INFO 9736 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:13:34.285  INFO 9736 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#38830ea:0/SimpleConnection@13004dd8 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60605]
+2018-12-28 11:13:34.432  INFO 9736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:13:34.437  INFO 9736 --- [main] com.order.OrderApplication               : Started OrderApplication in 9.816 seconds (JVM running for 10.793)
+2018-12-28 11:13:49.056  INFO 9736 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 11:13:49.056  INFO 9736 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 11:13:49.078  INFO 9736 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 20 ms
+2018-12-28 11:14:27.254 ERROR 9736 --- [http-nio-8080-exec-6] sdk.biz.err                              : 2018-12-28 11:14:27^_^{"alipay_trade_refund_response":{"code":"40004","msg":"Business Failed","sub_code":"ACQ.TRADE_NOT_EXIST","sub_msg":"交易不存在","refund_fee":"0.00","send_back_fee":"0.00"},"sign":"EpOgt3KCGydA+elLJt/zGaV+J9EobZnEH4f8eOPtGH7cbJQ7OYTbl8Pgdi+gugR29wv8cUWLfhA8HZ99JhQqLrlQ5nCTqtM2O/g6cvzrH9+i3sCQlhlzLWWD1S2miCjVRQsts0YSLywVqT/PMUJOv4abY8CY8ECrrGG0xv2ootZTA77Gjo3eHU0xZwhRTv7CiK6iJv9koX3BwWN407ZqzIGbTKIry+OPHRWmcpXEat2pZsIFYaptwAhOgoyXGT4UQahkn302JHEo3Cl5fbQeOEyUTSPZFwcMSGRxb8kW+zlK+i5gRsJJTR+5ADSyBvN+8JWlkVTmvY3FRLVpuUGv1w=="}^_^375ms,867ms,nullms
+2018-12-28 11:15:12.889 ERROR 9736 --- [http-nio-8080-exec-10] sdk.biz.err                              : 2018-12-28 11:15:12^_^{"alipay_trade_refund_response":{"code":"40004","msg":"Business Failed","sub_code":"ACQ.REFUND_AMT_NOT_EQUAL_TOTAL","sub_msg":"撤销或退款金额与订单金额不一致","out_trade_no":"2018122500175245025","refund_fee":"0.00","send_back_fee":"0.00"},"sign":"UTQiCtAVYXxQIi0OO4hZuqMpikTR/cAh08zdgXQU2dXJfZCA0TDE/KU+ozSV9PEVd+Y6T3wVJLBFmv1cdkySKklX7xsJhDQRUjTYJ70yxtTuNDmcDBj9NARGx688lhIFavPwtRvwAOGb1OyHecguI69wT073gMF5l9gwz6iHQFkXGHQk3i/l51gouuKIlZfeb6Jzz8kFC9Bx7afLFhuo1C/pFFhZYhOdfyFh0eJykoIefBFMItSanPCL6o2a0084BzaQXwUUKcFi/WpKG6OT0LeVuff/HS6nHT3CgfqplMQ7KDJK+dqm9gDqFKooG+UzKWwApOnTUEAZsIUCd5yfmw=="}^_^10ms,447ms,nullms
+2018-12-28 11:16:17.526 ERROR 9736 --- [http-nio-8080-exec-6] sdk.biz.err                              : 2018-12-28 11:16:17^_^{"alipay_trade_refund_response":{"code":"40004","msg":"Business Failed","sub_code":"ACQ.TRADE_NOT_EXIST","sub_msg":"交易不存在","refund_fee":"0.00","send_back_fee":"0.00"},"sign":"EpOgt3KCGydA+elLJt/zGaV+J9EobZnEH4f8eOPtGH7cbJQ7OYTbl8Pgdi+gugR29wv8cUWLfhA8HZ99JhQqLrlQ5nCTqtM2O/g6cvzrH9+i3sCQlhlzLWWD1S2miCjVRQsts0YSLywVqT/PMUJOv4abY8CY8ECrrGG0xv2ootZTA77Gjo3eHU0xZwhRTv7CiK6iJv9koX3BwWN407ZqzIGbTKIry+OPHRWmcpXEat2pZsIFYaptwAhOgoyXGT4UQahkn302JHEo3Cl5fbQeOEyUTSPZFwcMSGRxb8kW+zlK+i5gRsJJTR+5ADSyBvN+8JWlkVTmvY3FRLVpuUGv1w=="}^_^9ms,614ms,nullms
+2018-12-28 11:18:07.186 ERROR 9736 --- [http-nio-8080-exec-7] sdk.biz.err                              : 2018-12-28 11:18:07^_^{"alipay_trade_refund_response":{"code":"10000","msg":"Success","buyer_logon_id":"bgh***@sandbox.com","buyer_user_id":"2088102177362283","fund_change":"Y","gmt_refund_pay":"2018-12-28 11:18:04","out_trade_no":"20181120172722510","refund_fee":"300.00","send_back_fee":"0.00","trade_no":"2018122822001462280502443570"},"sign":"W/tGaehOSc9yilisbNBVOM06MW6yQ68tw6xKHzVkEUsD5HOkLJv53Mgy3BIwYPm8y2p7vBigCp1vA4KKy9FyGExpX+bX0CN3XiujjDKv2RurXDiOGFGBJ67hS6p1Lfl3RZnj8BKpqi5S44Y2J0Tf+ZnvXYS7+6GuJMxmkpLQ2itqcjC5jlq6LNyrxGYv6Wt7FufbLjUJV0egixzhjxo++2M/kxCxAz7QLcXwtsJ5yCzsqCrevn0hZRL9FGtJDUR7/MuFLKfrd1AkBVbhLjpoPWFYfI7pQKtVwkrXKpOOow+XiIOZfGtTGMEWy02qMDXXPF+CwUdbWl7/ntE98g7jpw=="}^_^8ms,1533ms,nullms
+2018-12-28 11:21:06.535  INFO 14220 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 14220 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:21:06.538  INFO 14220 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:21:08.703  INFO 14220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:21:08.706  INFO 14220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:21:08.748  INFO 14220 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25ms. Found 0 repository interfaces.
+2018-12-28 11:21:09.178  INFO 14220 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:21:09.186  INFO 14220 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$c7a7d6d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:21:09.222  INFO 14220 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$13c18a9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:21:09.249  INFO 14220 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:21:09.258  INFO 14220 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:21:09.940  INFO 14220 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:21:09.965  INFO 14220 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:21:09.966  INFO 14220 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:21:09.977  INFO 14220 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:21:10.132  INFO 14220 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:21:10.133  INFO 14220 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3532 ms
+2018-12-28 11:21:10.355  INFO 14220 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:21:10.526  INFO 14220 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:21:11.701  INFO 14220 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:21:12.473  INFO 14220 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:21:12.494  INFO 14220 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:21:12.506  INFO 14220 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:21:12.794  INFO 14220 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:21:12.815  INFO 14220 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:21:12.886  INFO 14220 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#280d4882:0/SimpleConnection@5170bc02 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 61474]
+2018-12-28 11:21:12.982  INFO 14220 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:21:12.985  INFO 14220 --- [main] com.order.OrderApplication               : Started OrderApplication in 7.01 seconds (JVM running for 7.692)
+2018-12-28 11:21:52.345  INFO 14220 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 11:21:52.346  INFO 14220 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 11:21:52.379  INFO 14220 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 33 ms
+2018-12-28 11:22:12.913 ERROR 14220 --- [http-nio-8080-exec-7] sdk.biz.err                              : 2018-12-28 11:22:12^_^{"alipay_trade_refund_response":{"code":"40004","msg":"Business Failed","sub_code":"ACQ.REFUND_AMT_NOT_EQUAL_TOTAL","sub_msg":"撤销或退款金额与订单金额不一致","out_trade_no":"2018122500175245025","refund_fee":"0.00","send_back_fee":"0.00"},"sign":"UTQiCtAVYXxQIi0OO4hZuqMpikTR/cAh08zdgXQU2dXJfZCA0TDE/KU+ozSV9PEVd+Y6T3wVJLBFmv1cdkySKklX7xsJhDQRUjTYJ70yxtTuNDmcDBj9NARGx688lhIFavPwtRvwAOGb1OyHecguI69wT073gMF5l9gwz6iHQFkXGHQk3i/l51gouuKIlZfeb6Jzz8kFC9Bx7afLFhuo1C/pFFhZYhOdfyFh0eJykoIefBFMItSanPCL6o2a0084BzaQXwUUKcFi/WpKG6OT0LeVuff/HS6nHT3CgfqplMQ7KDJK+dqm9gDqFKooG+UzKWwApOnTUEAZsIUCd5yfmw=="}^_^324ms,1003ms,nullms
+2018-12-28 11:23:16.471  INFO 1016 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 1016 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:23:16.474  INFO 1016 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:23:18.688  INFO 1016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:23:18.691  INFO 1016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:23:18.723  INFO 1016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2018-12-28 11:23:19.117  INFO 1016 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:23:19.125  INFO 1016 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$c09285ea] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:23:19.164  INFO 1016 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fa26c7bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:23:19.202  INFO 1016 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:23:19.212  INFO 1016 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:23:19.924  INFO 1016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:23:19.949  INFO 1016 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:23:19.949  INFO 1016 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:23:19.961  INFO 1016 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:23:20.099  INFO 1016 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:23:20.100  INFO 1016 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3575 ms
+2018-12-28 11:23:20.289  INFO 1016 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:23:20.474  INFO 1016 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:23:21.735  INFO 1016 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:23:22.559  INFO 1016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:23:22.578  INFO 1016 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:23:22.591  INFO 1016 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:23:22.928  INFO 1016 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:23:22.954  INFO 1016 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:23:23.030  INFO 1016 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#3d19d85:0/SimpleConnection@c0c8f96 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 61714]
+2018-12-28 11:23:23.191  INFO 1016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:23:23.195  INFO 1016 --- [main] com.order.OrderApplication               : Started OrderApplication in 7.301 seconds (JVM running for 7.963)
+2018-12-28 11:23:39.074  INFO 1016 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 11:23:39.075  INFO 1016 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 11:23:39.089  INFO 1016 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2018-12-28 11:23:41.856 ERROR 1016 --- [http-nio-8080-exec-2] sdk.biz.err                              : 2018-12-28 11:23:41^_^{"alipay_trade_refund_response":{"code":"40004","msg":"Business Failed","sub_code":"ACQ.REFUND_AMT_NOT_EQUAL_TOTAL","sub_msg":"撤销或退款金额与订单金额不一致","out_trade_no":"2018122500175245025","refund_fee":"0.00","send_back_fee":"0.00"},"sign":"UTQiCtAVYXxQIi0OO4hZuqMpikTR/cAh08zdgXQU2dXJfZCA0TDE/KU+ozSV9PEVd+Y6T3wVJLBFmv1cdkySKklX7xsJhDQRUjTYJ70yxtTuNDmcDBj9NARGx688lhIFavPwtRvwAOGb1OyHecguI69wT073gMF5l9gwz6iHQFkXGHQk3i/l51gouuKIlZfeb6Jzz8kFC9Bx7afLFhuo1C/pFFhZYhOdfyFh0eJykoIefBFMItSanPCL6o2a0084BzaQXwUUKcFi/WpKG6OT0LeVuff/HS6nHT3CgfqplMQ7KDJK+dqm9gDqFKooG+UzKWwApOnTUEAZsIUCd5yfmw=="}^_^470ms,753ms,nullms
+2018-12-28 11:31:22.284 ERROR 1016 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect datetime value: '' for column 'deliveryDate' at row 1
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: insert into xiaomai.t_order(order_number, order_mode, order_num, order_price, transport, discount, status, user_id, show_id, address_id, createDate, deliveryDate, address, shop_name, shop_img, username, userphone)         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+### Cause: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect datetime value: '' for column 'deliveryDate' at row 1
+; Data truncation: Incorrect datetime value: '' for column 'deliveryDate' at row 1; nested exception is com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect datetime value: '' for column 'deliveryDate' at row 1] with root cause
+
+com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect datetime value: '' for column 'deliveryDate' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4230) ~[mysql-connector-java-5.1.30.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4164) ~[mysql-connector-java-5.1.30.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2615) ~[mysql-connector-java-5.1.30.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2776) ~[mysql-connector-java-5.1.30.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2838) ~[mysql-connector-java-5.1.30.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2082) ~[mysql-connector-java-5.1.30.jar:na]
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1307) ~[mysql-connector-java-5.1.30.jar:na]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3051) ~[druid-1.1.3.jar:1.1.3]
+	at com.alibaba.druid.filter.FilterEventAdapter.preparedStatement_execute(FilterEventAdapter.java:440) ~[druid-1.1.3.jar:1.1.3]
+	at com.alibaba.druid.filter.FilterChainImpl.preparedStatement_execute(FilterChainImpl.java:3049) ~[druid-1.1.3.jar:1.1.3]
+	at com.alibaba.druid.proxy.jdbc.PreparedStatementProxyImpl.execute(PreparedStatementProxyImpl.java:168) ~[druid-1.1.3.jar:1.1.3]
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:494) ~[druid-1.1.3.jar:1.1.3]
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185) ~[mybatis-3.4.6.jar:3.4.6]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at com.sun.proxy.$Proxy67.insert(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59) ~[mybatis-3.4.6.jar:3.4.6]
+	at com.sun.proxy.$Proxy68.insert(Unknown Source) ~[na:na]
+	at com.order.service.impl.TOrderServiceImpl.createByOrderInfo(TOrderServiceImpl.java:70) ~[classes/:na]
+	at com.order.controller.TOrderController.createByOrderInfo(TOrderController.java:89) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.3.jar:1.1.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+
+2018-12-28 11:35:45.238 ERROR 1016 --- [http-nio-8080-exec-9] sdk.biz.err                              : 2018-12-28 11:35:45^_^{"alipay_trade_refund_response":{"code":"10000","msg":"Success","buyer_logon_id":"bgh***@sandbox.com","buyer_user_id":"2088102177362283","fund_change":"Y","gmt_refund_pay":"2018-12-28 11:35:42","out_trade_no":"2018122801391760780","refund_fee":"120.00","send_back_fee":"0.00","trade_no":"2018122822001462280502433751"},"sign":"TIvL1kMPhw1+WepR7LcXILp9m/n33Mwo9UD+irSM3l8Z2Kf6ntkq02gvK0ft3j4v3fDxP3v1BTRZ1GDnRlocMG8j21OqYRX4s3g6LeuWC9xO7XC9ZNnf3+AkjOJDDa5NXjEDVHn57dHitK8UCh/BbEJh9StnTHLqi9rk1umUKaE+1M9Lcnr7OBdhHdy3SCZCCdxDzaqHbedFJhShYh0KfwAelFfedJCZw3VTCGgQs49OSLF/qi5pRmzCMCGx0XpxQqtIV5eHUB2bAeMjJ/HoTFgI5oLvOguud7YTpXSqHvv+bW0WXbac8xT0zPxoWB9aE/zB2SzvOM40PheeWd6MzQ=="}^_^10ms,1501ms,nullms
+2018-12-28 11:40:34.598  INFO 3976 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 3976 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:40:34.601  INFO 3976 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:40:36.817  INFO 3976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:40:36.821  INFO 3976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:40:36.855  INFO 3976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2018-12-28 11:40:37.327  INFO 3976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:40:37.334  INFO 3976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$4ef54218] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:40:37.377  INFO 3976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$888983ea] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:40:37.402  INFO 3976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:40:37.411  INFO 3976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:40:38.113  INFO 3976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:40:38.141  INFO 3976 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:40:38.141  INFO 3976 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:40:38.155  INFO 3976 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:40:38.303  INFO 3976 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:40:38.304  INFO 3976 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3635 ms
+2018-12-28 11:40:38.499  INFO 3976 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:40:38.671  INFO 3976 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:40:39.811  INFO 3976 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:40:40.556  INFO 3976 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:40:40.580  INFO 3976 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:40:40.594  INFO 3976 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:40:41.014  INFO 3976 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:40:41.032  INFO 3976 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:40:41.130  INFO 3976 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#31e2232f:0/SimpleConnection@27bc1d44 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 63689]
+2018-12-28 11:40:41.290  INFO 3976 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:40:41.299  INFO 3976 --- [main] com.order.OrderApplication               : Started OrderApplication in 7.306 seconds (JVM running for 7.959)
+2018-12-28 11:45:29.086  INFO 184 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 184 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:45:29.089  INFO 184 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:45:31.256  INFO 184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:45:31.260  INFO 184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:45:31.292  INFO 184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2018-12-28 11:45:31.747  INFO 184 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:45:31.756  INFO 184 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$f689a1a6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:45:31.796  INFO 184 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$301de378] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:45:31.824  INFO 184 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:45:31.833  INFO 184 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:45:32.528  INFO 184 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:45:32.559  INFO 184 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:45:32.560  INFO 184 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:45:32.574  INFO 184 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:45:32.726  INFO 184 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:45:32.727  INFO 184 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3573 ms
+2018-12-28 11:45:32.910  INFO 184 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:45:33.089  INFO 184 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:45:34.247  INFO 184 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:45:35.152  INFO 184 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:45:35.179  INFO 184 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:45:35.194  INFO 184 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:45:35.559  INFO 184 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:45:35.582  INFO 184 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:45:35.657  INFO 184 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#65eb76cd:0/SimpleConnection@2bb31455 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 64179]
+2018-12-28 11:45:35.777  INFO 184 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:45:35.789  INFO 184 --- [main] com.order.OrderApplication               : Started OrderApplication in 7.254 seconds (JVM running for 7.909)
+2018-12-28 11:45:43.833  INFO 184 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 11:45:43.833  INFO 184 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 11:45:43.844  INFO 184 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2018-12-28 11:45:46.729 ERROR 184 --- [http-nio-8080-exec-2] sdk.biz.err                              : 2018-12-28 11:45:46^_^{"alipay_trade_refund_response":{"code":"10000","msg":"Success","buyer_logon_id":"bgh***@sandbox.com","buyer_user_id":"2088102177362283","fund_change":"N","gmt_refund_pay":"2018-12-28 11:35:42","out_trade_no":"2018122801391760780","refund_fee":"120.00","send_back_fee":"0.00","trade_no":"2018122822001462280502433751"},"sign":"VuzOX34WJhsSzb5lh4Kk394HaRt73UuwZVUUtGgtl7wcU+K0d6XCInpfyz4oT7jPTQOQk3Ww+VwAvZ9xpuQpvJP92qRnYYrtROtsIrFabuFUMTDRhqKpbhQ8CSXqSSMpIGU1LXU6yHNoINpVebxw5VAtrsKm/nMPT3+I0+r0vGl9biyXAxQ6Ylp4bJLRzmOp4kQMH9j1J1RMVS29C8LgfDeYRFZmviCBuOVJAORiT926HxTgLZ55TJh10/p5r8Rb0voE4n/VL00Tp6FC85Yn+OMuts1vwngdkciNJCNKfeGuc+QavQI8i57X+kOY5zKtx1VC54lAC8PL4w830B+NfQ=="}^_^364ms,1020ms,nullms
+2018-12-28 11:49:18.306  INFO 14180 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 14180 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:49:18.310  INFO 14180 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:49:20.268  INFO 14180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:49:20.271  INFO 14180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:49:20.309  INFO 14180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2018-12-28 11:49:20.691  INFO 14180 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:49:20.698  INFO 14180 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$c1c020b7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:49:20.736  INFO 14180 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fb546289] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:49:20.766  INFO 14180 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:49:20.774  INFO 14180 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:49:21.491  INFO 14180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:49:21.519  INFO 14180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:49:21.520  INFO 14180 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:49:21.532  INFO 14180 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:49:21.794  INFO 14180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:49:21.795  INFO 14180 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3399 ms
+2018-12-28 11:49:21.942  INFO 14180 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:49:22.129  INFO 14180 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:49:23.242  INFO 14180 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:49:23.999  INFO 14180 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:49:24.018  INFO 14180 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:49:24.030  INFO 14180 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:49:24.277  INFO 14180 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:49:24.297  INFO 14180 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:49:24.384  INFO 14180 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#59fbb34:0/SimpleConnection@288728e [delegate=amqp://admin@127.0.0.1:5672/, localPort= 64559]
+2018-12-28 11:49:24.474  INFO 14180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:49:24.501  INFO 14180 --- [main] com.order.OrderApplication               : Started OrderApplication in 6.743 seconds (JVM running for 7.552)
+2018-12-28 11:49:29.793  INFO 14180 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 11:49:29.793  INFO 14180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 11:49:29.808  INFO 14180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2018-12-28 11:51:31.333 ERROR 14180 --- [http-nio-8080-exec-10] sdk.comm.err                             : 2018-12-28 11:51:31^_^alipay.trade.refund^_^null^_^192.168.43.66^_^Windows 10^_^alipay-sdk-java-3.4.27.ALL^_^https://openapi.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.refund&sign=EJx9aZcoKu7L5ws7dzOsD3R4SPDb4%2FOwSZi8g%2B3VVQkPzeOaV2LvAPtznKW%2B2MpttPmCyB1os2YLhBmfYLCFt05QL0biDkrKeAPOzuETQneL6TLfLNsq4ut1uyHYM075%2FF21nppbZGj%2FgOVnbe2kOEn4hT%2B%2FZ45KWNU6us2D1eU9kV%2FYjgKqYQvwk654yh3s8dxQ3CJATC%2FuHNHy%2FfVgPAmmIebCMU%2BvdNt4kXXqFQLFdzOLK9tf7xJ9z8Rc%2F4Qx40uY3TXYhw3RoqbRXemSY7P8%2F69xq8JPOQ0Xl6dNnsiSnKsnx%2FO9WaSPY5NrIk88k%2FdvHjfgNi3sZNUVCIeQAQ%3D%3D&version=1.0&app_id=2016092400582243&sign_type=RSA2&timestamp=2018-12-28+11%3A51%3A25&alipay_sdk=alipay-sdk-java-3.4.27.ALL&format=json^_^^_^connect timed out
+2018-12-28 11:55:22.023  INFO 9492 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 9492 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:55:22.027  INFO 9492 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:55:24.179  INFO 9492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:55:24.182  INFO 9492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:55:24.219  INFO 9492 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2018-12-28 11:55:24.596  INFO 9492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:55:24.603  INFO 9492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$e23269f3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:55:24.641  INFO 9492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1bc6abc5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:55:24.668  INFO 9492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:55:24.677  INFO 9492 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:55:25.358  INFO 9492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:55:25.387  INFO 9492 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:55:25.388  INFO 9492 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:55:25.400  INFO 9492 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:55:25.543  INFO 9492 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:55:25.544  INFO 9492 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3437 ms
+2018-12-28 11:55:25.728  INFO 9492 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:55:25.911  INFO 9492 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:55:27.152  INFO 9492 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:55:28.023  INFO 9492 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:55:28.046  INFO 9492 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:55:28.062  INFO 9492 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:55:28.497  INFO 9492 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:55:28.526  INFO 9492 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:55:28.648  INFO 9492 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#330c1f61:0/SimpleConnection@1b1252c8 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 65279]
+2018-12-28 11:55:28.764  INFO 9492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:55:28.770  INFO 9492 --- [main] com.order.OrderApplication               : Started OrderApplication in 7.531 seconds (JVM running for 8.235)
+2018-12-28 11:55:34.683  INFO 9492 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 11:55:34.684  INFO 9492 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 11:55:34.694  INFO 9492 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2018-12-28 11:55:38.424 ERROR 9492 --- [http-nio-8080-exec-1] sdk.biz.err                              : 2018-12-28 11:55:38^_^{"alipay_trade_refund_response":{"code":"10000","msg":"Success","buyer_logon_id":"bgh***@sandbox.com","buyer_user_id":"2088102177362283","fund_change":"Y","gmt_refund_pay":"2018-12-28 11:55:35","out_trade_no":"2018122801738461445","refund_fee":"800.00","send_back_fee":"0.00","trade_no":"2018122822001462280502443573"},"sign":"iHVY8I72/BVUtIcnZOqNSSr9AQRREnw+54qk+hEFihF+pMF1PS3QIs3bzGSvuEHVVDvJaha+XmR/WVTWe66mI6GL73QEj76YcAQa1BRWYKFGhRoabtGdf++yxEIXnBI8QcUyazN+W887J2Cw8f4f9MFXnVgk2sBTD8fpKZ8bwQiUhwhsTDMYnxkLfY0Rnv1ls7SFE6ygMtEds9MLU1SJ2H6dk/KtIhK6IY/VJv3TAdLII+v/r9/pSgDQCBJg5pqAtgTgRQI2xpNiNJLCLo0Gp3Im2C5ctURuhi8OhQMXyZlQIE6k6a2pfKoiMbTSruFXtL5CC5vrfz/3dkyz8yQrNA=="}^_^359ms,1872ms,nullms
+2018-12-28 11:59:07.780  INFO 4644 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 4644 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 11:59:07.784  INFO 4644 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 11:59:10.293  INFO 4644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 11:59:10.297  INFO 4644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 11:59:10.327  INFO 4644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2018-12-28 11:59:10.685  INFO 4644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:59:10.693  INFO 4644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$c3ff8fea] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:59:10.732  INFO 4644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fd93d1bc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:59:10.759  INFO 4644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:59:10.768  INFO 4644 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 11:59:11.451  INFO 4644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 11:59:11.478  INFO 4644 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 11:59:11.478  INFO 4644 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 11:59:11.492  INFO 4644 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 11:59:11.637  INFO 4644 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 11:59:11.637  INFO 4644 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3789 ms
+2018-12-28 11:59:11.819  INFO 4644 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 11:59:12.013  INFO 4644 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 11:59:13.120  INFO 4644 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 11:59:13.935  INFO 4644 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 11:59:13.956  INFO 4644 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 11:59:13.969  INFO 4644 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 11:59:14.228  INFO 4644 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 11:59:14.249  INFO 4644 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 11:59:14.331  INFO 4644 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#708f018e:0/SimpleConnection@aa752bb [delegate=amqp://admin@127.0.0.1:5672/, localPort= 49356]
+2018-12-28 11:59:14.474  INFO 4644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 11:59:14.482  INFO 4644 --- [main] com.order.OrderApplication               : Started OrderApplication in 7.259 seconds (JVM running for 7.976)
+2018-12-28 11:59:30.860  INFO 4644 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 11:59:30.861  INFO 4644 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 11:59:30.871  INFO 4644 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2018-12-28 11:59:33.298 ERROR 4644 --- [http-nio-8080-exec-1] sdk.biz.err                              : 2018-12-28 11:59:33^_^{"alipay_trade_refund_response":{"code":"10000","msg":"Success","buyer_logon_id":"bgh***@sandbox.com","buyer_user_id":"2088102177362283","fund_change":"N","gmt_refund_pay":"2018-12-28 11:55:35","out_trade_no":"2018122801738461445","refund_fee":"800.00","send_back_fee":"0.00","trade_no":"2018122822001462280502443573"},"sign":"BBdFWtWGTDmayHKb10CgQp4hJLdYoPgMVujc82fhDUUyj8WyaqD2S+yMyhC1Du5h2QnTw7YTFetAGb/5whpLz+AEg3VekglrNk0LTpjGubGL9TcQl2QE3lNq1KTnvJh0ED7Gl91Y/Jo+b4F1CQQMps7UHWhoyscGS8a9Sd4PdbBlboWoHlS5+lL+o8KpiR+V4FJnmI+3K/BkygZxFj74vcmQb8nIHBvAGxKOV2tx0CSXVqKZ4FjESSgPNHfP46k6ci39FdAiBU30L+UY6zvyG4b7c66EJFDjOGMjKvtuwgJezBQRmAp8XG3fC/jRNl601u75saCGY1ac6P/8N9TTQg=="}^_^365ms,693ms,nullms
+2018-12-28 12:03:45.980  INFO 15800 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 15800 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 12:03:45.987  INFO 15800 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 12:03:48.154  INFO 15800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 12:03:48.158  INFO 15800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 12:03:48.203  INFO 15800 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 repository interfaces.
+2018-12-28 12:03:48.679  INFO 15800 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 12:03:48.687  INFO 15800 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$5b579983] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 12:03:48.736  INFO 15800 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$94ebdb55] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 12:03:48.768  INFO 15800 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 12:03:48.778  INFO 15800 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 12:03:49.470  INFO 15800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 12:03:49.498  INFO 15800 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 12:03:49.498  INFO 15800 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 12:03:49.510  INFO 15800 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 12:03:49.652  INFO 15800 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 12:03:49.653  INFO 15800 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3596 ms
+2018-12-28 12:03:49.822  INFO 15800 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 12:03:50.034  INFO 15800 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 12:03:51.167  INFO 15800 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 12:03:52.130  INFO 15800 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 12:03:52.153  INFO 15800 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 12:03:52.166  INFO 15800 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 12:03:52.502  INFO 15800 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 12:03:52.528  INFO 15800 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 12:03:52.605  INFO 15800 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#2bfb583b:0/SimpleConnection@4601047 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 49882]
+2018-12-28 12:03:52.757  INFO 15800 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 12:03:52.760  INFO 15800 --- [main] com.order.OrderApplication               : Started OrderApplication in 7.353 seconds (JVM running for 8.036)
+2018-12-28 12:03:59.881  INFO 15800 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 12:03:59.882  INFO 15800 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 12:03:59.892  INFO 15800 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2018-12-28 12:04:03.296  INFO 15800 --- [http-nio-8080-exec-1] sdk.biz.err                              : Summary^_^10000^_^null^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.refund&sign=I2w5FXPy2E8QptLzkTfAvSsoOmtkLAJbVIutVtOPzCrlSOMJwQSx0qWoMKVAabFIgkYrAjq4uTFj6Sozktr4140hzs7kc2c50sWUaqS1u2LT5hDltx/1vxLlNLsw+NzcgMn712vMu6wAOxOHMHD0gsF7t7RMJeCMu1cPVSgT9wpnwpN/WWfnzWlAeQyo8gLrTlBFXBUySF+Si2TvPcCD6KstsPGj/2UU+l0zr1L9dRNiYhD3tHR6y1/5y6gV3W+8an8DtjrbZP9bilEwJwIzFbbfyYKTDeGp6bm5cjQGmP/WW4Ww56Jcb67+mKtCv6iNgG/MUhhNV+ru7rNi78eTBw==&version=1.0&app_id=2016092400582243&sign_type=RSA2&timestamp=2018-12-28 12:04:01^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-3.4.27.ALL&format=json^_^ApplicationParams:biz_content={"out_trade_no":"2018122801738461445","trade_no":"2018122822001462280502443573","refund_amount":"800","refund_reason":"","out_request_no":"全额退款"}^_^349ms,1558ms,20ms
+2018-12-28 16:02:52.363  INFO 14236 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 14236 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 16:02:52.366  INFO 14236 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 16:02:56.100  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 16:02:56.103  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 16:02:56.136  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2018-12-28 16:02:56.713  INFO 14236 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:02:56.722  INFO 14236 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$9f86008] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:02:56.775  INFO 14236 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$438ca1da] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:02:56.814  INFO 14236 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:02:56.825  INFO 14236 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:02:57.609  INFO 14236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 16:02:57.639  INFO 14236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 16:02:57.640  INFO 14236 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 16:02:57.653  INFO 14236 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 16:02:57.815  INFO 14236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 16:02:57.815  INFO 14236 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5322 ms
+2018-12-28 16:02:58.001  INFO 14236 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 16:02:58.210  INFO 14236 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 16:02:59.576  INFO 14236 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 16:03:00.539  INFO 14236 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 16:03:00.565  INFO 14236 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 16:03:00.578  INFO 14236 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 16:03:00.854  INFO 14236 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 16:03:00.874  INFO 14236 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 16:03:00.940  INFO 14236 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#3b705be7:0/SimpleConnection@13004dd8 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 58014]
+2018-12-28 16:03:01.034  INFO 14236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 16:03:01.038  INFO 14236 --- [main] com.order.OrderApplication               : Started OrderApplication in 9.436 seconds (JVM running for 10.844)
+2018-12-28 16:05:15.710  INFO 14236 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 16:05:15.711  INFO 14236 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 16:05:15.722  INFO 14236 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2018-12-28 16:06:15.346 ERROR 14236 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'username' in 'class com.order.pojo.TOrder'] with root cause
+
+org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'username' in 'class com.order.pojo.TOrder'
+	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:419) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:164) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:162) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.get(BeanWrapper.java:49) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:122) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextMap.get(DynamicContext.java:94) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextAccessor.getProperty(DynamicContext.java:108) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.OgnlRuntime.getProperty(OgnlRuntime.java:2685) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTProperty.getValueBody(ASTProperty.java:114) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTNotEq.getValueBody(ASTNotEq.java:50) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTAnd.getValueBody(ASTAnd.java:61) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:470) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:434) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:44) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.ExpressionEvaluator.evaluateBoolean(ExpressionEvaluator.java:32) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.IfSqlNode.apply(IfSqlNode.java:34) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:33) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.TrimSqlNode.apply(TrimSqlNode.java:55) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:33) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:41) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:292) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:81) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141) ~[mybatis-3.4.6.jar:3.4.6]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at com.sun.proxy.$Proxy67.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59) ~[mybatis-3.4.6.jar:3.4.6]
+	at com.sun.proxy.$Proxy68.queryAll(Unknown Source) ~[na:na]
+	at com.order.service.impl.TOrderServiceImpl.selectAllByEntity(TOrderServiceImpl.java:113) ~[classes/:na]
+	at com.order.controller.TOrderController.selectAllByEntity(TOrderController.java:66) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.3.jar:1.1.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+
+2018-12-28 16:07:13.496 ERROR 14236 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'username' in 'class com.order.pojo.TOrder'] with root cause
+
+org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'username' in 'class com.order.pojo.TOrder'
+	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:419) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:164) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:162) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.get(BeanWrapper.java:49) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:122) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextMap.get(DynamicContext.java:94) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextAccessor.getProperty(DynamicContext.java:108) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.OgnlRuntime.getProperty(OgnlRuntime.java:2685) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTProperty.getValueBody(ASTProperty.java:114) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTNotEq.getValueBody(ASTNotEq.java:50) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTAnd.getValueBody(ASTAnd.java:61) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:470) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:434) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:44) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.ExpressionEvaluator.evaluateBoolean(ExpressionEvaluator.java:32) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.IfSqlNode.apply(IfSqlNode.java:34) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:33) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.TrimSqlNode.apply(TrimSqlNode.java:55) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:33) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:41) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:292) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:81) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141) ~[mybatis-3.4.6.jar:3.4.6]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at com.sun.proxy.$Proxy67.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59) ~[mybatis-3.4.6.jar:3.4.6]
+	at com.sun.proxy.$Proxy68.queryAll(Unknown Source) ~[na:na]
+	at com.order.service.impl.TOrderServiceImpl.selectAllByEntity(TOrderServiceImpl.java:113) ~[classes/:na]
+	at com.order.controller.TOrderController.selectAllByEntity(TOrderController.java:66) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.3.jar:1.1.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+
+2018-12-28 16:09:37.142 ERROR 14236 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'username' in 'class com.order.pojo.TOrder'] with root cause
+
+org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'username' in 'class com.order.pojo.TOrder'
+	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:419) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:164) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:162) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.get(BeanWrapper.java:49) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:122) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextMap.get(DynamicContext.java:94) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextAccessor.getProperty(DynamicContext.java:108) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.OgnlRuntime.getProperty(OgnlRuntime.java:2685) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTProperty.getValueBody(ASTProperty.java:114) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTNotEq.getValueBody(ASTNotEq.java:50) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.ASTAnd.getValueBody(ASTAnd.java:61) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:470) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:434) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:44) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.ExpressionEvaluator.evaluateBoolean(ExpressionEvaluator.java:32) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.IfSqlNode.apply(IfSqlNode.java:34) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:33) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.TrimSqlNode.apply(TrimSqlNode.java:55) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:33) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:41) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:292) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:81) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141) ~[mybatis-3.4.6.jar:3.4.6]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at com.sun.proxy.$Proxy67.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230) ~[mybatis-spring-1.3.2.jar:1.3.2]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:139) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:76) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59) ~[mybatis-3.4.6.jar:3.4.6]
+	at com.sun.proxy.$Proxy68.queryAll(Unknown Source) ~[na:na]
+	at com.order.service.impl.TOrderServiceImpl.selectAllByEntity(TOrderServiceImpl.java:113) ~[classes/:na]
+	at com.order.controller.TOrderController.selectAllByEntity(TOrderController.java:66) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_181]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_181]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_181]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_181]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.3.jar:1.1.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.3.RELEASE.jar:5.1.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199) ~[tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:791) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1417) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_181]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_181]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.13.jar:9.0.13]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_181]
+
+2018-12-28 16:12:39.749  INFO 7208 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 7208 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 16:12:39.753  INFO 7208 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 16:12:41.941  INFO 7208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 16:12:41.944  INFO 7208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 16:12:41.981  INFO 7208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2018-12-28 16:12:42.353  INFO 7208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:12:42.360  INFO 7208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$fed34a6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:12:42.399  INFO 7208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$49817678] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:12:42.438  INFO 7208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:12:42.450  INFO 7208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 16:12:43.124  INFO 7208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 16:12:43.152  INFO 7208 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 16:12:43.153  INFO 7208 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 16:12:43.165  INFO 7208 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 16:12:43.308  INFO 7208 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 16:12:43.309  INFO 7208 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3458 ms
+2018-12-28 16:12:43.514  INFO 7208 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 16:12:43.679  INFO 7208 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 16:12:44.764  INFO 7208 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 16:12:45.564  INFO 7208 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 16:12:45.590  INFO 7208 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 16:12:45.604  INFO 7208 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 16:12:45.934  INFO 7208 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 16:12:45.955  INFO 7208 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 16:12:46.014  INFO 7208 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#5b275811:0/SimpleConnection@66d3b881 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 58311]
+2018-12-28 16:12:46.104  INFO 7208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 16:12:46.107  INFO 7208 --- [main] com.order.OrderApplication               : Started OrderApplication in 6.918 seconds (JVM running for 7.539)
+2018-12-28 16:13:07.739  INFO 7208 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 16:13:07.740  INFO 7208 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 16:13:07.751  INFO 7208 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2018-12-28 17:19:36.222  INFO 10680 --- [main] com.order.OrderApplication               : Starting OrderApplication on DESKTOP-VT867U5 with PID 10680 (F:\ideaWorkSpace\xiaomai\order\target\classes started by szy in F:\ideaWorkSpace\xiaomai)
+2018-12-28 17:19:36.225  INFO 10680 --- [main] com.order.OrderApplication               : The following profiles are active: dev
+2018-12-28 17:19:39.138  INFO 10680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-12-28 17:19:39.142  INFO 10680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-12-28 17:19:39.176  INFO 10680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2018-12-28 17:19:39.623  INFO 10680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 17:19:39.630  INFO 10680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$efdbe940] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 17:19:39.670  INFO 10680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$29702b12] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 17:19:39.701  INFO 10680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 17:19:39.710  INFO 10680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-12-28 17:19:40.562  INFO 10680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-12-28 17:19:40.593  INFO 10680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-12-28 17:19:40.594  INFO 10680 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.13
+2018-12-28 17:19:40.606  INFO 10680 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;";C:\Program Files\Java\jdk1.8.0_181\\bin;C:\Program Files\Java\jdk1.8.0_181\\jre\bin";"C:\Program Files\Java\apache-maven-3.6.0\bin\;";C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\Git\cmd;";D:\gradle-5.1-rc-1\bin";D:\erl10.0.1\bin;C:\Users\szy\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Java\apache-maven-3.6.0\bin;D:\gradle-5.1-rc-1\bin;D:\erl10.0.1\bin;;.]
+2018-12-28 17:19:40.774  INFO 10680 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-12-28 17:19:40.775  INFO 10680 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4424 ms
+2018-12-28 17:19:41.021  INFO 10680 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2018-12-28 17:19:41.241  INFO 10680 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-12-28 17:19:42.785  INFO 10680 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-12-28 17:19:43.981  INFO 10680 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-12-28 17:19:44.023  INFO 10680 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-12-28 17:19:44.041  INFO 10680 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-12-28 17:19:44.443  INFO 10680 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: selectOneUsingGET_1
+2018-12-28 17:19:44.470  INFO 10680 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2018-12-28 17:19:44.582  INFO 10680 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#6ed043d3:0/SimpleConnection@7308c820 [delegate=amqp://admin@127.0.0.1:5672/, localPort= 60564]
+2018-12-28 17:19:44.746  INFO 10680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-12-28 17:19:44.752  INFO 10680 --- [main] com.order.OrderApplication               : Started OrderApplication in 9.467 seconds (JVM running for 10.329)
+2018-12-28 17:19:52.867  INFO 10680 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-12-28 17:19:52.867  INFO 10680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-12-28 17:19:52.881  INFO 10680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2018-12-28 17:20:44.749 ERROR 10680 --- [http-nio-8080-exec-3] sdk.biz.err                              : ErrorScene^_^40004^_^ACQ.TRADE_HAS_CLOSE^_^null^_^Windows 10^_^2018-12-28 17:20:44^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.refund&sign=QDo9tl+aid0hnM0iM0aZekFSTDl0I+aCQvuLhidAfy7yk0eMJ0JOe4KonNZ08Piyi3Jgj2A51u9dvr5RbOtNxeD6SZy55LFFciEnPxo3mjm1xydokXcaNGm8gwV7JBt64n4c+Uztj8cVnrshuiOL952EXW2Ai3BkI0JmZz0Ny5IlVewwl+Mju4RggsmA2DwoPvsLOQhOIHKQRVGWFFn9vllKBazd0DIoYwGAB8ttVdaEYAv4PI/8iFCo410Jt55CHwN08wlev/6/DEBXrDU1/caCpYFVjB3tBvJDmNz4ipI2Sno1bBAqLDaxKFAknhOQ3ZK1hIbvmXY5xdLnQ9lY7Q==&version=1.0&app_id=2016092400582243&sign_type=RSA2&timestamp=2018-12-28 17:20:43^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-3.4.27.ALL&format=json^_^ApplicationParams:biz_content={"out_trade_no":"2018122801391760780","trade_no":"2018122822001462280502433751","refund_amount":"120","refund_reason":"啦啦啦啦","out_request_no":"全额退款"}^_^Body:{"alipay_trade_refund_response":{"code":"40004","msg":"Business Failed","sub_code":"ACQ.TRADE_HAS_CLOSE","sub_msg":"交易已经关闭","refund_fee":"0.00","send_back_fee":"0.00"},"sign":"IrnL8fxzEDPlf0S9m1AaqfkaCUDR/3c41I2lNRGn6dUo/p6Y9/wqfEdn4OKkubZp7+0nqFBfnlfGQoNt3B5L28RkknWrBX/KOFmsx7HysOiWhWF2jWRhsTxRF/Jup0Qfo9nsgYarAuYaJOmWOoxTa8NA9eCkusy8Z2s6VHEw5mpiTHz1NhEDAXk1MNAmjJEOM7iQchtPTvHoD0+Qqs0LMYdy79BjEbzITV/Hs4FmJtEnA+iUjDO+4wFdrlWc1f39ozipDXRAh4Y8LZEXz+uH/q8/Uk+uA1RCc6ru10+qyWt4mpD0fYVkgTQUCBbsXgIIqabc1cPdcQzDj4xGeojWRQ=="}^_^358ms,997ms,21ms

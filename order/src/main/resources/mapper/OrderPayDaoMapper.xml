@@ -8,17 +8,19 @@
         <result property="payamount" column="payamount" jdbcType="VARCHAR"/>
         <result property="payname" column="payname" jdbcType="VARCHAR"/>
         <result property="payalipay" column="payalipay" jdbcType="VARCHAR"/>
-        <result property="paybody" column="paybody" jdbcType="VARCHAR"/>
-        <result property="paytime" column="paytime" jdbcType="TIMESTAMP"/>
         <result property="paystate" column="paystate" jdbcType="VARCHAR"/>
+        <result property="paytime" column="paytime" jdbcType="TIMESTAMP"/>
+        <result property="refundcause" column="refundcause" jdbcType="VARCHAR"/>
+        <result property="refundtime" column="refundtime" jdbcType="VARCHAR"/>
+        <result property="refundment" column="refundment" jdbcType="VARCHAR"/>
+        <result property="pay1" column="pay1" jdbcType="VARCHAR"/>
         <result property="pay2" column="pay2" jdbcType="VARCHAR"/>
-        <result property="pay3" column="pay3" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="OrderPayMap">
         select
-          payid, paynumber, payamount, payname, payalipay, paybody, paytime, paystate, pay2, pay3
+          payid, paynumber, payamount, payname, payalipay, paystate, paytime, refundcause, refundtime, refundment, pay1, pay2
         from xiaomai.order_pay
         where payid = #{payid}
     </select>
@@ -26,7 +28,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="OrderPayMap">
         select
-          payid, paynumber, payamount, payname, payalipay, paybody, paytime, paystate, pay2, pay3
+          payid, paynumber, payamount, payname, payalipay, paystate, paytime, refundcause, refundtime, refundment, pay1, pay2
         from xiaomai.order_pay
         limit #{offset}, #{limit}
     </select>
@@ -34,7 +36,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="OrderPayMap">
         select
-        payid, paynumber, payamount, payname, payalipay, paybody, paytime, paystate, pay2, pay3
+        payid, paynumber, payamount, payname, payalipay, paystate, paytime, refundcause, refundtime, refundment, pay1, pay2
         from xiaomai.order_pay
         <where>
             <if test="payid != null">
@@ -52,28 +54,34 @@
             <if test="payalipay != null and payalipay != ''">
                 and payalipay = #{payalipay}
             </if>
-            <if test="paybody != null and paybody != ''">
-                and paybody = #{paybody}
+            <if test="paystate != null and paystate != ''">
+                and paystate = #{paystate}
             </if>
             <if test="paytime != null">
                 and paytime = #{paytime}
             </if>
-            <if test="paystate != null and paystate != ''">
-                and paystate = #{paystate}
+            <if test="refundcause != null and refundcause != ''">
+                and refundcause = #{refundcause}
+            </if>
+            <if test="refundtime != null and refundtime != ''">
+                and refundtime = #{refundtime}
+            </if>
+            <if test="refundment != null and refundment != ''">
+                and refundment = #{refundment}
+            </if>
+            <if test="pay1 != null and pay1 != ''">
+                and pay1 = #{pay1}
             </if>
             <if test="pay2 != null and pay2 != ''">
                 and pay2 = #{pay2}
-            </if>
-            <if test="pay3 != null and pay3 != ''">
-                and pay3 = #{pay3}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="payid" useGeneratedKeys="true">
-        insert into xiaomai.order_pay(paynumber, payamount, payname, payalipay, paybody, paytime, paystate, pay2, pay3)
-        values (#{paynumber}, #{payamount}, #{payname}, #{payalipay}, #{paybody}, #{paytime}, #{paystate}, #{pay2}, #{pay3})
+        insert into xiaomai.order_pay(paynumber, payamount, payname, payalipay, paystate, paytime, refundcause, refundtime, refundment, pay1, pay2)
+        values (#{paynumber}, #{payamount}, #{payname}, #{payalipay}, #{paystate}, #{paytime}, #{refundcause}, #{refundtime}, #{refundment}, #{pay1}, #{pay2})
     </insert>
 
     <!--通过主键修改数据-->
@@ -92,20 +100,26 @@
             <if test="payalipay != null and payalipay != ''">
                 payalipay = #{payalipay},
             </if>
-            <if test="paybody != null and paybody != ''">
-                paybody = #{paybody},
+            <if test="paystate != null and paystate != ''">
+                paystate = #{paystate},
             </if>
             <if test="paytime != null">
                 paytime = #{paytime},
             </if>
-            <if test="paystate != null and paystate != ''">
-                paystate = #{paystate},
+            <if test="refundcause != null and refundcause != ''">
+                refundcause = #{refundcause},
+            </if>
+            <if test="refundtime != null and refundtime != ''">
+                refundtime = #{refundtime},
+            </if>
+            <if test="refundment != null and refundment != ''">
+                refundment = #{refundment},
+            </if>
+            <if test="pay1 != null and pay1 != ''">
+                pay1 = #{pay1},
             </if>
             <if test="pay2 != null and pay2 != ''">
                 pay2 = #{pay2},
-            </if>
-            <if test="pay3 != null and pay3 != ''">
-                pay3 = #{pay3},
             </if>
         </set>
         where payid = #{payid}
@@ -116,4 +130,18 @@
         delete from xiaomai.order_pay where payid = #{payid}
     </delete>
 
+    <!--查询订单编号是否存在-->
+    <select id="selectPayNumber" parameterType="String" resultType="Integer">
+        select count(paynumber) from order_pay where paynumber = #{paynumber}
+    </select>
+
+    <!--根据订单编号获取订单交易明细表里的ID-->
+    <select id="selectPayNumberByPayID" parameterType="String" resultType="Integer">
+        select payid from order_pay where paynumber = #{paynumber}
+    </select>
+
+    <!--根据订单编号获取订单交易明细表里的交易号-->
+    <select id="selectPayNumberByPayalipay" parameterType="String" resultType="String">
+        select payalipay from order_pay where paynumber = #{paynumber}
+    </select>
 </mapper>

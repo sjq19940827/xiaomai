@@ -1,6 +1,5 @@
 package com.order.service;
 
-
 import com.order.pojo.OrderPay;
 
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
  * (OrderPay)表服务接口
  *
  * @author makejava
- * @since 2018-12-20 19:59:55
+ * @since 2018-12-27 17:34:30
  */
 public interface OrderPayService {
 
@@ -36,7 +35,7 @@ public interface OrderPayService {
      * @param orderPay 实例对象
      * @return 实例对象
      */
-    int insertByOrderPayInfo(OrderPay orderPay);
+    OrderPay insert(OrderPay orderPay);
 
     /**
      * 修改数据
@@ -54,4 +53,18 @@ public interface OrderPayService {
      */
     boolean deleteById(Integer payid);
 
+    /**
+     * 新增数据
+     *
+     * @param orderPay 实例对象
+     * @return 实例对象
+     */
+    int insertByOrderPayInfo(OrderPay orderPay);
+
+    /**
+     * 根据订单编号查询支付宝交易号
+     * @param orderNumber
+     * @return
+     */
+    String selectorderNumberByPay(String orderNumber);
 }

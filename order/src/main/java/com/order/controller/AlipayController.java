@@ -1,8 +1,10 @@
 package com.order.controller;
 
+import com.order.dao.OrderPayDao;
 import com.order.dao.TOrderDao;
 import com.order.pay.*;
 import com.order.pojo.OrderPay;
+import com.order.pojo.TOrder;
 import com.order.service.OrderPayService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.sql.Timestamp;
 import java.util.Map;
 
 import static com.order.util.DateGenerate.getStringDate;
@@ -26,6 +27,8 @@ public class AlipayController {
     private OrderPayService orderPayService;
     @Resource
     private TOrderDao tOrderDao;
+    @Resource
+    private OrderPayDao orderPayDao;
 
         @ResponseBody
         @RequestMapping(value = "close",method = RequestMethod.POST,produces = "text/html; charset=utf-8")
@@ -72,13 +75,48 @@ public class AlipayController {
             return s;
         }
 
+        /**
+         *
+         * @param WIDTRout_trade_no   商户订单号，商户网站订单系统中唯一订单号
+         * @param WIDTRtrade_no       支付宝交易号
+         * @param WIDTRrefund_amount  需要退款的金额，该金额不能大于订单金额，必填
+         * @param WIDTRrefund_reason  退款的原因说明
+         * @param WIDTRout_request_no 标识一次退款请求，同一笔交易多次退款需要保证唯一，如需部分退款，则此参数必传
+         * @return
+         * @throws UnsupportedEncodingException
+         */
         @ResponseBody
         @RequestMapping(value = "refund",method = RequestMethod.POST,produces = "text/html; charset=utf-8")
         @ApiOperation(value = "退款", httpMethod ="POST", response = String.class, notes ="退款")
-        public String refund(String WIDTRout_trade_no, String WIDTRtrade_no, String WIDTRrefund_amount, String WIDTRrefund_reason, String WIDTRout_request_no) throws UnsupportedEncodingException {
+        public String refund(String WIDTRout_trade_no, String WIDTRtrade_no, String WIDTRrefund_amount, String WIDTRrefund_reason, String WIDTRout_request_no){
             Refund r = new Refund();
             String s = r.refund(WIDTRout_trade_no, WIDTRtrade_no,WIDTRrefund_amount,WIDTRrefund_reason,WIDTRout_request_no);
-            return s;
+            if("10000".equals(s)){
+                //根据订单编号查询订单交易明细表的该编号ID
+                Integer id = orderPayDao.selectPayNumberByPayID(WIDTRout_trade_no);
+                //根据ID查询订单明细信息
+                OrderPay orderPay = orderPayDao.queryById(id);
+                //根据订单编号查询订单表的信息
+                Integer ID = tOrderDao.selectOrderIDByorderNumber(WIDTRout_trade_no);
+                TOrder tOrder = tOrderDao.queryById(ID);
+                OrderPay newOrderPay = new OrderPay();
+                newOrderPay.setPayid(id);
+                newOrderPay.setPayname(tOrder.getShopName());   //商品名称
+                newOrderPay.setRefundtime(getStringDate());     //退款时间
+                newOrderPay.setRefundcause(WIDTRrefund_reason); //退款原因
+                newOrderPay.setRefundment("全额退款：" + WIDTRrefund_amount);
+                newOrderPay.setPaystate("已退款");
+                int update = orderPayDao.update(newOrderPay);
+                return "退款成功";
+            }else if("40004".equals(s) ){
+                return "退款出问题了，请联系福根女士，谢谢！";
+            }else if("10003".equals(s)){
+                return "付款仍在处理中。商家需要轮询付款结果。";
+            }else if("20000".equals(s)){
+                return "处理呼叫时出现未知错误或系统错误。商家需要查询订单状态或取消。";
+            }else {
+                return "退款失败";
+            }
         }
 
         @ResponseBody
@@ -97,16 +135,18 @@ public class AlipayController {
             Map<String, String[]> requestParams = request.getParameterMap();
             Return_url r = new Return_url();
             String s = r.return_url(requestParams,out_trade_no,trade_no,total_amount);
-            OrderPay orderPay = new OrderPay();
-            orderPay.setPaynumber(out_trade_no);
-            orderPay.setPayalipay(trade_no);
-            orderPay.setPayamount(total_amount);
-            Timestamp timestamp = Timestamp.valueOf(getStringDate());
-            orderPay.setPaytime(timestamp);
-            orderPay.setPaystate("已支付");
             //查询订单编号是否存在
-            int selectByOrderNumber = tOrderDao.selectByOrderNumber(out_trade_no);
-            if(selectByOrderNumber != 0){
+            Integer selectByOrderNumber = tOrderDao.selectByOrderNumber(out_trade_no);
+            if(selectByOrderNumber != null){
+                Integer ID = tOrderDao.selectOrderIDByorderNumber(out_trade_no);
+                TOrder tOrder = tOrderDao.queryById(ID);
+                OrderPay orderPay = new OrderPay();
+                orderPay.setPaynumber(out_trade_no);
+                orderPay.setPayalipay(trade_no);
+                orderPay.setPayamount(total_amount);
+                orderPay.setPaytime(getStringDate());
+                orderPay.setPaystate("已支付");
+                orderPay.setPayname(tOrder.getShopName());
                 int orderPayInfo = orderPayService.insertByOrderPayInfo(orderPay);
                 if(orderPayInfo != 0){
                     int updateByOrderStatePay = tOrderDao.updateByOrderStatePay(out_trade_no,getStringDate());
