@@ -64,5 +64,5 @@ public interface TTalkDao {
      */
     int selDzByUserAndShow(@Param("user_id") Integer user_id, @Param("answer_id") Integer answer_id);
 
-
+    int NumByAnswer( @Param("answer_id") Integer answer_id);
 }

@@ -32,10 +32,11 @@ public class TReplyController {
    * @param replyuser_id
    * @return
    */
-  @ApiOperation(value = "查询某商品下评论与回复",httpMethod = "POST",response = String.class,notes = "查询某商品下评论与回复")
-  @ApiImplicitParam (name ="answer_id",value = "商品ID")
+  @ApiOperation(value = "查询某用户下评论与回复",httpMethod = "GET",response = String.class,notes = "查询某商品下评论与回复")
+  @ApiImplicitParam (name ="replyuser_id",value = "回复者ID")
   @GetMapping("/selAllTalk")
   public String rtg(Integer replyuser_id){
     return JSON.toJSONString(tReplytalkService.allInfo(replyuser_id));
   }
+
 }
