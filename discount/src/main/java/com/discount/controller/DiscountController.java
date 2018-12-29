@@ -28,7 +28,7 @@ public class DiscountController {
         if (insets > 0){
             TReduce select = discountService.select(reduce_id);
             if (select != null){
-               int subs = select.getSub();
+                int subs = select.getSub();
                 int updates = discountService.updates(subs,reduce_id);
                 if (updates == 1){
                     return "优惠券获取成功";

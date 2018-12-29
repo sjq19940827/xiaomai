@@ -8,6 +8,7 @@ import com.goods.pojo.TCategorie;
 import com.goods.pojo.TShow;
 import com.goods.service.TShowService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -81,35 +82,21 @@ public class TShowServiceImpl implements TShowService {
     /**
      * 根据城市名字模糊查询
      * @param city_name
-     * @param index
-     * @param pagesize
      * @return
      */
     @Override
-    public String getTShowByCityName(String city_name,Integer index,Integer pagesize) {
-        PageHelper.startPage (index,pagesize);
-        List<TShow> ByName = tShowDao.getTShowByCityName (city_name);
-        PageInfo<TShow> pageInfo = new PageInfo<TShow> (ByName);
-        return JSON.toJSONString (pageInfo.getList ());
+    public String getTShowByCityName(@Param("city_name") String city_name, @Param("show_place")String show_place) {
+        if(city_name==null&&show_place==null&&city_name!=show_place){
+            return "您的输入有误";
+        }else{
+            return JSON.toJSONString(tShowDao.getTShowByCityName (city_name,show_place));
+        }
+
     }
 
-    /**
-     * 根据商品名字模糊查询
-     * @param show_name
-     * @param index
-     * @param pagesize
-     * @return
-     */
-    @Override
-    public String getAllByGoodsName(String show_name, Integer index, Integer pagesize) {
-        PageHelper.startPage (index,pagesize);
-        List<TShow> ByGoodsName = tShowDao.getAllByGoodsName(show_name);
-        PageInfo<TShow> pageInfo = new PageInfo<TShow> (ByGoodsName);
-        return JSON.toJSONString (pageInfo.getList ());
-    }
 
     /**
-     * 根据商品ID模糊查询
+     * 根据商品ID查询
      * @param goodsID
      * @param index
      * @param pagesize
@@ -121,5 +108,14 @@ public class TShowServiceImpl implements TShowService {
         List<TShow> ByGoodsID = tShowDao.getTShowByGoodsID(goodsID);
         PageInfo<TShow> pageInfo = new PageInfo<TShow> (ByGoodsID);
         return JSON.toJSONString (pageInfo.getList ());
+    }
+    /**
+     * 根据商品特殊标识进行查询
+     * @param show_mark
+     * @return
+     */
+    @Override
+    public String getTShowByMarkID(Integer show_mark) {
+        return JSON.toJSONString (tShowDao.getTShowByMarkID (show_mark));
     }
 }
