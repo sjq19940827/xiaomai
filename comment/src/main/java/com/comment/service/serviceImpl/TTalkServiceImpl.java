@@ -1,17 +1,13 @@
 package com.comment.service.serviceImpl;
 
-
-
+import com.alibaba.fastjson.JSON;
 import com.comment.dao.TTalkDao;
 import com.comment.pojo.TTalk;
 import com.comment.service.TTalkService;
 import com.comment.util.Dates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.Jedis;
-
 import java.util.List;
-
 @Service
 public class TTalkServiceImpl implements TTalkService {
     @Autowired
@@ -23,9 +19,14 @@ public class TTalkServiceImpl implements TTalkService {
      * @return
      */
     @Override
-    public List<TTalk> getAllInfoByShowid(Integer answer_id) {
+    public String getAllInfoByShowid(Integer answer_id) {
+        int i = tTalkDao.NumByAnswer(answer_id);
+        if(i > 0){
+            return JSON.toJSONString(tTalkDao.getAllTalk(answer_id));
+        }else {
+            return "该商品暂无评论";
+        }
 
-        return tTalkDao.getAllTalk(answer_id);
     }
 
     /**
@@ -118,7 +119,22 @@ public class TTalkServiceImpl implements TTalkService {
         return "点赞成功";
     }
 
-
+    /**
+     * 查看某商品是否有评论
+     * @param answer_id
+     * @return
+     */
+    @Override
+    public String  NumByAnswer(Integer answer_id) {
+        String info = null;
+        int i = tTalkDao.NumByAnswer(answer_id);
+        if(i > 0){
+            info ="有评论信息";
+        }else {
+            info = "该商品无评论信息";
+        }
+        return info;
+    }
 
     /**
      * 查询某用户对某商品的评论的被点赞数
