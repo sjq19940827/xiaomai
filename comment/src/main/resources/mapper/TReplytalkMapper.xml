@@ -47,10 +47,10 @@
     <select id="allInfo" parameterType="int" resultType="com.comment.pojo.TReplytalk" resultMap="TReplyMap" >
 SELECT
 t_replytalk.replyuser_id,
+t_replytalk.talk_id,
 t_replytalk.reply_info,
-t_user.userName,
-t_user.loginName,
-t_replytalk.createtime
+t_replytalk.createtime,
+t_user.id
 FROM
 t_replytalk
 INNER JOIN t_user ON t_replytalk.replyuser_id = t_user.id

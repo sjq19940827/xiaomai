@@ -24,7 +24,6 @@ public class TTalkController {
     @ApiImplicitParam(name = "answer_id",value = "商品ID")
     @GetMapping("/InfoByAnswer")
     public String ds(Integer answer_id){
-
         return JSON.toJSONString(tTalkService.getAllInfoByShowid(answer_id));
     }
 
@@ -67,7 +66,6 @@ public class TTalkController {
     @ApiOperation(value = "修改评论信息",httpMethod = "POST",response = String.class,notes = "修改一条评论信息")
     @RequestMapping("/upInfo")
     public String up(TTalk tTalk){
-        System.out.println("controller获取的长度" + tTalkService.updateTalkInfo(tTalk).length());
         return tTalkService.updateTalkInfo(tTalk);
     }
 

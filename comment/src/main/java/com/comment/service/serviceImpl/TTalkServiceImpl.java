@@ -64,8 +64,6 @@ public class TTalkServiceImpl implements TTalkService {
       String info = null;
       if(tTalk.getAnswer_id()!= null && tTalk.getUser_id()!= null &&  tTalk.getTalk_info()!= null){
           tTalk.setCreatetime(Dates.dates());
-
-          System.out.println(tTalk);
           tTalk.setTalk_info(tTalk.getTalk_info());
           if(tTalkDao.addTalkByUser(tTalk) == 0){
               info ="评论发布失败";
@@ -75,10 +73,7 @@ public class TTalkServiceImpl implements TTalkService {
       }else {
           info = "评论信息为空,未发布成功";
       }
-
         return info;
-
-
     }
 
     /**登录状态下
@@ -88,15 +83,20 @@ public class TTalkServiceImpl implements TTalkService {
      */
     @Override
     public String  updateTalkInfo(TTalk tTalk) {
-        String info=null;
-        int i = tTalkDao.updTalkInfo(tTalk);
-
-        System.out.println("td的长度" + i);
-        if(i > 0){
-            info ="修改成功";
+       String info = null;
+        if(tTalk.getUser_id() !=  null && tTalk.getTalk_id() != null && tTalk.getTalk_info() != null){
+            int i = tTalkDao.updTalkInfo(tTalk);
+            if(i > 0 ){
+                info = "修改成功";
+                System.out.println("i > 0 \t" + i);
+            }else if(i<0){
+                info = "修改失败";
+                System.out.println("i<0" + i );
+            }
         }else {
-            info = "修改失败";
+            return "输入不完整";
         }
+
         return info ;
     }
 
@@ -109,14 +109,11 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public String qdz(Integer user_id, Integer talk_id) {
         int c = selNum(user_id, talk_id);
-        System.out.println("***1***数据库状态" + c);
         if( c  == 1){
             int i = tTalkDao.upNum1(user_id, talk_id);
-            System.out.println("*****2修改后" + i);
             return "取消点赞";
         }else if(c == 0){
             int i = tTalkDao.upNum2(user_id, talk_id);
-            System.out.println(i);
         }
         return "点赞成功";
     }
