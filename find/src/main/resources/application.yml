@@ -66,7 +66,7 @@ spring:
       password: 123456
 ---
 server:
-  port: 8080
+  port: 8044
 
 # actuator监控
 management:
