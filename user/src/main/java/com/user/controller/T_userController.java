@@ -87,4 +87,11 @@ public class T_userController {
         System.out.println(phone);
         return tus.phoneAndPwdLogin(phone,pwd/*,request*/);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "logout",method = RequestMethod.GET)
+    @ApiOperation(value = "用户注销，退出登录状态",notes = "清除用户登录状态的缓存",response = String.class)
+    public String userLogout(){
+        return tus.userLogout();
+    }
 }

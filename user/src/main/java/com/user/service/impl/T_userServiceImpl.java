@@ -96,8 +96,9 @@ public class T_userServiceImpl implements T_userService{
     }
     /**
      * 判断用户输入的验证码是否正确
-     * @param authcode
-     * @return
+     * 手机号、验证码登录登录登录登录登录登录登录登录登录登录登录登录登录登录登录登录
+     * @param authcode 验证码
+     * @return 返回登录结果
      */
     @Override
     public String judgeAuthcode(String authcode/*,HttpServletRequest request*/) {
@@ -117,6 +118,8 @@ public class T_userServiceImpl implements T_userService{
                 String loginstate = "loginsucceed";
                 jedis.set("loginstate",loginstate);
                 jedis.set("loginphone",phone);
+                String userid = String.valueOf(tud.seleUser(user).getId());
+                jedis.set("userid",userid);
                 //session.setAttribute("loginstate",loginstate);
                 return "y";//登录成功
             }else {
@@ -213,10 +216,10 @@ public class T_userServiceImpl implements T_userService{
     }
 
     /**
-     * 手机号密码登录
-     * @param phone
-     * @param pwd
-     * @return
+     * 手机号密码登录  登录登录登录登录登录登录登录登录登录登录登录登录
+     * @param phone 账号
+     * @param pwd 密码
+     * @return 返回登录状态
      */
     @Override
     public String phoneAndPwdLogin(String phone, String pwd/*,HttpServletRequest request*/) {
@@ -233,9 +236,11 @@ public class T_userServiceImpl implements T_userService{
                 String password = SecurityUtils.md5Hex3(pwd);
                 if(password.equals(tud.seleUser(user).getPassword())){
                     String loginstate = "loginsucceed";
-                    jedis.set("loginstate",loginstate);
-                    jedis.set("loginphone",phone);
-                    jedis.set("loginpwd",password);
+                    jedis.set("loginstate",loginstate);//登录状态
+                    jedis.set("loginphone",phone);//用户账号
+                    jedis.set("loginpwd",password);//用户密码
+                    String userid = String.valueOf(tud.seleUser(user).getId());
+                    jedis.set("userid",userid);//用户id
                     return "loginyes";
                 }else {
                     return "loginerror";
@@ -244,6 +249,18 @@ public class T_userServiceImpl implements T_userService{
         }
     }
 
+    /**
+     * 注销
+     * @return
+     */
+    @Override
+    public String userLogout() {
+        Jedis jedis = new Jedis("localhost",6379);
+        String loginstate = "logout";
+        jedis.set("loginstate",loginstate);
+        jedis.set("loginphone","null");
+        return "注销成功";
+    }
 
 
     /**

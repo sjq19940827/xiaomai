@@ -52,5 +52,10 @@ public interface T_userService {
      */
     String phoneAndPwdLogin(String phone,String pwd/*,HttpServletRequest request*/);
 
+    /**
+     * 注销
+     * @return
+     */
+    String userLogout();
 
 }

@@ -31,6 +31,8 @@ public class T_userInfoController {
     public String Showinfo(){
         return tuis.userInfo();
     }
+
+
     @ResponseBody
     @RequestMapping(value = "updapwdfirst",method = RequestMethod.GET)
     @ApiOperation(value = "修改密码，该用户第一次通过快捷登录，数据库中没有密码",notes = "修改数据库",response = String.class)
