@@ -29,7 +29,7 @@ public class T_addressServiceImpl implements T_addressService {
      */
     @Override
     public String getUserAddress() {
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         T_address address = new T_address();
         if(getuserid() == null){
             return "没有用户";
@@ -49,7 +49,7 @@ public class T_addressServiceImpl implements T_addressService {
      * @return
      */
     public Integer getuserid() {
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         T_user user = new T_user();
         user.setLogin_phone(jedis.get("loginphone"));
         System.out.println(jedis.get("loginphone"));
@@ -75,7 +75,7 @@ public class T_addressServiceImpl implements T_addressService {
         address.setPreferred(0);
         System.out.println(getuserid()+"654321");
         address.setUser_id(getuserid());
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         if(address.getAddress_addressee().length() < 1 || address.getAddress_addressee().length() > 10){
             return "用户名不合理";
         }else {
