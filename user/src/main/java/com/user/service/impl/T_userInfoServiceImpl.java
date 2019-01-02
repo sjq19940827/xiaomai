@@ -27,7 +27,7 @@ public class T_userInfoServiceImpl implements T_userInfoService {
      */
     @Override
     public String updaFirstPwd(String pwd1, String pwd2) {
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         String phone = jedis.get("loginphone");
         T_user user = new T_user();
         user.setLogin_phone(phone);
@@ -55,7 +55,7 @@ public class T_userInfoServiceImpl implements T_userInfoService {
     @Override
     public String updaPwd(String pwd, String pwd2, String pwd3) {
         T_user user = new T_user();
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         if(judgepwdexist(pwd).equals("ye")){
             String pwds = SecurityUtils.md5Hex3(pwd);
             if(judgePwdLegal(pwd2,pwd3).equals("yi")){
@@ -89,7 +89,7 @@ public class T_userInfoServiceImpl implements T_userInfoService {
     @Override
     public String updaUserInfo(String nickname,  String personalizedSignature) {
         T_user user = new T_user();
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         if(nickname.length() > 10){
             return "不能超过10个字";
         }else {
@@ -116,7 +116,7 @@ public class T_userInfoServiceImpl implements T_userInfoService {
      */
     @Override
     public String judgeUserExistPwd() {
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         String phone = jedis.get("loginphone");
         T_user user = new T_user();
         user.setLogin_phone(phone);
@@ -133,7 +133,7 @@ public class T_userInfoServiceImpl implements T_userInfoService {
      */
     @Override
     public String userInfo() {
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         T_user user = new T_user();
         user.setLogin_phone(jedis.get("loginphone"));
         String userinfo = JSON.toJSONString(tuid.seleinfo(user));
@@ -164,7 +164,7 @@ public class T_userInfoServiceImpl implements T_userInfoService {
      * @return
      */
     public String judgepwdexist(String pwd){
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         T_user user = new T_user();
         user.setLogin_phone(jedis.get("loginphone"));
         if(pwd.length() < 6 || pwd.length() > 20){

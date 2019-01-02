@@ -33,10 +33,11 @@ public class T_userServiceImpl implements T_userService{
     @Override
     public String judgeUserExist(String phone/*,HttpServletRequest request*/) {
        // HttpSession session=request.getSession();
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         T_user user = new T_user();
         if(JudgeMobilePhoneLegal(phone)){
             IndustrySMS.execute(phone/*,request*/);
+            String phones = "user" + phone + "phone";
             jedis.set("phones",phone);
             /*session.setAttribute("phones",phone);*/
             return "已发送";
@@ -102,7 +103,7 @@ public class T_userServiceImpl implements T_userService{
      */
     @Override
     public String judgeAuthcode(String authcode/*,HttpServletRequest request*/) {
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
        /* HttpSession session=request.getSession();*/
        /* String phone = (String) session.getAttribute("phones");*/
         String phone = jedis.get("phones");
@@ -138,7 +139,7 @@ public class T_userServiceImpl implements T_userService{
     @Override
     public String addUserPwd(String authcode/*,HttpServletRequest request*/) {
        /* HttpSession session=request.getSession();*/
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         T_user user = new T_user();
         if(authcode.length() == 6){
             if(authcode.equals(/*session.getAttribute("authcode")*/jedis.get("authcode"))){
@@ -179,7 +180,7 @@ public class T_userServiceImpl implements T_userService{
     @Override
     public String judgePhoneAndPwd(String phone, String pwd1, String pwd2/*,HttpServletRequest request*/) {
         /*HttpSession session=request.getSession();*/
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         T_user user = new T_user();
         if(!judgepwd(pwd1,pwd2).equals("y")){
             return judgepwd(pwd1,pwd2);
@@ -208,7 +209,7 @@ public class T_userServiceImpl implements T_userService{
     public String getAuthcode(/*HttpServletRequest request*/) {
         /*HttpSession session=request.getSession();*/
         /*String phone = (String) session.getAttribute("phone");*/
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         String phone = jedis.get("phone");
         System.out.println(phone + "1111111");
         IndustrySMS.execute(phone/*,request*/);
@@ -224,7 +225,7 @@ public class T_userServiceImpl implements T_userService{
     @Override
     public String phoneAndPwdLogin(String phone, String pwd/*,HttpServletRequest request*/) {
         /*HttpSession session=request.getSession();*/
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         if(!JudgeMobilePhoneLegal(phone)){
             return "手机号不合法，请输入正确的手机号";
         }else {
@@ -255,7 +256,7 @@ public class T_userServiceImpl implements T_userService{
      */
     @Override
     public String userLogout() {
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         String loginstate = "logout";
         jedis.set("loginstate",loginstate);
         jedis.set("loginphone","null");
@@ -284,9 +285,9 @@ public class T_userServiceImpl implements T_userService{
 
     /**
      * 判断两次密码的正确性
-     * @param pwd1
-     * @param pwd2
-     * @return
+     * @param pwd1 密码一
+     * @param pwd2 密码二
+     * @return 返回判断结果
      */
     public String judgepwd(String pwd1, String pwd2){
         if(!(pwd1.length() <= 16 && pwd2.length() <= 16)){

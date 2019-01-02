@@ -35,7 +35,7 @@ public class IndustrySMS {
 	/*private static String smsContent = "【麦票网】您的验证码为" + getRandomNum() + "，请于15分钟内正确输入，如非本人操作，请忽略此短信。";
 */
 	public static String smsContent(/*HttpServletRequest request*/){
-		Jedis jedis = new Jedis("localhost",6379);
+		Jedis jedis = new Jedis("148.70.68.230",6379);
 		/*HttpSession session=request.getSession();*/
         String authcode = getRandomNum();
 		String smsContent = "【麦票网】您的验证码为" + authcode + "，请于15分钟内正确输入，如非本人操作，请忽略此短信。";

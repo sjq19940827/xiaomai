@@ -69,6 +69,8 @@ spring:
 ---
 server:
   port: 8011
+  tomcat:
+    uri-encoding: UTF-8
 
 # actuator监控
 management:
@@ -105,8 +107,9 @@ spring:
   redis:
     #数据库索引
     database: 0
-    host: 127.0.0.1
+    host: 148.70.68.230
     port: 6379
+
     jedis:
       pool:
         #最大连接数
@@ -115,3 +118,4 @@ spring:
         max-idle: 8
         #最小空闲
         min-idle: 0
+

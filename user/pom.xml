@@ -7,7 +7,6 @@
         <artifactId>xiaomai</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <packaging>jar</packaging>
     <groupId>com</groupId>
     <artifactId>user</artifactId>

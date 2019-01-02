@@ -54,7 +54,7 @@ public class T_userController {
             @ApiImplicitParam(paramType = "query",required = false,name = "pwd2",value = "密码二")
     })
     public String JudgePhoneAndPwd(@RequestParam("phone")String phone,@RequestParam("pwd1")String pwd1,@RequestParam("pwd2")String pwd2,Model mo){
-        Jedis jedis = new Jedis("localhost",6379);
+        Jedis jedis = new Jedis("148.70.68.230",6379);
         jedis.get("phone");
         mo.addAttribute("phone",jedis.get("phone"));
         return tus.judgePhoneAndPwd(phone,pwd1,pwd2/*,request*/);
