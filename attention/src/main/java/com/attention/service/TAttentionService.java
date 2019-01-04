@@ -32,11 +32,10 @@ public interface TAttentionService {
     /**
      * 新增数据
      *
-     * @param attuser 用户ID
      * @param attshow 演出ID
      * @return 影响行数
      */
-    String insert(int attuser,  int attshow);
+    String insert(int attshow);
 
     /**
      * 修改数据

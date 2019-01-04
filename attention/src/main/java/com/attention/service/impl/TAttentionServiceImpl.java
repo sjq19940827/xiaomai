@@ -5,7 +5,9 @@ import com.attention.dao.TAttentionDao;
 import com.attention.pojo.TAttention;
 import com.attention.service.TAttentionService;
 import com.github.pagehelper.PageHelper;
+import com.sun.jdi.IntegerValue;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -49,12 +51,13 @@ public class TAttentionServiceImpl implements TAttentionService {
     /**
      * 新增数据
      *
-     * @param attuser
      * @param attshow
      * @return 实例对象
      */
     @Override
-    public String insert(int attuser,  int attshow) {
+    public String insert(int attshow) {
+        Jedis jedis= new Jedis("148.70.68.230",6379);
+        Integer attuser = Integer.valueOf(jedis.get("userid"));
         int insert = this.tAttentionDao.insert(attuser, attshow);
         if (insert>0){
             return "关注成功";
