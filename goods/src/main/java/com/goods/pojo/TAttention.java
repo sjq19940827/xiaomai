@@ -1,4 +1,4 @@
-package com.attention.pojo;
+package com.goods.pojo;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ public class TAttention implements Serializable {
     //关注者的ID
     private Integer attuser;
     //关注的商品ID
-    private Long attshow;
+    private Integer attshow;
     //关注标记：0.关注 1.取消关注 2.过期
     private Integer attmark;
 
@@ -36,11 +36,11 @@ public class TAttention implements Serializable {
         this.attuser = attuser;
     }
 
-    public Long getAttshow() {
+    public Integer getAttshow() {
         return attshow;
     }
 
-    public void setAttshow(Long attshow) {
+    public void setAttshow(Integer attshow) {
         this.attshow = attshow;
     }
 

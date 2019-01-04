@@ -1,8 +1,9 @@
-package com.attention.service;
+package com.goods.service;
 
-import com.attention.pojo.TAttention;
 
-import java.time.Year;
+import com.goods.pojo.TAttention;
+import com.goods.pojo.TShow;
+
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public interface TAttentionService {
      *
      * @return 对象列表
      */
-    List<TAttention> queryAllBygoodsid(Integer goodsID);
+    List<TShow> queryAllBygoodsid();
 
     /**
      * 新增数据

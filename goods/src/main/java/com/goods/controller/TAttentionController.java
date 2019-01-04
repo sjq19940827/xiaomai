@@ -1,8 +1,9 @@
-package com.attention.controller;
+package com.goods.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.attention.pojo.TAttention;
-import com.attention.service.TAttentionService;
+import com.goods.pojo.TAttention;
+import com.goods.pojo.TShow;
+import com.goods.service.TAttentionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -46,12 +47,17 @@ public class TAttentionController {
         return insert;
     }
 
+    @GetMapping("getgoods")
+    @ApiOperation(value = " 我的关注",notes = "关注商品信息json")
+    public String wode(){
+        List<TShow> tShows = tAttentionService.queryAllBygoodsid();
+        return JSON.toJSONString(tShows);
+    }
 
     @GetMapping("del")
     @ApiOperation(value = "取消关注",notes = "相应结果")
-    public String del(@ApiParam(required = true, name ="", value ="attid") @RequestParam("attid") Integer attid){
+    public String del(@ApiParam(required = true, name ="关注ID", value ="attid") @RequestParam("attid") Integer attid){
         String s = tAttentionService.deleteById(attid);
         return s;
     }
-
 }

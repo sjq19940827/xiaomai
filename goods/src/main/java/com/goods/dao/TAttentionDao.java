@@ -1,7 +1,8 @@
-package com.attention.dao;
+package com.goods.dao;
 
-import com.attention.pojo.TAttention;
+import com.goods.pojo.TAttention;
 import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**

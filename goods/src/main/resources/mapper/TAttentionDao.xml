@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.attention.dao.TAttentionDao">
+<mapper namespace="com.goods.dao.TAttentionDao">
 
-    <resultMap type="com.attention.pojo.TAttention" id="TAttentionMap">
+    <resultMap type="com.goods.pojo.TAttention" id="TAttentionMap">
         <result property="attid" column="attid" jdbcType="INTEGER"/>
         <result property="attuser" column="attuser" jdbcType="INTEGER"/>
         <result property="attshow" column="attshow" />

@@ -10,7 +10,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @MapperScan("com.goods.dao.*")
 @EnableSwagger2
-@EnableAutoConfiguration
 public class  GoodsApplication {
 
     public static void main(String[] args) {

@@ -1,8 +1,11 @@
-package com.attention.service.impl;
+package com.goods.service.impl;
 
-import com.attention.dao.TAttentionDao;
-import com.attention.pojo.TAttention;
-import com.attention.service.TAttentionService;
+import com.goods.dao.TAttentionDao;
+import com.goods.dao.TShowDao;
+import com.goods.pojo.TAttention;
+import com.goods.pojo.TShow;
+import com.goods.service.TAttentionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
@@ -19,6 +22,9 @@ import java.util.List;
 public class TAttentionServiceImpl implements TAttentionService {
     @Resource
     private TAttentionDao tAttentionDao;
+
+    @Autowired
+    private TShowDao tShowDao;
 
     /**
      * 通过ID查询单条数据
@@ -37,9 +43,13 @@ public class TAttentionServiceImpl implements TAttentionService {
      * @return 对象列表
      */
     @Override
-    public List<TAttention> queryAllBygoodsid(Integer goodsID) {
-        List<TAttention> tAttentions = tAttentionDao.queryAllByLimit();
-        return tAttentions;
+    public List<TShow> queryAllBygoodsid() {
+        TAttentionServiceImpl t=new TAttentionServiceImpl();
+        Jedis jedis= new Jedis("148.70.68.230",6379);
+        Integer attuser = Integer.valueOf(jedis.get("userid"));
+        TAttention tAttention = t.queryById(attuser);
+        List<TShow> tShowByGoodsID = tShowDao.getTShowByGoodsID(tAttention.getAttshow());
+        return tShowByGoodsID;
     }
 
     /**
