@@ -20,8 +20,8 @@ spring:
       prefix:
       suffix: .html
 mybatis:
-  type-aliases-package: com.goods.pojo,com.goods.dao.TShowDao
-  mapper-locations: mapper/*Mapper.xml
+  type-aliases-package: com.goods.pojo,com.goods.dao/*.Dao
+  mapper-locations: mapper/*.xml
 #分页
 pagehelper:
   helperDialect: mysql
@@ -34,3 +34,4 @@ pagehelper:
     data:
       solr:
         host: http://localhost:8983/solr
+

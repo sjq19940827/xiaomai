@@ -7,6 +7,8 @@ import com.goods.service.TAttentionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,7 +27,8 @@ public class TAttentionController {
     /**
      * 服务对象
      */
-    @Resource
+    @Autowired
+    @Qualifier("tAttentionService")
     private TAttentionService tAttentionService;
 
     /**
@@ -36,8 +39,8 @@ public class TAttentionController {
      */
     @GetMapping("selectOne")
     public String selectOne(Integer id) {
-        TAttention tAttention = this.tAttentionService.queryById(id);
-        return JSON.toJSONString(tAttention);
+        List<TAttention> tAttentions = this.tAttentionService.queryById(id);
+        return JSON.toJSONString(tAttentions);
     }
 
     @RequestMapping(value = "insert",method = RequestMethod.POST)
@@ -50,8 +53,8 @@ public class TAttentionController {
     @GetMapping("getgoods")
     @ApiOperation(value = " 我的关注",notes = "关注商品信息json")
     public String wode(){
-        List<TShow> tShows = tAttentionService.queryAllBygoodsid();
-        return JSON.toJSONString(tShows);
+        String s = tAttentionService.queryAllBygoodsid();
+        return s;
     }
 
     @GetMapping("del")

@@ -1,11 +1,13 @@
 package com.goods.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.goods.dao.TAttentionDao;
 import com.goods.dao.TShowDao;
 import com.goods.pojo.TAttention;
 import com.goods.pojo.TShow;
 import com.goods.service.TAttentionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
@@ -20,10 +22,12 @@ import java.util.List;
  */
 @Service("tAttentionService")
 public class TAttentionServiceImpl implements TAttentionService {
-    @Resource
+    @Autowired
+    @Qualifier("tad")
     private TAttentionDao tAttentionDao;
 
     @Autowired
+    @Qualifier("td")
     private TShowDao tShowDao;
 
     /**
@@ -33,8 +37,9 @@ public class TAttentionServiceImpl implements TAttentionService {
      * @return 实例对象
      */
     @Override
-    public TAttention queryById(Integer attuser) {
-        return this.tAttentionDao.queryById(attuser);
+    public List<TAttention> queryById(Integer attuser) {
+
+        return tAttentionDao.queryById(attuser);
     }
 
     /**
@@ -43,13 +48,23 @@ public class TAttentionServiceImpl implements TAttentionService {
      * @return 对象列表
      */
     @Override
-    public List<TShow> queryAllBygoodsid() {
-        TAttentionServiceImpl t=new TAttentionServiceImpl();
+    public String queryAllBygoodsid() {
+//        TAttentionServiceImpl t=new TAttentionServiceImpl();
         Jedis jedis= new Jedis("148.70.68.230",6379);
         Integer attuser = Integer.valueOf(jedis.get("userid"));
-        TAttention tAttention = t.queryById(attuser);
-        List<TShow> tShowByGoodsID = tShowDao.getTShowByGoodsID(tAttention.getAttshow());
-        return tShowByGoodsID;
+        System.out.println(attuser);
+        List<TAttention> tAttentions = this.queryById(attuser);
+        List<TShow> tShowByGoodsID = null;
+        for (TAttention ta:tAttentions) {
+           tShowByGoodsID = tShowDao.getTShowByGoodsID(ta.getAttshow());
+            System.out.println(tShowDao.getTShowByGoodsID(ta.getAttshow()));
+        }
+        if (tShowByGoodsID!=null){
+            return JSON.toJSONString(tShowByGoodsID);
+        }else {
+            return "啥都没！";
+        }
+
     }
 
     /**
@@ -78,9 +93,10 @@ public class TAttentionServiceImpl implements TAttentionService {
      * @return 实例对象
      */
     @Override
-    public TAttention update(TAttention tAttention) {
-        this.tAttentionDao.update(tAttention);
-        return this.queryById(tAttention.getAttid());
+    public String update(TAttention tAttention) {
+        int update = this.tAttentionDao.update(tAttention);
+        List<TAttention> tAttentions = this.queryById(tAttention.getAttid());
+        return JSON.toJSONString(tAttention);
     }
 
     /**

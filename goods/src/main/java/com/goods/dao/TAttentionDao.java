@@ -1,7 +1,9 @@
 package com.goods.dao;
 
 import com.goods.pojo.TAttention;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +13,9 @@ import java.util.List;
  * @author makejava
  * @since 2019-01-04 10:56:25
  */
+@Repository("tad")
+@Mapper
+
 public interface TAttentionDao {
 
     /**
@@ -19,7 +24,7 @@ public interface TAttentionDao {
      * @param attuser 主键
      * @return 实例对象
      */
-    TAttention queryById(Integer attuser);
+    List<TAttention> queryById(Integer attuser);
 
     /**
      * 查询指定行数据
@@ -60,6 +65,6 @@ public interface TAttentionDao {
      * @param attid 主键
      * @return 影响行数
      */
-    int deleteById(Integer attid);
+    int deleteById(@Param("attid") Integer attid);
 
 }

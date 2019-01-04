@@ -8,6 +8,7 @@ import com.goods.pojo.TCategorie;
 import com.goods.pojo.TShow;
 import com.goods.service.TShowService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @Service("gsi")
 public class TShowServiceImpl implements TShowService {
     @Autowired
+    @Qualifier("td")
     private TShowDao tShowDao;
 
     /**

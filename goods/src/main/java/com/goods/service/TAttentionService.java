@@ -3,6 +3,7 @@ package com.goods.service;
 
 import com.goods.pojo.TAttention;
 import com.goods.pojo.TShow;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -20,14 +21,14 @@ public interface TAttentionService {
      * @param attuser 主键
      * @return 实例对象
      */
-    TAttention queryById(Integer attuser);
+    List<TAttention> queryById(Integer attuser);
 
     /**
      * 查询多条数据
      *
      * @return 对象列表
      */
-    List<TShow> queryAllBygoodsid();
+    String queryAllBygoodsid();
 
     /**
      * 新增数据
@@ -43,7 +44,7 @@ public interface TAttentionService {
      * @param tAttention 实例对象
      * @return 实例对象
      */
-    TAttention update(TAttention tAttention);
+    String update(TAttention tAttention);
 
     /**
      * 通过主键删除数据

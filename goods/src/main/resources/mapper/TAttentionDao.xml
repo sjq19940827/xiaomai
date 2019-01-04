@@ -10,9 +10,9 @@
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="TAttentionMap">
+    <select id="queryById" resultMap="TAttentionMap" parameterType="int" resultType="com.goods.pojo.TAttention">
         select
-          attid, attuser, attshow, attmark
+          *
         from xiaomai.t_attention
         where attuser = #{attuser}
     </select>
@@ -45,32 +45,30 @@
         </where>
     </select>
 
-    <!--新增所有列-->
     <insert id="insert" keyProperty="attid" useGeneratedKeys="true">
-        insert into xiaomai.t_attention(attuser, attshow)
-        values (#{attuser}, #{attshow})
+        INSERT INTO xiaomai.t_attention(attid, attuser, attshow,attmark)
+        VALUES(0,#{attuser}, #{attshow},0)
     </insert>
-
     <!--通过主键修改数据-->
     <update id="update">
         update xiaomai.t_attention
-        <set>
-            <if test="attuser != null">
-                attuser = #{attuser},
-            </if>
-            <if test="attshow != null">
-                attshow = #{attshow},
-            </if>
-            <if test="attmark != null">
-                attmark = #{attmark},
-            </if>
-        </set>
+<set>
+<if test="attuser != null">
+    attuser = #{attuser},
+</if>
+<if test="attshow != null">
+    attshow = #{attshow},
+</if>
+<if test="attmark != null">
+    attmark = #{attmark},
+</if>
+</set>
         where attid = #{attid}
-    </update>
+        </update>
 
-    <!--通过主键删除-->
-    <update id="deleteById">
+        <!--通过主键删除-->
+<update id="deleteById"  parameterType="int" >
         UPDATE xiaomai.t_attention SET attmark = 1 WHERE attid = #{attid}
     </update>
 
-</mapper>
+        </mapper>
