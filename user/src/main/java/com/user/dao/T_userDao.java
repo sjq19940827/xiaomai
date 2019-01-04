@@ -3,10 +3,12 @@ package com.user.dao;
 import com.user.pojo.T_user;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Repository;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
+
 @MapperScan(value = "com.user.dao.T_userDao")
 public interface T_userDao {
     /**

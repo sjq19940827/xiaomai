@@ -1,5 +1,6 @@
 package com.find.cn.service;
 
+import com.comment.pojo.TTalk;
 import com.find.cn.pojo.TFind;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface TFindService {
      * @return
      */
     List<TFind> getAllInfo(Integer user_id);
+
 }
