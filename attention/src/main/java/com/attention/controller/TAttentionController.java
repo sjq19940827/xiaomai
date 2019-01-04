@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (TAttention)表控制层
@@ -40,16 +41,16 @@ public class TAttentionController {
 
     @RequestMapping(value = "insert",method = RequestMethod.POST)
     @ApiOperation(value = "关注",notes = "相应结果")
-    public String guanzhu(@RequestParam("attuser")int attuser,  @RequestParam("attshow")int attshow){
-        String insert = tAttentionService.insert(attuser, attshow);
+    public String guanzhu(@RequestParam("attshow")int attshow){
+        String insert = tAttentionService.insert(attshow);
         return insert;
     }
 
     @GetMapping("getall")
     @ApiOperation(value = "分页显示全部关注信息",httpMethod = "GET",notes = "关注json数组")
     public String getall(@RequestParam("pagenum")int pagenum , @RequestParam("pagesize") int pagesize){
-        String s = tAttentionService.queryAllByLimit(pagenum, pagesize);
-        return s;
+        List<TAttention> s = tAttentionService.queryAllByLimit(pagenum, pagesize);
+        return JSON.toJSONString(s);
     }
 
     @GetMapping("del")

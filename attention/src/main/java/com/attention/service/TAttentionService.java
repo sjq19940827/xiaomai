@@ -2,6 +2,7 @@ package com.attention.service;
 
 import com.attention.pojo.TAttention;
 
+import java.time.Year;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public interface TAttentionService {
      * @param pagesize 查询条数
      * @return 对象列表
      */
-    String queryAllByLimit(int pagenum, int pagesize);
+    List<TAttention> queryAllByLimit(int pagenum, int pagesize);
 
     /**
      * 新增数据

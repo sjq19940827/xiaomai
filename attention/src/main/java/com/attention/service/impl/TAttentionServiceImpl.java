@@ -42,10 +42,10 @@ public class TAttentionServiceImpl implements TAttentionService {
      * @return 对象列表
      */
     @Override
-    public String queryAllByLimit(int pagenum, int pagsize) {
+    public List<TAttention> queryAllByLimit(int pagenum, int pagsize) {
         PageHelper.startPage(pagenum, pagsize);
         List<TAttention> tAttentions = tAttentionDao.queryAllByLimit();
-        return JSON.toJSONString(tAttentions);
+        return tAttentions;
     }
 
     /**
