@@ -1,11 +1,8 @@
 package com.attention.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.attention.dao.TAttentionDao;
 import com.attention.pojo.TAttention;
 import com.attention.service.TAttentionService;
-import com.github.pagehelper.PageHelper;
-import com.sun.jdi.IntegerValue;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
@@ -26,24 +23,21 @@ public class TAttentionServiceImpl implements TAttentionService {
     /**
      * 通过ID查询单条数据
      *
-     * @param attid 主键
+     * @param attuser 主键
      * @return 实例对象
      */
     @Override
-    public TAttention queryById(Integer attid) {
-        return this.tAttentionDao.queryById(attid);
+    public TAttention queryById(Integer attuser) {
+        return this.tAttentionDao.queryById(attuser);
     }
 
     /**
      * 查询多条数据
      *
-     * @param pagenum 查询起始位置
-     * @param pagsize 查询条数
      * @return 对象列表
      */
     @Override
-    public List<TAttention> queryAllByLimit(int pagenum, int pagsize) {
-        PageHelper.startPage(pagenum, pagsize);
+    public List<TAttention> queryAllBygoodsid(Integer goodsID) {
         List<TAttention> tAttentions = tAttentionDao.queryAllByLimit();
         return tAttentions;
     }

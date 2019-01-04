@@ -46,12 +46,6 @@ public class TAttentionController {
         return insert;
     }
 
-    @GetMapping("getall")
-    @ApiOperation(value = "分页显示全部关注信息",httpMethod = "GET",notes = "关注json数组")
-    public String getall(@RequestParam("pagenum")int pagenum , @RequestParam("pagesize") int pagesize){
-        List<TAttention> s = tAttentionService.queryAllByLimit(pagenum, pagesize);
-        return JSON.toJSONString(s);
-    }
 
     @GetMapping("del")
     @ApiOperation(value = "取消关注",notes = "相应结果")

@@ -16,19 +16,17 @@ public interface TAttentionService {
     /**
      * 通过ID查询单条数据
      *
-     * @param attid 主键
+     * @param attuser 主键
      * @return 实例对象
      */
-    TAttention queryById(Integer attid);
+    TAttention queryById(Integer attuser);
 
     /**
      * 查询多条数据
      *
-     * @param pagenum 查询起始位置
-     * @param pagesize 查询条数
      * @return 对象列表
      */
-    List<TAttention> queryAllByLimit(int pagenum, int pagesize);
+    List<TAttention> queryAllBygoodsid(Integer goodsID);
 
     /**
      * 新增数据

@@ -14,7 +14,7 @@
         select
           attid, attuser, attshow, attmark
         from xiaomai.t_attention
-        where attid = #{attid}
+        where attuser = #{attuser}
     </select>
 
     <!--查询指定行数据-->
