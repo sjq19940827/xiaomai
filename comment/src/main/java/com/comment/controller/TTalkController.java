@@ -61,6 +61,7 @@ public class TTalkController {
     @ResponseBody
     @RequestMapping("/publish")
     public String addTalk(TTalk talk){
+        System.out.println(talk.getCreatetime());
         return tTalkService.addTalkByUser(talk);
     }
 

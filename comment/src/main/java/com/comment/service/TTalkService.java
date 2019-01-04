@@ -62,6 +62,7 @@ public interface TTalkService {
      */
     String qdz(Integer user_id, Integer talk_id);
 
+    // 查看某商品是否有评论
     String  NumByAnswer(Integer answer_id);
 
 }

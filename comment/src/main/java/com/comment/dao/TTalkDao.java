@@ -1,15 +1,9 @@
 package com.comment.dao;
 
-
-
-
-import com.comment.pojo.TReplytalk;
 import com.comment.pojo.TTalk;
-import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository

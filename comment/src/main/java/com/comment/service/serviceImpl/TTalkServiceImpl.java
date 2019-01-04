@@ -5,8 +5,11 @@ import com.comment.dao.TTalkDao;
 import com.comment.pojo.TTalk;
 import com.comment.service.TTalkService;
 import com.comment.util.Dates;
+import com.user.dao.T_userDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 import java.util.List;
 @Service
 public class TTalkServiceImpl implements TTalkService {
@@ -64,7 +67,7 @@ public class TTalkServiceImpl implements TTalkService {
     public String addTalkByUser(TTalk tTalk) {
       String info = null;
       if(tTalk.getAnswer_id()!= null && tTalk.getUser_id()!= null &&  tTalk.getTalk_info()!= null){
-          tTalk.setCreatetime(Dates.dates());
+          tTalk.setCreatetime(Dates.dates());//获取当前时间
           tTalk.setTalk_info(tTalk.getTalk_info());
           if(tTalkDao.addTalkByUser(tTalk) == 0){
               info ="评论发布失败";
@@ -89,10 +92,10 @@ public class TTalkServiceImpl implements TTalkService {
             int i = tTalkDao.updTalkInfo(tTalk);
             if(i > 0 ){
                 info = "修改成功";
-                System.out.println("i > 0 \t" + i);
+
             }else if(i<0){
                 info = "修改失败";
-                System.out.println("i<0" + i );
+
             }
         }else {
             return "输入不完整";
