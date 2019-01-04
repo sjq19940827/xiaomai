@@ -49,8 +49,8 @@ public class TShowController {
      * @return
      */
     @GetMapping("/getInfoByType")
-    public String getInfoByType(Integer categorieId, Integer index, Integer pagesize) {
-        return TShowService.getInfoByType (categorieId, index, pagesize);
+    public String getInfoByType(@Param ("categorieId") Integer categorieId,@Param ("show_name") String show_name,Integer index,Integer pagesize) {
+        return TShowService.getInfoByType (categorieId, show_name,index, pagesize);
     }
 
     /**
@@ -97,8 +97,16 @@ public class TShowController {
     public String solrSearch(@RequestParam("goodsName") String goodsName) {
         return solrService.shopSearch (goodsName);
     }
+
+    /**
+     * 根据商品特殊标识和城市进行查询
+     * @param show_mark
+     * @param index
+     * @param pagesize
+     * @return
+     */
     @GetMapping("/getTShowByMarkID")
-    public String getTShowByMarkID(Integer show_mark,Integer index,Integer pagesize ) {
-        return TShowService.getTShowByMarkID (show_mark);
+    public String getTShowByMarkID(@Param ("show_mark") Integer show_mark,@Param ("show_name")String show_name,Integer index,Integer pagesize ) {
+        return TShowService.getTShowByMarkID (show_mark,show_name,index,pagesize);
     }
 }

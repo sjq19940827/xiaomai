@@ -58,9 +58,9 @@ public class TShowServiceImpl implements TShowService {
      * @return
      */
     @Override
-    public String getInfoByType(Integer categorieId,Integer index,Integer pagesize) {
+    public String getInfoByType(@Param ("categorieId") Integer categorieId,@Param ("show_name") String show_name,Integer index,Integer pagesize) {
         PageHelper.startPage (index,pagesize);
-        List<TShow> ById = tShowDao.getInfoByType (categorieId);
+        List<TShow> ById = tShowDao.getInfoByType (categorieId,show_name);
         PageInfo<TShow> pageInfo = new PageInfo<TShow> (ById);
         return JSON.toJSONString (pageInfo.getList ());
     }
@@ -117,7 +117,10 @@ public class TShowServiceImpl implements TShowService {
      * @return
      */
     @Override
-    public String getTShowByMarkID(Integer show_mark) {
-        return JSON.toJSONString (tShowDao.getTShowByMarkID (show_mark));
+    public String getTShowByMarkID(@Param ("show_mark") Integer show_mark,@Param ("show_name")String show_name,Integer index,Integer pagesize) {
+        PageHelper.startPage (index,pagesize);
+        List<TShow> ByMarkID = tShowDao.getTShowByMarkID (show_mark,show_name);
+        PageInfo<TShow> pageInfo = new PageInfo<TShow> (ByMarkID);
+        return JSON.toJSONString (pageInfo.getList ());
     }
 }
