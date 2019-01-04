@@ -25,7 +25,7 @@ public interface TShowService {
      *根据商品分类展示商品信息
      * @return
      */
-    String getInfoByType(Integer categorieId,Integer index,Integer pagesize);
+    String getInfoByType(@Param ("categorieId") Integer categorieId,@Param ("show_name") String show_name,Integer index,Integer pagesize);
     /**
      * 根据城市ID查询商品信息
      * @param areainfoId
@@ -52,6 +52,6 @@ public interface TShowService {
      * @param show_mark
      * @return
      */
-    String getTShowByMarkID(Integer show_mark);
+    String getTShowByMarkID(@Param ("show_mark") Integer show_mark,@Param ("show_name") String show_name,Integer index,Integer pagesize);
 }
 

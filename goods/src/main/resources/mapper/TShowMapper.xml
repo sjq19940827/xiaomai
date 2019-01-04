@@ -98,8 +98,8 @@
     </select>
 
     <!--根据商品分类展示商品信息-->
-    <select id="getInfoByType" resultType="com.goods.pojo.TShow" parameterType="int">
-       select * from t_show where categorie_id=#{categorieId}
+    <select id="getInfoByType" resultType="com.goods.pojo.TShow">
+       select * from t_show where categorie_id=#{categorieId}  and show_name LIKE "%"#{show_name}"%"
 
 </select>
     <!--根据城市ID查询商品信息-->
@@ -119,7 +119,7 @@ city  WHERE   city.city_name LIKE "%"#{city_name}"%" and show_place LIKE "%"#{sh
         select * from t_show where show_id=#{goodsID}
     </select>
     <!--根据商品特殊标识进行查询-->
-    <select id="getTShowByMarkID" resultType="com.goods.pojo.TShow" parameterType="int">
-      SELECT *FROM t_show WHERE show_mark = #{show_mark}
+    <select id="getTShowByMarkID" resultType="com.goods.pojo.TShow" >
+      SELECT *FROM t_show WHERE show_mark = #{show_mark} and show_name LIKE "%"#{show_name}"%"
     </select>
 </mapper>

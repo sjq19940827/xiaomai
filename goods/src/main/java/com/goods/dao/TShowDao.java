@@ -30,7 +30,7 @@ public interface TShowDao {
      * 根据商品分类展示商品信息
      * @return
      */
-    List<TShow> getInfoByType(Integer categorieId);
+    List<TShow> getInfoByType(@Param ("categorieId") Integer categorieId,@Param ("show_name") String show_name);
 
     /**
      * 根据城市ID查询商品信息
@@ -54,10 +54,10 @@ public interface TShowDao {
     List<TShow> getTShowByGoodsID(Integer goodsID);
 
     /**
-     * 根据商品特殊标识进行查询
+     * 根据商品特殊标识和城市进行查询
      * @param show_mark
      * @return
      */
-    List<TShow> getTShowByMarkID(Integer show_mark);
+    List<TShow> getTShowByMarkID(@Param ("show_mark") Integer show_mark,@Param ("show_name") String show_name);
 
 }
