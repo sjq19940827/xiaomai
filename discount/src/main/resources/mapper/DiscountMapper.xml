@@ -30,6 +30,7 @@
 			<result column = "reduce_number"  property = "reduce_number" />
 			<result column = "reduce_tot"  property = "reduce_tot" />
 			<result column = "sub"  property = "sub" />
+			<result column = "purpose"  property = "purpose" />
 			<result column = "valid"  property = "valid" />
 		</association>
 	</resultMap>

@@ -16,14 +16,14 @@ public interface DiscountService {
      * @param user_id
      * @return
      */
-    int insets(@Param("user_id") Integer user_id,@Param("reduce_id") Integer reduce_id);
+    int insets(@Param("user_id") Integer user_id,Integer reduce_id);
 
     /**
      *查询用户优惠券
-     * @param user_id
+     * @param
      * @return
      */
-    String all(@Param("user_id") Integer user_id);
+    String all(@Param("user_id")Integer user_id);
 
     /**
      * 减少优惠券库存

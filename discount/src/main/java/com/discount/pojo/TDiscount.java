@@ -1,7 +1,6 @@
 package com.discount.pojo;
 
 
-import java.util.Date;
 
 public class TDiscount {
 
@@ -9,8 +8,8 @@ public class TDiscount {
     private Integer reduce_id;
     private Integer user_id;
     private Integer discount_mark;
-    private Date create;
-    private Date exitss;
+    private String create;
+    private String exitss;
     private TReduce d;
 
     public TReduce getD() {
@@ -53,19 +52,19 @@ public class TDiscount {
         this.discount_mark = discount_mark;
     }
 
-    public Date getCreate() {
+    public String getCreate() {
         return create;
     }
 
-    public void setCreate(Date create) {
+    public void setCreate(String create) {
         this.create = create;
     }
 
-    public Date getExitss() {
+    public String getExitss() {
         return exitss;
     }
 
-    public void setExitss(Date exitss) {
+    public void setExitss(String exitss) {
         this.exitss = exitss;
     }
 }
