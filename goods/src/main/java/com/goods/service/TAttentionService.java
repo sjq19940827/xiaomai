@@ -56,6 +56,8 @@ public interface TAttentionService {
      */
     String deleteById(Integer attshow);
 
+    String queryByuseridandshowid(Integer attshow);
+
 
 
 }

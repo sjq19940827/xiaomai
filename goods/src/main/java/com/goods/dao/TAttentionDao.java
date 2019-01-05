@@ -26,6 +26,9 @@ public interface TAttentionDao {
      */
     List<TAttention> queryById(Integer attuser);
 
+    TAttention queryByuseridandshowid(@Param("attuser") Integer attuser , @Param("attshow") Integer attshow);
+
+    int updateattmark(@Param("attmark") Integer attmark, @Param("attuser") Integer attuser , @Param("attshow") int attshow);
     /**
      * 查询指定行数据
      *

@@ -30,6 +30,11 @@
           attid, attuser, attshow, attmark
         from xiaomai.t_attention where attmark=#{attmark} and attuser = #{attuser}
     </select>
+    <select id="queryByuseridandshowid" resultType="com.goods.pojo.TAttention">
+        select
+          attid, attuser, attshow, attmark
+        from xiaomai.t_attention where  attshow = #{attshow} and attuser = #{attuser}
+    </select>
 
     <insert id="insert" keyProperty="attid" useGeneratedKeys="true">
         INSERT INTO xiaomai.t_attention(attid, attuser, attshow,attmark)
@@ -56,5 +61,8 @@
 <update id="deleteById"  parameterType="int" >
         UPDATE xiaomai.t_attention SET attmark = 1 WHERE attshow = #{attshow} and attuser = #{attuser}
     </update>
+    <update id="updateattmark">
+        UPDATE xiaomai.t_attention SET attmark = #{attmark} WHERE attshow = #{attshow} and attuser = #{attuser}
+    </update>
 
-        </mapper>
+</mapper>

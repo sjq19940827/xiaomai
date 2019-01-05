@@ -98,12 +98,34 @@ public class TAttentionServiceImpl implements TAttentionService {
     public String insert(int attshow) {
         Jedis jedis= new Jedis("148.70.68.230",6379);
         Integer attuser = Integer.valueOf(jedis.get("userid"));
-        int insert = this.tAttentionDao.insert(attuser, attshow);
-        if (insert>0){
-            return "关注成功";
+        TAttention tAttention = tAttentionDao.queryByuseridandshowid(attuser, attshow);
+        if (tAttention==null){
+            int insert = this.tAttentionDao.insert(attuser, attshow);
+            if (insert>0){
+                return "关注成功";
+            }else {
+                return "关注失败";
+            }
         }else {
-            return "关注失败";
+            if (tAttention.getAttmark()==0){
+                int updateattmark = tAttentionDao.updateattmark(1, attuser, attshow);
+                if (updateattmark>0){
+                    return "取关成功";
+                }else {
+                    return "取关失败";
+                }
+            }else if(tAttention.getAttmark()==1){
+                int updateattmark = tAttentionDao.updateattmark(0, attuser, attshow);
+                if (updateattmark>0){
+                    return "关注成功";
+                }else {
+                    return "关注失败";
+                }
+            }else {
+                return "操作有误";
+            }
         }
+
 
     }
 
@@ -137,5 +159,18 @@ public class TAttentionServiceImpl implements TAttentionService {
             return "取关失败";
         }
 
+    }
+
+    @Override
+    public String queryByuseridandshowid(Integer attshow) {
+        Jedis jedis= new Jedis("148.70.68.230",6379);
+        Integer attuser = Integer.valueOf(jedis.get("userid"));
+        System.out.println(attuser);
+        TAttention tAttention = tAttentionDao.queryByuseridandshowid(attuser, attshow);
+        if (tAttention!=null){
+            return "关注过啦";
+        }else {
+            return "没关注过";
+        }
     }
 }

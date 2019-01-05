@@ -70,4 +70,12 @@ public class TAttentionController {
         String s = tAttentionService.deleteById(attshow);
         return s;
     }
+
+    @GetMapping("panduan")
+    @ApiOperation(value = " 判断是否关注",notes = "关注商品信息json")
+    public String panduan(@ApiParam(required = true, name ="商品ID", value ="attshow") Integer attshow){
+        System.out.println(attshow);
+        String s = tAttentionService.queryByuseridandshowid(attshow);
+        return s;
+    }
 }
