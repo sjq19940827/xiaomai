@@ -37,10 +37,11 @@ public interface TAttentionDao {
     /**
      * 通过实体作为筛选条件查询
      *
-     * @param tAttention 实例对象
+     * @param attmark 实例对象
+     * @param attuser
      * @return 对象列表
      */
-    List<TAttention> queryAll(TAttention tAttention);
+    List<TAttention> queryAll(@Param("attmark") int attmark, @Param("attuser") int attuser);
 
     /**
      * 新增数据
@@ -62,9 +63,10 @@ public interface TAttentionDao {
     /**
      * 通过主键删除数据
      *
-     * @param attid 主键
+     * @param attshow 商品ID
+     * @param attuser 用户ID
      * @return 影响行数
      */
-    int deleteById(@Param("attid") Integer attid);
+    int deleteById(@Param("attshow") Integer attshow, @Param("attuser") Integer attuser);
 
 }

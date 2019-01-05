@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
-import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,12 +52,33 @@ public class TAttentionServiceImpl implements TAttentionService {
 //        TAttentionServiceImpl t=new TAttentionServiceImpl();
         Jedis jedis= new Jedis("148.70.68.230",6379);
         Integer attuser = Integer.valueOf(jedis.get("userid"));
-        System.out.println(attuser);
         List<TAttention> tAttentions = this.queryById(attuser);
-        List<TShow> tShowByGoodsID = null;
+        List<TShow> tShowByGoodsID = new ArrayList<>();
         for (TAttention ta:tAttentions) {
-           tShowByGoodsID = tShowDao.getTShowByGoodsID(ta.getAttshow());
-            System.out.println(tShowDao.getTShowByGoodsID(ta.getAttshow()));
+            if (ta.getAttmark()!=1){
+                tShowByGoodsID.add(tShowDao.gettshowbyid(ta.getAttshow()));
+            }
+        }
+
+        System.out.println(tShowByGoodsID);
+        if (tShowByGoodsID!=null){
+            return JSON.toJSONString(tShowByGoodsID);
+        }else {
+            return "啥都没！";
+        }
+
+    }
+
+    @Override
+    public String queryOutBygoodsid() {
+        Jedis jedis= new Jedis("148.70.68.230",6379);
+        Integer attuser = Integer.valueOf(jedis.get("userid"));
+        List<TAttention> tAttentions = this.queryById(attuser);
+        List<TShow> tShowByGoodsID = new ArrayList<>();
+        for (TAttention ta:tAttentions) {
+            if (ta.getAttmark() ==1){
+                tShowByGoodsID.add(tShowDao.gettshowbyid(ta.getAttshow()));
+            }
         }
         if (tShowByGoodsID!=null){
             return JSON.toJSONString(tShowByGoodsID);
@@ -102,12 +123,14 @@ public class TAttentionServiceImpl implements TAttentionService {
     /**
      * 通过主键删除数据
      *
-     * @param attid 主键
+     * @param attshow 主键
      * @return 是否成功
      */
     @Override
-    public String deleteById(Integer attid) {
-        int i = this.tAttentionDao.deleteById(attid);
+    public String deleteById(Integer attshow) {
+        Jedis jedis= new Jedis("148.70.68.230",6379);
+        Integer attuser = Integer.valueOf(jedis.get("userid"));
+        int i = this.tAttentionDao.deleteById(attshow,attuser);
         if (i>0){
             return "取关成功";
         }else {

@@ -28,21 +28,7 @@
     <select id="queryAll" resultMap="TAttentionMap">
         select
           attid, attuser, attshow, attmark
-        from xiaomai.t_attention
-        <where>
-            <if test="attid != null">
-                and attid = #{attid}
-            </if>
-            <if test="attuser != null">
-                and attuser = #{attuser}
-            </if>
-            <if test="attshow != null">
-                and attshow = #{attshow}
-            </if>
-            <if test="attmark != null">
-                and attmark = #{attmark}
-            </if>
-        </where>
+        from xiaomai.t_attention where attmark=#{attmark} and attuser = #{attuser}
     </select>
 
     <insert id="insert" keyProperty="attid" useGeneratedKeys="true">
@@ -68,7 +54,7 @@
 
         <!--通过主键删除-->
 <update id="deleteById"  parameterType="int" >
-        UPDATE xiaomai.t_attention SET attmark = 1 WHERE attid = #{attid}
+        UPDATE xiaomai.t_attention SET attmark = 1 WHERE attshow = #{attshow} and attuser = #{attuser}
     </update>
 
         </mapper>

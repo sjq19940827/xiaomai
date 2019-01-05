@@ -122,4 +122,7 @@ city  WHERE   city.city_name LIKE "%"#{city_name}"%" and show_place LIKE "%"#{sh
     <select id="getTShowByMarkID" resultType="com.goods.pojo.TShow" >
       SELECT *FROM t_show WHERE show_mark = #{show_mark} and show_name LIKE "%"#{show_name}"%"
     </select>
+    <select id="gettshowbyid" resultType="com.goods.pojo.TShow">
+        select * from t_show where show_id=#{goodsID}
+    </select>
 </mapper>

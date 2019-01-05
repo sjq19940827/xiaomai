@@ -53,6 +53,8 @@ public interface TShowDao {
      */
     List<TShow> getTShowByGoodsID(Integer goodsID);
 
+    TShow gettshowbyid(Integer goodsID);
+
     /**
      * 根据商品特殊标识和城市进行查询
      * @param show_mark

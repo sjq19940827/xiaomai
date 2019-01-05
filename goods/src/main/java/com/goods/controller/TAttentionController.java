@@ -57,10 +57,17 @@ public class TAttentionController {
         return s;
     }
 
+    @GetMapping("outgoods")
+    @ApiOperation(value = " 过期关注",notes = "关注商品信息json")
+    public String guoqi(){
+        String s = tAttentionService.queryOutBygoodsid();
+        return s;
+    }
+
     @GetMapping("del")
     @ApiOperation(value = "取消关注",notes = "相应结果")
-    public String del(@ApiParam(required = true, name ="关注ID", value ="attid") @RequestParam("attid") Integer attid){
-        String s = tAttentionService.deleteById(attid);
+    public String del(@ApiParam(required = true, name ="商品ID", value ="attshow") Integer attshow){
+        String s = tAttentionService.deleteById(attshow);
         return s;
     }
 }

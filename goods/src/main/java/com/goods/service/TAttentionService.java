@@ -30,6 +30,8 @@ public interface TAttentionService {
      */
     String queryAllBygoodsid();
 
+    String queryOutBygoodsid();
+
     /**
      * 新增数据
      *
@@ -49,9 +51,11 @@ public interface TAttentionService {
     /**
      * 通过主键删除数据
      *
-     * @param attid 主键
+     * @param attshow 主键
      * @return 是否成功
      */
-    String deleteById(Integer attid);
+    String deleteById(Integer attshow);
+
+
 
 }
