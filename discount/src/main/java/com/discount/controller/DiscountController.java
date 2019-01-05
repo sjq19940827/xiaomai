@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.tags.form.SelectTag;
+import redis.clients.jedis.Jedis;
 
 @RestController
 @RequestMapping("dis/")
@@ -19,11 +19,11 @@ public class DiscountController {
     @ResponseBody
     @RequestMapping(value = "insert")
     @ApiOperation(value = "用户获取优惠券",notes = "查询数据库",response = String.class,httpMethod = "POST")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query",required = false,name = "user_id",value = "用户id"),
-            @ApiImplicitParam(paramType = "query",required = false,name = "reduce_id",value = "优惠劵id")
-    })
-    public String insert(@RequestParam("user_id") Integer user_id,@RequestParam("reduce_id")Integer reduce_id){
+    public String insert(Integer user_id,Integer reduce_id){
+        /*Jedis jedis = new Jedis("148.70.68.230",6379);
+        Integer user_id = Integer.valueOf(jedis.get("userid"));
+        System.out.println(jedis.get("userid"));
+        Integer reduce_id=1;*/
         int insets = discountService.insets(user_id,reduce_id);
         if (insets > 0){
             TReduce select = discountService.select(reduce_id);
@@ -42,10 +42,11 @@ public class DiscountController {
     @RequestMapping(value = "select")
     @ApiOperation(value = "查询用户优惠券详细信息",notes = "查询数据库",response = String.class,httpMethod = "POST")
     @ApiImplicitParam(paramType = "query",required = false,name = "user_id",value = "用户id")
-    public String select(@RequestParam("user_id") Integer user_id){
+    public String select(@RequestParam("user_id")Integer user_id){
         String all = discountService.all(user_id);
         if (all != null){
             return all;
+
         }
         return "查询失败";
     }

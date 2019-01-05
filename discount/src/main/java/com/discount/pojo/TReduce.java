@@ -3,11 +3,13 @@ package com.discount.pojo;
 
 public class TReduce {
 
-    private Integer reduce_id;
-    private String reduce_number;
-    private String reduce_tot;
-    private Integer sub;
-    private String valid;
+  private Integer reduce_id;
+  private String reduce_number;
+  private String reduce_tot;
+  private Integer sub;
+  private String purpose;
+  private String valid;
+
 
     public Integer getReduce_id() {
         return reduce_id;
@@ -39,6 +41,14 @@ public class TReduce {
 
     public void setSub(Integer sub) {
         this.sub = sub;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
     public String getValid() {

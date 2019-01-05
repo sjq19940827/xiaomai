@@ -8,13 +8,14 @@ import com.discount.service.DiscountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
+import static com.discount.util.DateGenerate.getNowDate;
+import static com.discount.util.DateGenerate.getStringDate;
+
 @Service("DiscountService")
-public class DiscountServiceImpl implements DiscountService
-{
+public class DiscountServiceImpl implements DiscountService {
     @Autowired
     private DiscountDao discountDao;
     private TReduce treduce;
@@ -33,6 +34,8 @@ public int updateDiscount(Integer user_id, Integer reduce_id) {
     return 0;
 }
 
+
+
     /**
      * 用户添加优惠券
      * @param
@@ -40,31 +43,31 @@ public int updateDiscount(Integer user_id, Integer reduce_id) {
      */
     @Override
     public int insets(Integer user_id,Integer reduce_id) {
-        Date dNow = new Date();   //当前时间
-        Date dBefore = new Date();
-        Calendar calendar = Calendar.getInstance(); //得到日历
-        calendar.setTime(dNow);//把当前时间赋给日历
-        calendar.add(Calendar.MONTH, +3);  //设置为前3月
-        dBefore = calendar.getTime();   //得到前3月的时间
-        // SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置时间格式
-        Date exitss = dBefore;    //格式化前3月的时间
-        Date create = dNow; //格式化当前时间i
-        int insetred = discountDao.insetred(user_id,reduce_id,create,exitss);
+        TDiscount tDiscount = new TDiscount();
+        SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
+        tDiscount.setCreate(getStringDate());
+        tDiscount.setExitss(getStringDate() + 3);
+        int insetred = (int) discountDao.insetred(user_id,reduce_id,tDiscount.getCreate(),tDiscount.getExitss());
         if (insetred > 0){
             return insetred;
         }
         return -1;
     }
 
+
+
     /**
      * 用户查询优惠券
-     * @param user_id
+     * @param
      * @return
      */
     @Override
     public String all(Integer user_id) {
+        /*Jedis jedis = new Jedis("148.70.68.230",6379);
+        user_id = Integer.valueOf(jedis.get("userid"));*/
         if (user_id != null){
             List<TDiscount> all = discountDao.getAll(user_id);
+            System.out.println(JSON.toJSONString(all));
             if (all != null){
                 return JSON.toJSONString(all);
             }

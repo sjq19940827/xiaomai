@@ -24,7 +24,7 @@ public interface DiscountDao {
      * 新增优惠券(用户新增优惠劵)
      * @return
      */
-    int insetred(Integer user_id,Integer reduce_id,Date create,Date exitss);
+    int insetred(Integer user_id,Integer reduce_id,String create,String exitss);
 
     /**
      * 查询用户优惠劵的详细信息
