@@ -55,7 +55,7 @@ public class TAttentionServiceImpl implements TAttentionService {
         List<TAttention> tAttentions = this.queryById(attuser);
         List<TShow> tShowByGoodsID = new ArrayList<>();
         for (TAttention ta:tAttentions) {
-            if (ta.getAttmark()!=1){
+            if (ta.getAttmark()==0){
                 tShowByGoodsID.add(tShowDao.gettshowbyid(ta.getAttshow()));
             }
         }
@@ -76,7 +76,7 @@ public class TAttentionServiceImpl implements TAttentionService {
         List<TAttention> tAttentions = this.queryById(attuser);
         List<TShow> tShowByGoodsID = new ArrayList<>();
         for (TAttention ta:tAttentions) {
-            if (ta.getAttmark() ==1){
+            if (ta.getAttmark() ==2){
                 tShowByGoodsID.add(tShowDao.gettshowbyid(ta.getAttshow()));
             }
         }
