@@ -42,7 +42,7 @@ public class TShowController {
     }
 
     /**
-     * 根据商品分类展示商品信息
+     * 根据商品分类和商品名字展示商品信息
      * @param categorieId
      * @param index
      * @param pagesize
@@ -108,5 +108,16 @@ public class TShowController {
     @GetMapping("/getTShowByMarkID")
     public String getTShowByMarkID(@Param ("show_mark") Integer show_mark,@Param ("show_name")String show_name,Integer index,Integer pagesize ) {
         return TShowService.getTShowByMarkID (show_mark,show_name,index,pagesize);
+    }
+
+    /**
+     * 根据地区热度进行商品查询
+     * @param areainfoID
+     * @param index
+     * @param pagesize
+     * @return
+     */
+    public String getAreainfoID(Integer areainfoID,Integer index,Integer pagesize) {
+        return TShowService.getAreainfoID (areainfoID,index,pagesize);
     }
 }

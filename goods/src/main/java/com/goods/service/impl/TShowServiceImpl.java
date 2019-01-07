@@ -51,7 +51,7 @@ public class TShowServiceImpl implements TShowService {
     }
 
     /**
-     * 根据商品分类展示商品信息
+     * 根据商品分类和商品名字展示商品信息
      * @param categorieId
      * @param index
      * @param pagesize
@@ -121,6 +121,19 @@ public class TShowServiceImpl implements TShowService {
         PageHelper.startPage (index,pagesize);
         List<TShow> ByMarkID = tShowDao.getTShowByMarkID (show_mark,show_name);
         PageInfo<TShow> pageInfo = new PageInfo<TShow> (ByMarkID);
+        return JSON.toJSONString (pageInfo.getList ());
+    }
+
+    /**
+     * 根据地区热度进行商品查询
+     * @param areainfoID
+     * @return
+     */
+    @Override
+    public String getAreainfoID(Integer areainfoID,Integer index,Integer pagesize) {
+        PageHelper.startPage (index,pagesize);
+        List<TShow> ByAreainfoID = tShowDao.getTShowByAreainfoId (areainfoID);
+        PageInfo<TShow> pageInfo = new PageInfo<TShow> (ByAreainfoID);
         return JSON.toJSONString (pageInfo.getList ());
     }
 }

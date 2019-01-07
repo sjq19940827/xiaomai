@@ -27,7 +27,9 @@ public interface TShowDao {
 
 
     /**
-     * 根据商品分类展示商品信息
+     * 根据商品分类和商品名字展示商品信息
+     * @param categorieId
+     * @param show_name
      * @return
      */
     List<TShow> getInfoByType(@Param ("categorieId") Integer categorieId,@Param ("show_name") String show_name);
@@ -42,6 +44,7 @@ public interface TShowDao {
     /**
      * 根据城市名字模糊查询
      * @param city_name
+     * @param show_place
      * @return
      */
     List<TShow> getTShowByCityName(@Param("city_name") String city_name, @Param("show_place")String show_place);
@@ -58,8 +61,15 @@ public interface TShowDao {
     /**
      * 根据商品特殊标识和城市进行查询
      * @param show_mark
+     * @param show_name
      * @return
      */
     List<TShow> getTShowByMarkID(@Param ("show_mark") Integer show_mark,@Param ("show_name") String show_name);
 
+    /**
+     * 根据地区热度进行商品查询
+     * @param areainfoID
+     * @return
+     */
+    List<TShow> getAreainfoID(@Param ("areainfoID")Integer areainfoID);
 }
