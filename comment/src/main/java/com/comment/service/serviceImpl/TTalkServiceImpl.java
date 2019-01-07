@@ -5,7 +5,6 @@ import com.comment.dao.TTalkDao;
 import com.comment.pojo.TTalk;
 import com.comment.service.TTalkService;
 import com.comment.util.Dates;
-import com.user.dao.T_userDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -106,18 +105,18 @@ public class TTalkServiceImpl implements TTalkService {
 
     //查数据库状态
     @Override
-    public int selNum(Integer user_id, Integer talk_id) {
-        return tTalkDao.selNum(user_id,talk_id);
+    public int selNum( Integer talk_id) {
+        return tTalkDao.selNum(talk_id);
     }
 
     @Override
-    public String qdz(Integer user_id, Integer talk_id) {
-        int c = selNum(user_id, talk_id);
+    public String qdz(Integer talk_id) {
+        int c = selNum( talk_id);
         if( c  == 1){
-            int i = tTalkDao.upNum1(user_id, talk_id);
+            int i = tTalkDao.upNum1(talk_id);
             return "取消点赞";
         }else if(c == 0){
-            int i = tTalkDao.upNum2(user_id, talk_id);
+            int i = tTalkDao.upNum2( talk_id);
         }
         return "点赞成功";
     }
@@ -141,13 +140,12 @@ public class TTalkServiceImpl implements TTalkService {
 
     /**
      * 查询某用户对某商品的评论的被点赞数
-     * @param user_id
      * @param answer_id
      * @return
      */
     @Override
-    public int selDzByUserAndShow(Integer user_id, Integer answer_id) {
-        int i = tTalkDao.selDzByUserAndShow(user_id, answer_id);
+    public int selDzByUserAndShow( Integer answer_id) {
+        int i = tTalkDao.selDzByUserAndShow( answer_id);
         return i;
     }
 

@@ -28,11 +28,10 @@ public interface TTalkService {
 
     /**
      * 查询某用户对某商品的评论的被点赞数
-     * @param user_id
      * @param answer_id
      * @return
      */
-   int selDzByUserAndShow(Integer user_id, Integer answer_id);
+   int selDzByUserAndShow( Integer answer_id);
 
     /**
      * 用户发布一条评论
@@ -52,15 +51,15 @@ public interface TTalkService {
     /*
     * 查询点赞状态
     */
-    int selNum(Integer user_id, Integer talk_id);
+    int selNum( Integer talk_id);
 
     /**
      * 进行点赞操作
-     * @param user_id
+ d
      * @param talk_id
      * @return
      */
-    String qdz(Integer user_id, Integer talk_id);
+    String qdz( Integer talk_id);
 
     // 查看某商品是否有评论
     String  NumByAnswer(Integer answer_id);
