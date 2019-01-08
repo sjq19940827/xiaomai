@@ -3,20 +3,69 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.find.cn.dao.TFindDao">
 
-    <select id="getAllInfo" parameterType="com.find.cn.pojo.TFind" resultType="com.find.cn.pojo.TFind">
-SELECT
-t_find.information,
-t_find.releasetime,
-t_user.userName,
-t_user.nickname,
-t_user.login_phone,
-t_show.show_name,
-t_show.show_place,
-t_show.show_status
-FROM
-t_find
-INNER JOIN t_user ON t_find.user_id = t_user.id
-INNER JOIN t_show ON t_find.show_id = t_show.show_id
-WHERE user_id=#{user_id}
+    <select id="getAllInfo"  resultType="com.find.cn.pojo.TFind">
+SELECT t_find.find_id,t_find.information,t_find.releasetime FROM t_find WHERE user_id=#{user_id}
     </select>
+
+    <select id="getOneInfo"  resultType="com.find.cn.pojo.TFind">
+SELECT t_find.find_id,t_find.information,t_find.releasetime FROM t_find WHERE  find_id=#{find_id}
+    </select>
+
+    <resultMap type="com.find.cn.pojo.TFtalk" id="TFtalkMap">
+        <result property="fid" column="fid" />
+
+        <result property="talkinfo" column="talkinfo" />
+        <result property="createtime" column="createtime" />
+        <result property="replyuserid" column="replyuserid" />
+        <result property="prasecount" column="prasecount" />
+
+        <association property="tUser" javaType="com.find.cn.pojo.TUser">
+            <result column="id" property="id"/>
+            <result column="userName" property="userName"/>
+            <result column="nickname" property="nickname"/>
+            <result column="password" property="password"/>
+            <result column="sex" property="sex"/>
+            <result column="identityCode" property="identityCode"/>
+            <result column="integral" property="integral"/>
+            <result column="userdate" property="userdate"/>
+            <result column="loginName" property="loginName"/>
+            <result column="usertype" property="usertype"/>
+            <result column="imageName" property="imageName"/>
+            <result column="balance" property="balance"/>
+            <result column="latelyLogin" property="latelyLogin"/>
+            <result column="login_phone" property="login_phone"/>
+        </association>
+        <association property="tFind" javaType="com.find.cn.pojo.TFind">
+            <result column="find_id"  property="find_id" />
+            <result column="information"  property="information" />
+            <result column="show_id"  property="show_id" />
+            <result column="user_id"  property="user_id" />
+            <result column="releasetime"  property="releasetime" />
+           </association>
+    </resultMap>
+
+    <select id="getAllTalk" resultMap="TFtalkMap" resultType="int">
+       SELECT
+            t_ftalk.findid,
+						t_ftalk.userid ,
+            t_ftalk.talkinfo,
+            t_ftalk.createtime,
+						t_ftalk.replyuserid,
+            t_ftalk.prasecount,
+            t_user.userName
+            FROM
+            t_ftalk
+            INNER JOIN t_user ON t_ftalk.userid = t_user.id
+            WHERE findid =#{#findid}
+    </select>
+
+    <insert id="addTalkByUser" parameterType="com.find.cn.pojo.TFtalk">
+       INSERT INTO t_ftalk(fid, findid, userid, talkinfo, createtime, replyuserid, prasecount)
+      VALUES (0, #{findid}, #{userid}, #{talkinfo}, #{createtime}, #{replyuserid}, 0)
+    </insert>
+
+    <insert id="addReplyInfo" parameterType="com.find.cn.pojo.TFtalk">
+         INSERT INTO t_ftalk(fid, findid, userid, talkinfo, createtime, replyuserid, prasecount)
+      VALUES (0, #{findid}, #{userid}, #{talkinfo}, #{createtime}, #{replyuserid}, 0)
+    </insert>
 </mapper>
