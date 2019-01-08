@@ -24,20 +24,43 @@ public class TFindController {
     public String ff(int user_id){
         return JSON.toJSONString(tFindService.getAllInfo(user_id));
     }
+
+    /**
+     *通过find_id 查询资讯信息
+     * @param find_id
+     * @return
+     */
     @GetMapping("/selOne")
     public String df(int find_id){
         return JSON.toJSONString(tFindService.getOneInfo(find_id));
     }
+
+    /**
+     * 通过findid查询用户评论信息
+     * @param findid
+     * @return
+     */
     @GetMapping("/findID")
     public String fd(int findid){
         return JSON.toJSONString(tFindService.getAllTalk(findid));
     }
+
+    /**
+     * 发布评论
+     * @param tFtalk
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/insert")
     public String cvxv(TFtalk tFtalk){
         return tFindService.addTalkByUser(tFtalk);
     }
 
+    /**
+     * 回复评论
+     * @param tFtalk
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/reply")
     public String cvxdv(TFtalk tFtalk){

@@ -13,7 +13,8 @@ SELECT t_find.find_id,t_find.information,t_find.releasetime FROM t_find WHERE  f
 
     <resultMap type="com.find.cn.pojo.TFtalk" id="TFtalkMap">
         <result property="fid" column="fid" />
-
+        <result property="findid" column="findid" />
+        <result property="userid" column="userid" />
         <result property="talkinfo" column="talkinfo" />
         <result property="createtime" column="createtime" />
         <result property="replyuserid" column="replyuserid" />
@@ -44,19 +45,19 @@ SELECT t_find.find_id,t_find.information,t_find.releasetime FROM t_find WHERE  f
            </association>
     </resultMap>
 
-    <select id="getAllTalk" resultMap="TFtalkMap" resultType="int">
+    <select id="getAllTalk" resultMap="TFtalkMap" >
        SELECT
             t_ftalk.findid,
-						t_ftalk.userid ,
+			t_ftalk.userid ,
             t_ftalk.talkinfo,
             t_ftalk.createtime,
-						t_ftalk.replyuserid,
+			t_ftalk.replyuserid,
             t_ftalk.prasecount,
             t_user.userName
             FROM
             t_ftalk
             INNER JOIN t_user ON t_ftalk.userid = t_user.id
-            WHERE findid =#{#findid}
+            WHERE findid =#{findid}
     </select>
 
     <insert id="addTalkByUser" parameterType="com.find.cn.pojo.TFtalk">
