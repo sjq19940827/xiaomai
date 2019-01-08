@@ -77,7 +77,7 @@ public class TFindServiceImpl implements TFindService {
         if(tFtalk.getReplyuserid()!= null && tFtalk.getUserid() != null && tFtalk.getFindid() != null && tFtalk.getTalkinfo() != null){
             tFtalk.setCreatetime(Dates.dates());
             tFtalk.setTalkinfo(tFtalk.getTalkinfo());
-            if(tFindDao.addTalkByUser(tFtalk) == 0){
+            if(tFindDao.addReplyInfo(tFtalk) ==0){
                 info="回复发布失败";
             }else {
                 info="回复发布成功";
