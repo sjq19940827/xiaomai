@@ -74,7 +74,7 @@ public class TOrderServiceImpl implements TOrderService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return JSON.toJSONString(insert);
+            return orderIdByUUId;
         }else {
             return "创建失败啦";
         }

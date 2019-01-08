@@ -7,8 +7,8 @@ import com.comment.service.TTalkService;
 import com.comment.util.Dates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
-import javax.annotation.Resource;
 import java.util.List;
 @Service
 public class TTalkServiceImpl implements TTalkService {
@@ -65,6 +65,9 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public String addTalkByUser(TTalk tTalk) {
       String info = null;
+        Jedis jedis = new Jedis("148.70.68.230",6379);
+        Integer userid = Integer.valueOf(jedis.get("userid"));
+        tTalk.setUser_id(userid);
       if(tTalk.getAnswer_id()!= null && tTalk.getUser_id()!= null &&  tTalk.getTalk_info()!= null){
           tTalk.setCreatetime(Dates.dates());//获取当前时间
           tTalk.setTalk_info(tTalk.getTalk_info());
@@ -87,6 +90,10 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public String  updateTalkInfo(TTalk tTalk) {
        String info = null;
+        Jedis jedis = new Jedis("148.70.68.230",6379);
+        Integer userid = Integer.valueOf(jedis.get("userid"));
+        tTalk.setUser_id(userid);
+
         if(tTalk.getUser_id() !=  null && tTalk.getTalk_id() != null && tTalk.getTalk_info() != null){
             int i = tTalkDao.updTalkInfo(tTalk);
             if(i > 0 ){

@@ -6,6 +6,7 @@ import com.comment.service.TReplytalkService;
 import com.comment.util.Dates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
 import java.util.List;
 
@@ -19,6 +20,9 @@ public class TReplyServiceImpl implements TReplytalkService {
      */
     public String addreply(TReplytalk tReplytalk) {
         String info = null;
+        Jedis jedis = new Jedis("148.70.68.230",6379);
+        Integer userid = Integer.valueOf(jedis.get("userid"));
+        tReplytalk.setReplyuser_id(userid);
         if(tReplytalk.getTalk_id() != null && tReplytalk.getReply_info() != null && tReplytalk.getReplyuser_id() != null){
             tReplytalk.setCreatetime(Dates.dates());
             if(tReplytalkDao.addreply(tReplytalk) == 0){

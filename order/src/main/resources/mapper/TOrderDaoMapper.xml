@@ -209,7 +209,7 @@
         update t_order set status = 5 where order_number = #{orderNumber}
     </update>
     <!-- 订单状态已支付（待出票） -->
-    <update id="updateByOrderStatePay" parameterType="String">
+    <update id="updateByOrderStatePay">
         update t_order set status = 2,deliveryDate = #{deliverydate} where order_number = #{orderNumber}
     </update>
 
@@ -218,7 +218,7 @@
         select count(order_number) from t_order where order_number = #{orderNumber}
     </select>
 
-    <!-- 根据商品名称查询商品ID -->
+    <!-- 根据订单编号查询商品ID -->
     <select id="selectOrderIDByorderNumber" resultType="Integer" parameterType="String">
         select order_id from t_order where order_number = #{orderNumber}
     </select>
@@ -234,4 +234,8 @@
     <select id="selectByUserID" parameterType="Integer" resultType="Integer">
         select count(user_id) from  t_order where user_id = #{userId}
     </select>
+    <!--订单状态已退款-->
+    <update id="updaterefund" parameterType="String">
+        update t_order set status = 6 where order_number = #{orderNumber}
+    </update>
 </mapper>
