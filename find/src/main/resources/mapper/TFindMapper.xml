@@ -57,7 +57,7 @@ SELECT t_find.find_id,t_find.information,t_find.releasetime FROM t_find WHERE  f
             FROM
             t_ftalk
             INNER JOIN t_user ON t_ftalk.userid = t_user.id
-            WHERE findid =#{findid}
+            WHERE findid =#{findid} order by t_ftalk.createtime desc
     </select>
 
     <insert id="addTalkByUser" parameterType="com.find.cn.pojo.TFtalk">
@@ -69,4 +69,16 @@ SELECT t_find.find_id,t_find.information,t_find.releasetime FROM t_find WHERE  f
          INSERT INTO t_ftalk(fid, findid, userid, talkinfo, createtime, replyuserid, prasecount)
       VALUES (0, #{findid}, #{userid}, #{talkinfo}, #{createtime}, #{replyuserid}, 0)
     </insert>
+
+
+    <!--点赞-->
+    <select id="selNum" resultType="int" parameterType="int">
+      select prasecount from t_find where find_id =#{find_id}
+    </select>
+    <update id="upNum1" parameterType="int" >
+        update t_find set prasecount =0 where  find_id =#{find_id}
+   </update>
+    <update id="upNum2" parameterType="int" >
+        update t_find set prasecount =1 where  find_id =#{find_id}
+    </update>
 </mapper>

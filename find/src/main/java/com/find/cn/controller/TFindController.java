@@ -64,8 +64,28 @@ public class TFindController {
     @ResponseBody
     @RequestMapping("/reply")
     public String cvxdv(TFtalk tFtalk){
+
         return tFindService.addReplyInfo(tFtalk);
     }
 
+    /**
+     * 查状态
+     * @param
+     * @return
+     */
+    @GetMapping("/selzt")
+   public int czt(int find_id){
+       return tFindService.selNum(find_id);
+   }
+
+    /**
+     * 点赞操作
+     * @param find_id
+     * @return
+     */
+    @RequestMapping("/like")
+   public String like(int find_id){
+       return tFindService.qdz(find_id);
+   }
 
 }

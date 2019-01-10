@@ -16,5 +16,16 @@ public interface TFindService {
     List<TFtalk> getAllTalk(Integer findid);
     String  addTalkByUser(TFtalk tFtalk);
     String  addReplyInfo(TFtalk tFtalk);
+    /*
+     * 查询点赞状态
+     */
+    int selNum( Integer find_id);
+
+    /**
+     * 进行点赞操作
+     * @param find_id
+     * @return
+     */
+    String qdz( Integer find_id);
 
 }
