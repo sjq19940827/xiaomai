@@ -8,6 +8,24 @@ public class TFind {
   private String releasetime;
   private Integer show_id;
   private Integer user_id;
+  private TShow tShow;
+  private TUser tUser;
+
+  public TUser gettUser() {
+    return tUser;
+  }
+
+  public void settUser(TUser tUser) {
+    this.tUser = tUser;
+  }
+
+  public TShow gettShow() {
+    return tShow;
+  }
+
+  public void settShow(TShow tShow) {
+    this.tShow = tShow;
+  }
 
   public Integer getShow_id() {
     return show_id;
