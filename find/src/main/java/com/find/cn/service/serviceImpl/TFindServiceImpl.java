@@ -41,6 +41,9 @@ public class TFindServiceImpl implements TFindService {
     @Override
     public String addTalkByUser(TFtalk tFtalk) {
         String info = null;
+        Jedis jedis = new Jedis("148.70.68.230",6379);
+        Integer userid = Integer.valueOf(jedis.get("userid"));
+        tFtalk.setUserid(userid);
         if (tFtalk.getUserid() != null && tFtalk.getFindid() != null && tFtalk.getTalkinfo() != null) {
             tFtalk.setCreatetime(Dates.dates());
             tFtalk.setTalkinfo(tFtalk.getTalkinfo());
@@ -74,7 +77,9 @@ public class TFindServiceImpl implements TFindService {
     @Override
     public String addReplyInfo(TFtalk tFtalk) {
         String info = null;
-
+        Jedis jedis = new Jedis("148.70.68.230",6379);
+        Integer userid = Integer.valueOf(jedis.get("userid"));
+        tFtalk.setUserid(userid);
         if(tFtalk.getReplyuserid()!= null && tFtalk.getUserid() != null && tFtalk.getFindid() != null && tFtalk.getTalkinfo() != null){
 
             tFtalk.setCreatetime(Dates.dates());
