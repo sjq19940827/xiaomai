@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goods.dao.TRecommendDao">
+
+    <resultMap type="com.goods.pojo.TRecommend" id="TRecommendMap">
+        <result property="rId" column="r_id" jdbcType="INTEGER"/>
+        <result property="rMain" column="r_main" jdbcType="VARCHAR"/>
+        <result property="rMinor" column="r_minor" jdbcType="VARCHAR"/>
+        <result property="rPoint" column="r_point" jdbcType="VARCHAR"/>
+        <result property="rImg" column="r_img" jdbcType="VARCHAR"/>
+        <result property="showid" column="showid" />
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TRecommendMap">
+        select
+          r_id, r_main, r_minor, r_point, r_img, showid, city
+        from xiaomai.t_recommend
+        where r_id = #{rId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TRecommendMap">
+        select
+          r_id, r_main, r_minor, r_point, r_img, showid, city
+        from xiaomai.t_recommend
+        WHERE   city LIKE "%"#{city}"%"
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="TRecommendMap">
+        select
+          r_id, r_main, r_minor, r_point, r_img, showid, city
+        from xiaomai.t_recommend
+        <where>
+            <if test="rId != null">
+                and r_id = #{rId}
+            </if>
+            <if test="rMain != null and rMain != ''">
+                and r_main = #{rMain}
+            </if>
+            <if test="rMinor != null and rMinor != ''">
+                and r_minor = #{rMinor}
+            </if>
+            <if test="rPoint != null and rPoint != ''">
+                and r_point = #{rPoint}
+            </if>
+            <if test="rImg != null and rImg != ''">
+                and r_img = #{rImg}
+            </if>
+            <if test="showid != null">
+                and showid = #{showid}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="rId" useGeneratedKeys="true">
+        insert into xiaomai.t_recommend(r_main, r_minor, r_point, r_img, showid, city)
+        values (#{rMain}, #{rMinor}, #{rPoint}, #{rImg}, #{showid}, #{city})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update xiaomai.t_recommend
+        <set>
+            <if test="rMain != null and rMain != ''">
+                r_main = #{rMain},
+            </if>
+            <if test="rMinor != null and rMinor != ''">
+                r_minor = #{rMinor},
+            </if>
+            <if test="rPoint != null and rPoint != ''">
+                r_point = #{rPoint},
+            </if>
+            <if test="rImg != null and rImg != ''">
+                r_img = #{rImg},
+            </if>
+            <if test="showid != null">
+                showid = #{showid},
+            </if>
+            <if test="city != null and city != ''">
+                city = #{city},
+            </if>
+        </set>
+        where r_id = #{rId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from xiaomai.t_recommend where r_id = #{rId}
+    </delete>
+
+</mapper>
