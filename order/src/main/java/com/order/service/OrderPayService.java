@@ -30,12 +30,13 @@ public interface OrderPayService {
     List<OrderPay> queryAllByLimit(int offset, int limit);
 
     /**
-     * 新增数据
-     *
-     * @param orderPay 实例对象
-     * @return 实例对象
+     * 创建订单明细
+     * @param out_trade_no
+     * @param trade_no
+     * @param total_amount
+     * @return
      */
-    OrderPay insert(OrderPay orderPay);
+    Integer insert(String out_trade_no, String trade_no, String total_amount);
 
     /**
      * 修改数据

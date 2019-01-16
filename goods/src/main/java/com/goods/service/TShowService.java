@@ -1,9 +1,9 @@
 package com.goods.service;
 
-import com.goods.pojo.TShow;
+
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
+
 
 public interface TShowService {
 
@@ -22,7 +22,7 @@ public interface TShowService {
     String getAllType(Integer index,Integer pagesize);
 
     /**
-     *根据商品分类展示商品信息
+     *根据商品分类和商品名字展示商品信息
      * @return
      */
     String getInfoByType(@Param ("categorieId") Integer categorieId,@Param ("show_name") String show_name,Integer index,Integer pagesize);
@@ -53,5 +53,15 @@ public interface TShowService {
      * @return
      */
     String getTShowByMarkID(@Param ("show_mark") Integer show_mark,@Param ("show_name") String show_name,Integer index,Integer pagesize);
+
+    /**
+     * 根据地区热度进行商品查询
+     * @param areainfoID
+     * @return
+     */
+    String getAreainfoID(@Param("areainfoID")Integer areainfoID,Integer index,Integer pagesize);
+
+
 }
+
 

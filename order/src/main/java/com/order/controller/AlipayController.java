@@ -1,5 +1,6 @@
 package com.order.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.order.dao.OrderPayDao;
 import com.order.dao.TOrderDao;
 import com.order.pay.*;
@@ -107,6 +108,9 @@ public class AlipayController {
                 newOrderPay.setRefundment("全额退款：" + WIDTRrefund_amount);
                 newOrderPay.setPaystate("已退款");
                 int update = orderPayDao.update(newOrderPay);
+                if(update != 0){
+                    tOrderDao.updaterefund(WIDTRout_trade_no);
+                }
                 return "退款成功";
             }else if("40004".equals(s) ){
                 return "退款出问题了，请联系福根女士，谢谢！";
@@ -135,31 +139,11 @@ public class AlipayController {
             Map<String, String[]> requestParams = request.getParameterMap();
             Return_url r = new Return_url();
             String s = r.return_url(requestParams,out_trade_no,trade_no,total_amount);
-            //查询订单编号是否存在
-            Integer selectByOrderNumber = tOrderDao.selectByOrderNumber(out_trade_no);
-            if(selectByOrderNumber != null){
-                Integer ID = tOrderDao.selectOrderIDByorderNumber(out_trade_no);
-                TOrder tOrder = tOrderDao.queryById(ID);
-                OrderPay orderPay = new OrderPay();
-                orderPay.setPaynumber(out_trade_no);
-                orderPay.setPayalipay(trade_no);
-                orderPay.setPayamount(total_amount);
-                orderPay.setPaytime(getStringDate());
-                orderPay.setPaystate("已支付");
-                orderPay.setPayname(tOrder.getShopName());
-                int orderPayInfo = orderPayService.insertByOrderPayInfo(orderPay);
-                if(orderPayInfo != 0){
-                    int updateByOrderStatePay = tOrderDao.updateByOrderStatePay(out_trade_no,getStringDate());
-                    if(updateByOrderStatePay != 0){
-                        return "订单数据存储成功";
-                    }else {
-                        return "订单状态更改失败";
-                    }
-                }else {
-                    return "订单信息有误！";
-                }
+            Integer insert = orderPayService.insert(out_trade_no, trade_no, total_amount);
+            if(insert != 0 && insert != null){
+                return "订单支付成功，订单号为：" + out_trade_no;
             }else {
-                return "订单编号不存在，请确认后再支付";
+                return "订单支付失败。";
             }
         }
 

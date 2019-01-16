@@ -86,7 +86,8 @@ public class TOrderController {
     @PostMapping("createByOrderInfo")
     @ApiOperation(value = "创建订单数据", httpMethod ="POST", response = String.class, notes ="创建订单数据")
     public String createByOrderInfo(TOrder tOrder){
-        return tOrderService.createByOrderInfo(tOrder);
+        String byOrderInfo = tOrderService.createByOrderInfo(tOrder);
+        return byOrderInfo;
     }
 
     /**

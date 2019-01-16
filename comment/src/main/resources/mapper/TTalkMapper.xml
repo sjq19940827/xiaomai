@@ -48,14 +48,14 @@
 t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,t_show.show_ipt_num,
 t_user.id,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
                 FROM t_talk INNER JOIN t_show ON t_talk.answer_id = t_show.show_id INNER JOIN t_user ON t_talk.user_id = t_user.id
-                       WHERE answer_id=#{answer_id}
+                       WHERE answer_id=#{answer_id} order by t_talk.createtime desc
     </select>
 
     <!--根据用户ID查询该用户的所有评论信息-->
     <select id="getTTalkInfoByUser"  resultMap="TTalkMap" resultType="com.comment.pojo.TTalk" parameterType="int">
         SELECT t_talk.answer_id, t_talk.talk_info,t_talk.state,t_talk.prase_count,t_talk.createtime,t_talk.talk_id, t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,t_show.show_ipt_num,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
               FROM t_talk INNER JOIN t_show ON t_talk.answer_id = t_show.show_id INNER JOIN t_user ON t_talk.user_id = t_user.id
-                      WHERE user_id=#{user_id}
+                      WHERE user_id=#{user_id} order by t_talk.createtime desc
     </select>
 
     <!--查询某用户参与评论次数-->
@@ -66,7 +66,7 @@ t_user.id,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
 
     <!--查询用户对某商品评论的点赞数-->
     <select id="selDzByUserAndShow" resultType="int">
-        SELECT COUNT(t_talk.prase_count) FROM t_talk WHERE user_id=#{user_id} AND answer_id=#{answer_id}
+        SELECT COUNT(t_talk.prase_count) FROM t_talk WHERE  answer_id=#{answer_id}
     </select>
 
 
@@ -95,13 +95,13 @@ t_user.id,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
 
     <!--查询点赞-->
     <select id="selNum" resultType="int" parameterType="int">
-      select prase_count from t_talk where user_id=#{user_id} and talk_id =#{talk_id}
+      select prase_count from t_talk where  talk_id =#{talk_id}
     </select>
     <update id="upNum1" parameterType="int" >
-        update t_talk set prase_count =0 where user_id=#{user_id} and talk_id =#{talk_id}
+        update t_talk set prase_count =0 where  talk_id =#{talk_id}
    </update>
     <update id="upNum2" parameterType="int" >
-        update t_talk set prase_count =1 where user_id=#{user_id} and talk_id =#{talk_id}
+        update t_talk set prase_count =1 where  talk_id =#{talk_id}
     </update>
 
     <!--查询某商品是否有评论信息-->

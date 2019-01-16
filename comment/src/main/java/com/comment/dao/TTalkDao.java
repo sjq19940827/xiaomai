@@ -37,11 +37,11 @@ public interface TTalkDao {
     int updTalkInfo(TTalk tTalk);
 
     //根据用户ID与评论表ID查询点赞数是否存在 1标识存在
-    int selNum(@Param("user_id") Integer user_id, @Param("talk_id") Integer talk_id);
+    int selNum( @Param("talk_id") Integer talk_id);
     //点赞数存在则1改为0,表示已经点赞过,取消点赞
-    int upNum1(@Param("user_id") Integer user_id, @Param("talk_id") Integer talk_id);
+    int upNum1( @Param("talk_id") Integer talk_id);
     //点赞数存在则0改为1,表示点赞成功
-    int upNum2(@Param("user_id") Integer user_id, @Param("talk_id") Integer talk_id);
+    int upNum2(@Param("talk_id") Integer talk_id);
 
     /**
      * 查询某用户的评论次数
@@ -56,7 +56,7 @@ public interface TTalkDao {
      * @param answer_id
      * @return
      */
-    int selDzByUserAndShow(@Param("user_id") Integer user_id, @Param("answer_id") Integer answer_id);
+    int selDzByUserAndShow( @Param("answer_id") Integer answer_id);
 
     int NumByAnswer( @Param("answer_id") Integer answer_id);
 }

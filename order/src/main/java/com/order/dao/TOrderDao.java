@@ -128,5 +128,10 @@ public interface TOrderDao {
      */
     Integer selectByUserID(Integer userId);
 
-
+    /**
+     * 更改为已退款
+     * @param orderNumber
+     * @return
+     */
+    Integer updaterefund(String orderNumber);
 }

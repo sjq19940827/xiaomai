@@ -51,8 +51,8 @@ public class TTalkController {
 
     @ApiOperation(value = "查询用户对评论的点赞数",httpMethod = "GET",response = String.class,notes = "查询用户对评论的点赞数")
     @GetMapping("/ByUserAndAnswer")
-    public int  dz( @ApiParam(name = "user_id",value = "用户ID")Integer user_id, @ApiParam(name = "answer_id",value = "商品ID")Integer answer_id){
-        int i = tTalkService.selDzByUserAndShow(user_id, answer_id);
+    public int  dz(  @ApiParam(name = "answer_id",value = "商品ID")Integer answer_id){
+        int i = tTalkService.selDzByUserAndShow(answer_id);
         return i;
     }
 
@@ -76,15 +76,15 @@ public class TTalkController {
 
     @ApiOperation(value = "查询点赞状态",httpMethod = "GET",response = String.class,notes = "通过用户ID与评论表ID查询点赞状态")
     @GetMapping("/selNumByUaT")
-    public int dz(int user_id,int talk_id){
-        return tTalkService.selNum(user_id, talk_id);
+    public int dz(int talk_id){
+        return tTalkService.selNum(talk_id);
     }
 
 
     @ApiOperation(value = "点赞",httpMethod = "POST",response = String.class,notes = "通过用户ID与评论表ID进行点赞")
     @RequestMapping("/like")
-    @ApiImplicitParams({@ApiImplicitParam(name = "user_id",value = "用户ID"),@ApiImplicitParam(name = "talk_id",value = "评论信息ID")})
-    public String dzf(int user_id, int talk_id){ return tTalkService.qdz(user_id, talk_id);
+    @ApiImplicitParams({@ApiImplicitParam(name = "talk_id",value = "评论信息ID")})
+    public String dzf( int talk_id){ return tTalkService.qdz(talk_id);
     }
 
 }

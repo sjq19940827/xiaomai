@@ -97,7 +97,7 @@
         select * from t_categorie
     </select>
 
-    <!--根据商品分类展示商品信息-->
+    <!--根据商品分类和商品名字展示商品信息-->
     <select id="getInfoByType" resultType="com.goods.pojo.TShow">
        select * from t_show where categorie_id=#{categorieId}  and show_name LIKE "%"#{show_name}"%"
 
@@ -109,7 +109,7 @@ select * from t_show where areainfo_id=#{areainfoId}
 
     <!--根据城市名字模糊查询-->
     <select id="getTShowByCityName" resultType="com.goods.pojo.TShow" parameterType="String">
-        SELECT t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
+        SELECT t_show.show_id, t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,
 t_show.show_begin_time,t_show.show_end_time,t_show.show_max_price,city.city_name FROM t_show ,
 city  WHERE   city.city_name LIKE "%"#{city_name}"%" and show_place LIKE "%"#{show_place}"%" limit 0,16
     </select>
@@ -122,7 +122,8 @@ city  WHERE   city.city_name LIKE "%"#{city_name}"%" and show_place LIKE "%"#{sh
     <select id="getTShowByMarkID" resultType="com.goods.pojo.TShow" >
       SELECT *FROM t_show WHERE show_mark = #{show_mark} and show_name LIKE "%"#{show_name}"%"
     </select>
-    <select id="gettshowbyid" resultType="com.goods.pojo.TShow">
-        select * from t_show where show_id=#{goodsID}
+    <!--根据地区热度进行商品查询-->
+    <select id="getAreainfoID" resultType="com.goods.pojo.TShow" parameterType="int">
+        select * from t_show where areainfo_id=#{areainfo_id}
     </select>
 </mapper>

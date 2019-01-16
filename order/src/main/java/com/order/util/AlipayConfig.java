@@ -25,10 +25,11 @@ public class AlipayConfig {
     // 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1/aiDBx7Ni7uE+M6rIeKXzW9nX8OA61OowoSB+GQeIa0GpBfnUDY/zC+4JURuOxwrOBFe9c3cod6j/fk/V/e9efvTsGO2BGnjGk3OeLNYbppo6xZ518AL3f7C5Wsk3Pj/hgHmQucmZ5cjVGnIkU2X2yEERxtEHuDhLG6wAoUgHaqLqY47ExqLOfYK0oTWkWuVyB1cIsjsm//qxUwGVi06/bbSluc/GYs7LZYGxvET++Wy2F1DsjySmTwA1++ta4YrW96gryaQQvbypFhc9vuX+xzkWyRrIj47KCQcJ8Lwyz9h3r2t95PnzHn6vcyLn8IGnBD4U67yibbqSN89QX2UQIDAQAB";
     // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://localhost:8080/notify_url";
+    public static String notify_url = "http://mzy.itc.org.cn:8088/notify_url";
 
     // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String return_url = "http://localhost:8080/return_url";
+//    public static String return_url = "http://mzy.itc.org.cn:8088/return_url";
+    public static String return_url = "http://mzy.itc.org.cn:8088/return_url";
 //    public static String return_url = "https://www.baidu.com/";
     // 签名方式
     public static String sign_type = "RSA2";

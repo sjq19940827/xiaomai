@@ -54,7 +54,7 @@ t_user.id
 FROM
 t_replytalk
 INNER JOIN t_user ON t_replytalk.replyuser_id = t_user.id
-WHERE replyuser_id=#{replyuser_id}
+WHERE replyuser_id=#{replyuser_id} order by t_replytalk.createtime desc
 
     </select>
 </mapper>

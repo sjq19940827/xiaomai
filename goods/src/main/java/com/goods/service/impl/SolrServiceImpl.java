@@ -23,8 +23,8 @@ public class SolrServiceImpl implements SolrService {
     public String shopSearch(String words) {
         String str = null;
         Map<String, String> queryParamMap = new HashMap<String, String> ();
-        queryParamMap.put("q","show_name:*"+words+"*");
-        queryParamMap.put("q","show_place:*"+words+"*");
+        queryParamMap.put("q","show_name:"+"*"+words+"*");
+        queryParamMap.put("q","show_place:"+"*"+words+"*");
         MapSolrParams mapSolrParams = new MapSolrParams(queryParamMap);
         QueryResponse query = null;
         try {

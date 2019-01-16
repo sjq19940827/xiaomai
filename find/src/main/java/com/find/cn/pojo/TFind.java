@@ -5,11 +5,19 @@ public class TFind {
 
   private Integer find_id;
   private String information;
-
   private String releasetime;
-
+  private Integer show_id;
+  private Integer user_id;
   private TShow tShow;
   private TUser tUser;
+
+  public TUser gettUser() {
+    return tUser;
+  }
+
+  public void settUser(TUser tUser) {
+    this.tUser = tUser;
+  }
 
   public TShow gettShow() {
     return tShow;
@@ -19,12 +27,20 @@ public class TFind {
     this.tShow = tShow;
   }
 
-  public TUser gettUser() {
-    return tUser;
+  public Integer getShow_id() {
+    return show_id;
   }
 
-  public void settUser(TUser tUser) {
-    this.tUser = tUser;
+  public void setShow_id(Integer show_id) {
+    this.show_id = show_id;
+  }
+
+  public Integer getUser_id() {
+    return user_id;
+  }
+
+  public void setUser_id(Integer user_id) {
+    this.user_id = user_id;
   }
 
   public Integer getFind_id() {
