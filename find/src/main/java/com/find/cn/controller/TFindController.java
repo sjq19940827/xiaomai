@@ -14,12 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/find")
-@Api(value = "查询发现模块资讯信息")
 public class TFindController {
     @Autowired
     private TFindService tFindService;
-    @ApiOperation(value = "查询某商品下的咨询信息",httpMethod = "GET",response = String.class,notes = "查某商品下的评论信息")
-    @ApiImplicitParam(name = "user_id",value = "用户ID")
     @GetMapping("/selAll")
     public String ff(int user_id){
         return JSON.toJSONString(tFindService.getAllInfo(user_id));

@@ -64,4 +64,6 @@ public interface TTalkService {
     // 查看某商品是否有评论
     String  NumByAnswer(Integer answer_id);
 
+    List<TTalk> getTalkIsBanner(Integer show_mark,String show_place);
+
 }

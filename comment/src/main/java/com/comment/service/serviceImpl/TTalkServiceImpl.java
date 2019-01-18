@@ -65,7 +65,7 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public String addTalkByUser(TTalk tTalk) {
       String info = null;
-        Jedis jedis = new Jedis("148.70.68.230",6379);
+        Jedis jedis = new Jedis("47.94.12.237 ",6379);
         Integer userid = Integer.valueOf(jedis.get("userid"));
         tTalk.setUser_id(userid);
       if(tTalk.getAnswer_id()!= null && tTalk.getUser_id()!= null &&  tTalk.getTalk_info()!= null){
@@ -90,7 +90,7 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public String  updateTalkInfo(TTalk tTalk) {
        String info = null;
-        Jedis jedis = new Jedis("148.70.68.230",6379);
+        Jedis jedis = new Jedis("47.94.12.237 ",6379);
         Integer userid = Integer.valueOf(jedis.get("userid"));
         tTalk.setUser_id(userid);
 
@@ -143,6 +143,17 @@ public class TTalkServiceImpl implements TTalkService {
             info = "该商品无评论信息";
         }
         return info;
+    }
+
+    /**
+     * 商品页轮播评论
+     * @param show_mark
+     * @param show_place
+     * @return
+     */
+    @Override
+    public List<TTalk> getTalkIsBanner(Integer show_mark, String show_place) {
+        return tTalkDao.getTalkInfoIsBanner(show_mark, show_place);
     }
 
     /**

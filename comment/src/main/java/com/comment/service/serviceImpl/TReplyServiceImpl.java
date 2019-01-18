@@ -20,7 +20,7 @@ public class TReplyServiceImpl implements TReplytalkService {
      */
     public String addreply(TReplytalk tReplytalk) {
         String info = null;
-        Jedis jedis = new Jedis("148.70.68.230",6379);
+       Jedis jedis = new Jedis("47.94.12.237 ",6379);
         Integer userid = Integer.valueOf(jedis.get("userid"));
         tReplytalk.setReplyuser_id(userid);
         if(tReplytalk.getTalk_id() != null && tReplytalk.getReply_info() != null && tReplytalk.getReplyuser_id() != null){

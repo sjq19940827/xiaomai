@@ -15,6 +15,8 @@ public interface TTalkDao {
      */
     List<TTalk> getAllTalk(@Param("answer_id") Integer answer_id);
 
+    List<TTalk> getTalkInfoIsBanner(@Param("show_mark") Integer show_mark,@Param("show_place") String show_place);
+
     /**
      * 查询某用户的所有评论
      * @param user_id

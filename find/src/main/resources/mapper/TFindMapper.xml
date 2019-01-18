@@ -67,22 +67,23 @@ WHERE find_id =#{find_id}
 
 
     <select id="getAllInfo" resultMap="TFindMap">
-       SELECT
-t_find.find_id,
-t_find.information,
-t_find.show_id,
-t_find.user_id,
-t_find.releasetime,
-t_show.show_id,
-t_show.show_name,
-t_show.show_img,
-t_show.show_place,
-t_show.show_title
-FROM
-t_find
-INNER JOIN t_show ON t_find.show_id = t_show.show_id
-where user_id = #{user_id}
+        SELECT
+            t_find.find_id,
+            t_find.information,
+            t_find.show_id,
+            t_find.user_id,
+            t_find.releasetime,
+            t_show.show_id,
+            t_show.show_name,
+            t_show.show_img,
+            t_show.show_place,
+            t_show.show_title
+            FROM
+            t_find
+            INNER JOIN t_show ON t_find.show_id = t_show.show_id
+            where user_id = #{user_id}
     </select>
+
     <select id="getAllTalk" resultMap="TFtalkMap">
        SELECT
             t_ftalk.findid,

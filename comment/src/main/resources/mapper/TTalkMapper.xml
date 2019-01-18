@@ -44,11 +44,45 @@
 
 <!--根据商品ID查询该商品的所有评论信息-->
     <select id="getAllTalk" resultMap="TTalkMap" resultType="com.comment.pojo.TTalk" parameterType="int">
-       SELECT t_talk.talk_id, t_talk.talk_info,t_talk.state,t_talk.prase_count,t_talk.createtime,
-t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,t_show.show_ipt_num,
-t_user.id,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
-                FROM t_talk INNER JOIN t_show ON t_talk.answer_id = t_show.show_id INNER JOIN t_user ON t_talk.user_id = t_user.id
-                       WHERE answer_id=#{answer_id} order by t_talk.createtime desc
+      SELECT
+t_talk.talk_id,
+t_talk.answer_id,
+t_talk.user_id,
+t_talk.talk_info,
+t_talk.state,
+t_talk.prase_count,
+t_talk.createtime,
+t_user.userName,
+t_user.nickname,
+t_user.loginName,
+t_user.imageName,
+t_user.login_phone,
+t_show.show_id,
+t_show.show_name,
+t_show.show_img,
+t_show.show_min_price,
+t_show.show_place,
+t_show.show_begin_time
+FROM
+t_talk
+INNER JOIN t_user ON t_talk.user_id = t_user.id
+INNER JOIN t_show ON t_talk.answer_id = t_show.show_id
+  WHERE answer_id=#{answer_id} order by t_talk.createtime desc
+    </select>
+
+    <select id="getTalkInfoIsBanner" resultMap="TTalkMap">
+        SELECT
+t_talk.talk_info,
+t_user.userName,
+t_user.nickname,
+t_show.show_img,
+t_show.show_name
+FROM
+t_talk
+INNER JOIN t_user ON t_talk.user_id = t_user.id
+INNER JOIN t_show ON t_talk.answer_id = t_show.show_id
+WHERE show_mark=#{show_mark} and show_place LIKE "%" #{show_place}"%"
+
     </select>
 
     <!--根据用户ID查询该用户的所有评论信息-->
