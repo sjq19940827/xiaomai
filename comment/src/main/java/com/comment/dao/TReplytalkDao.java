@@ -30,4 +30,11 @@ public interface TReplytalkDao {
      */
     List<TReplytalk> allInfo(@Param("replyuser_id") Integer replyuser_id);
 
+    /**
+     * 评论下的回复
+     * @param talk_id
+     * @return
+     */
+    List<TReplytalk> allReplyInfoByTalkId( @Param("talk_id") Integer talk_id);
+
 }

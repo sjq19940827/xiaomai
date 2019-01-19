@@ -7,7 +7,16 @@ public class TTalk {
   private Integer answer_id;
   private Integer user_id;
   private String talk_info;
-  private Integer state;
+
+  public Double getGrade() {
+    return grade;
+  }
+
+  public void setGrade(Double grade) {
+    this.grade = grade;
+  }
+
+  private Double grade;
   private Integer prase_count;
   private TUser tUser;
   private TShow tShow;
@@ -68,13 +77,7 @@ public class TTalk {
     this.talk_info = talk_info;
   }
 
-  public Integer getState() {
-    return state;
-  }
 
-  public void setState(Integer state) {
-    this.state = state;
-  }
 
   public Integer getPrase_count() {
     return prase_count;

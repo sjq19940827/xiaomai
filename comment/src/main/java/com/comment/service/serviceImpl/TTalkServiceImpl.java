@@ -68,9 +68,10 @@ public class TTalkServiceImpl implements TTalkService {
         Jedis jedis = new Jedis("47.94.12.237 ",6379);
         Integer userid = Integer.valueOf(jedis.get("userid"));
         tTalk.setUser_id(userid);
-      if(tTalk.getAnswer_id()!= null && tTalk.getUser_id()!= null &&  tTalk.getTalk_info()!= null){
+
+        if(tTalk.getAnswer_id()!= null && tTalk.getUser_id()!= null &&  tTalk.getTalk_info()!= null ){
           tTalk.setCreatetime(Dates.dates());//获取当前时间
-          tTalk.setTalk_info(tTalk.getTalk_info());
+
           if(tTalkDao.addTalkByUser(tTalk) == 0){
               info ="评论发布失败";
           }else {
@@ -90,7 +91,7 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public String  updateTalkInfo(TTalk tTalk) {
        String info = null;
-        Jedis jedis = new Jedis("47.94.12.237 ",6379);
+         Jedis jedis = new Jedis("47.94.12.237 ",6379);
         Integer userid = Integer.valueOf(jedis.get("userid"));
         tTalk.setUser_id(userid);
 
@@ -154,6 +155,16 @@ public class TTalkServiceImpl implements TTalkService {
     @Override
     public List<TTalk> getTalkIsBanner(Integer show_mark, String show_place) {
         return tTalkDao.getTalkInfoIsBanner(show_mark, show_place);
+    }
+
+    /**
+     * 查询商品的平均分
+     * @param answer_id
+     * @return
+     */
+    @Override
+    public double resultByAnswer(Integer answer_id) {
+        return tTalkDao.resultByAnswer(answer_id);
     }
 
     /**

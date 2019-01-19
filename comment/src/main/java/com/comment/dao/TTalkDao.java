@@ -53,12 +53,17 @@ public interface TTalkDao {
     int selTalkNum(@Param("user_id") Integer user_id);
 
     /**
-     * 根据商品ID 用户ID 查点赞数
-     * @param user_id
+     * 根据商品ID  查点赞数
+     * @param
      * @param answer_id
      * @return
      */
     int selDzByUserAndShow( @Param("answer_id") Integer answer_id);
 
+    //查看是否有评论
     int NumByAnswer( @Param("answer_id") Integer answer_id);
+
+    //查商品平均分
+
+    double resultByAnswer( @Param("answer_id") Integer answer_id);
 }

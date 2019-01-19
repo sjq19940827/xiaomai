@@ -7,7 +7,7 @@
         <result property="answer_id" column="answer_id" />
         <result property="user_id" column="user_id" />
         <result property="talk_info" column="talk_info" />
-        <result property="state" column="state" />
+        <result property="grade" column="grade" />
         <result property="prase_count" column="prase_count" />
         <result property="createtime" column="createtime" />
 
@@ -49,7 +49,7 @@ t_talk.talk_id,
 t_talk.answer_id,
 t_talk.user_id,
 t_talk.talk_info,
-t_talk.state,
+t_talk.grade,
 t_talk.prase_count,
 t_talk.createtime,
 t_user.userName,
@@ -87,7 +87,7 @@ WHERE show_mark=#{show_mark} and show_place LIKE "%" #{show_place}"%"
 
     <!--根据用户ID查询该用户的所有评论信息-->
     <select id="getTTalkInfoByUser"  resultMap="TTalkMap" resultType="com.comment.pojo.TTalk" parameterType="int">
-        SELECT t_talk.answer_id, t_talk.talk_info,t_talk.state,t_talk.prase_count,t_talk.createtime,t_talk.talk_id, t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,t_show.show_ipt_num,t_user.userName,t_user.nickname,t_user.loginName,t_user.login_phone
+        SELECT t_talk.answer_id, t_talk.talk_info,t_talk.grade,t_talk.prase_count,t_talk.createtime,t_talk.talk_id, t_show.show_name,t_show.show_img,t_show.show_min_price,t_show.show_place,t_show.show_title,t_show.show_begin_time,t_show.show_ipt_num,t_user.userName,t_user.nickname,t_user.loginName,t_user.imageName,t_user.login_phone
               FROM t_talk INNER JOIN t_show ON t_talk.answer_id = t_show.show_id INNER JOIN t_user ON t_talk.user_id = t_user.id
                       WHERE user_id=#{user_id} order by t_talk.createtime desc
     </select>
@@ -106,9 +106,9 @@ WHERE show_mark=#{show_mark} and show_place LIKE "%" #{show_place}"%"
 
     <!--用户发表一条评论-->
     <insert id="addTalkByUser"  parameterType="com.comment.pojo.TTalk"  >
-       INSERT INTO t_talk (talk_id,answer_id,user_id,talk_info,state,prase_count,createtime)
+       INSERT INTO t_talk (talk_id,answer_id,user_id,talk_info,grade,prase_count,createtime)
 
-		VALUES (0,#{answer_id},#{user_id},#{talk_info},1,0,#{createtime})
+		VALUES (0,#{answer_id},#{user_id},#{talk_info},#{grade},0,#{createtime})
     </insert>
 
 
@@ -120,7 +120,7 @@ WHERE show_mark=#{show_mark} and show_place LIKE "%" #{show_place}"%"
             <if test="answer_id != null">answer_id = #{answer_id} ,</if>
             <if test="user_id != null">user_id = #{user_id} ,</if>
             <if test="talk_info !=null">talk_info=#{talk_info} ,</if>
-            <if test="state != null">state=#{state} ,</if>
+            <if test="grade != null">grade=#{grade} ,</if>
             <if test="prase_count != null">prase_count =#{prase_count}</if>
             <if test="createtime !=null">createtime #{createtime}</if>
         </trim>
@@ -143,6 +143,8 @@ WHERE show_mark=#{show_mark} and show_place LIKE "%" #{show_place}"%"
         SELECT COUNT(t_talk.talk_info) from t_talk WHERE t_talk.answer_id=#{answer_id}
     </select>
 
-
-
+    <!--查平均分-->
+    <select id="resultByAnswer" resultType="double">
+      SELECT ROUND(AVG(t_talk.grade)) from t_talk  where t_talk.answer_id=#{answer_id}
+    </select>
 </mapper>

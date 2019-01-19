@@ -14,9 +14,12 @@ public interface TReplytalkService {
     String addreply(TReplytalk tReplytalk);
 
     /**
-     *某商品下的评论/回复信息
+     *某商用户的评论/回复信息
      * @param replyuser_id
      * @return
      */
     List<TReplytalk> allInfo(Integer replyuser_id);
+
+    //某评论下的回复
+    List<TReplytalk> allReplyInfoByTalkId(Integer talk_id);
 }

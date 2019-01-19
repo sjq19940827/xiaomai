@@ -2,6 +2,8 @@ package com.comment.service;
 
 
 import com.comment.pojo.TTalk;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 public interface TTalkService {
 
@@ -64,6 +66,9 @@ public interface TTalkService {
     // 查看某商品是否有评论
     String  NumByAnswer(Integer answer_id);
 
+    //商品详情评论轮播信息
     List<TTalk> getTalkIsBanner(Integer show_mark,String show_place);
 
+    //查商品的综合平均分
+    double resultByAnswer(  Integer answer_id);
 }

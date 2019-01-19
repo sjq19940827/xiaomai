@@ -34,5 +34,8 @@ public class TReplyController {
   public String rtg(Integer replyuser_id){
     return JSON.toJSONString(tReplytalkService.allInfo(replyuser_id));
   }
-
+  @GetMapping("/selReply")
+  public String fsd(Integer talk_id){
+    return JSON.toJSONString(tReplytalkService.allReplyInfoByTalkId(talk_id));
+  }
 }

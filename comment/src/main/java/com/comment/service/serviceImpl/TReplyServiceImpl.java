@@ -37,12 +37,22 @@ public class TReplyServiceImpl implements TReplytalkService {
     }
 
     /**
-     * 查看回复信息
+     * 查看用户回复信息
      * @param replyuser_id
      * @return
      */
     public List<TReplytalk> allInfo(Integer replyuser_id) {
 
         return tReplytalkDao.allInfo(replyuser_id);
+    }
+
+    /**
+     * 查看评论下的回复
+     * @param talk_id
+     * @return
+     */
+    @Override
+    public List<TReplytalk> allReplyInfoByTalkId(Integer talk_id) {
+        return tReplytalkDao.allReplyInfoByTalkId(talk_id);
     }
 }
