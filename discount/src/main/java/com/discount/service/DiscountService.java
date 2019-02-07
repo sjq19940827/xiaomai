@@ -16,7 +16,7 @@ public interface DiscountService {
      * @param user_id
      * @return
      */
-    int insets(@Param("user_id") Integer user_id,Integer reduce_id);
+    int insets(@Param("user_id") Integer user_id);
 
     /**
      *查询用户优惠券

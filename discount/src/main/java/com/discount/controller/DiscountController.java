@@ -7,10 +7,10 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import redis.clients.jedis.Jedis;
 
-@RestController
+@Controller
 @RequestMapping("dis/")
 @Api(value = "dis",description = "优惠劵")
 public class DiscountController {
@@ -23,8 +23,8 @@ public class DiscountController {
         /*Jedis jedis = new Jedis("148.70.68.230",6379);
         Integer user_id = Integer.valueOf(jedis.get("userid"));
         System.out.println(jedis.get("userid"));
-        Integer reduce_id=1;*/
-        int insets = discountService.insets(user_id,reduce_id);
+        */
+        int insets = discountService.insets(user_id);
         if (insets > 0){
             TReduce select = discountService.select(reduce_id);
             if (select != null){

@@ -7,11 +7,10 @@ import com.discount.pojo.TReduce;
 import com.discount.service.DiscountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-import static com.discount.util.DateGenerate.getNowDate;
 import static com.discount.util.DateGenerate.getStringDate;
 
 @Service("DiscountService")
@@ -42,17 +41,20 @@ public int updateDiscount(Integer user_id, Integer reduce_id) {
      * @return
      */
     @Override
-    public int insets(Integer user_id,Integer reduce_id) {
+    public int insets(Integer user_id) {
         TDiscount tDiscount = new TDiscount();
-        SimpleDateFormat dateFm = new SimpleDateFormat("yyyy-MM-dd");
         tDiscount.setCreate(getStringDate());
-        tDiscount.setExitss(getStringDate() + 3);
-        int insetred = (int) discountDao.insetred(user_id,reduce_id,tDiscount.getCreate(),tDiscount.getExitss());
+        tDiscount.setExitss(getStringDate()+3);
+       /* Jedis jedis = new Jedis("148.70.68.230",6379);
+        user_id = Integer.valueOf(jedis.get("userid"));*/
+
+        int insetred = (int) discountDao.insetred(user_id,tDiscount.getCreate(),tDiscount.getExitss());
         if (insetred > 0){
             return insetred;
         }
         return -1;
     }
+
 
 
 
@@ -63,11 +65,11 @@ public int updateDiscount(Integer user_id, Integer reduce_id) {
      */
     @Override
     public String all(Integer user_id) {
-        /*Jedis jedis = new Jedis("148.70.68.230",6379);
-        user_id = Integer.valueOf(jedis.get("userid"));*/
+       /* Jedis jedis = new Jedis("148.70.68.230",6379);
+        user_id = Integer.valueOf(jedis.get("userid"));
+        System.out.println(user_id);*/
         if (user_id != null){
             List<TDiscount> all = discountDao.getAll(user_id);
-            System.out.println(JSON.toJSONString(all));
             if (all != null){
                 return JSON.toJSONString(all);
             }

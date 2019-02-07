@@ -11,7 +11,7 @@
 
 	<!--用户注册成功优惠券-->
 	<insert id="insetred" >
-        insert into t_discount values (0,#{reduce_id},#{user_id},1,#{create},#{exitss})
+        insert into t_discount values (0,3,#{user_id},1,#{create},#{exitss})
     </insert>
 
 	<!--根据用户id查询优惠券详细信息，多表联查-->
